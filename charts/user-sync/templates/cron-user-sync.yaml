@@ -10,7 +10,7 @@ spec:
         spec:
           containers:
             - name: "user-sync-job"
-              image: "docker.io/cengleby86/user-sync:latest"
+              image: "quay.io/na-east-launch/user-sync:latest"
               imagePullPolicy: IfNotPresent
               envFrom:
                 - secretRef:

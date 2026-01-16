@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: dynamic-dashboard
-        image: docker.io/cengleby86/dynamic-dashboard:latest
+        image: quay.io/na-east-launch/dynamic-dashboard:latest
         ports:
           - containerPort: 8080
         volumeMounts:
