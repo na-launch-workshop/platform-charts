@@ -336,7 +336,7 @@ github:
   enabled: false
 
 catalogs:
-  - https://github.com/poc-examples/software-templates/blob/main/catalogs/templates.yaml
-  - https://github.com/poc-examples/software-templates/blob/main/workshop/templates.yaml
+  - https://github.com/na-launch-workshop/platform-software-templates/blob/main/catalogs/templates.yaml
+  - https://github.com/na-launch-workshop/platform-software-templates/blob/main/workshop/templates.yaml
 
 clusters: []

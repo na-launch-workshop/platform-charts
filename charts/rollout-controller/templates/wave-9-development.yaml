@@ -25,7 +25,7 @@ spec:
             namespace: sonarqube
             chart: 
               name: "{{ $prefix }}sonarqube"
-              url: https://poc-examples.github.io/charts
+              url: https://na-launch-workshop.github.io/platform-charts
               version: "{{ .Values.sonarqube.chartVersion }}"
             values: |
               OpenShift:
@@ -43,7 +43,7 @@ spec:
             namespace: backstage
             chart: 
               name: {{ ternary "developer_hub_helm" "developerhub" .Values.devhub.helm.enabled }}
-              url: https://poc-examples.github.io/charts
+              url: https://na-launch-workshop.github.io/platform-charts
               version: {{ ternary .Values.devhub.helm.chartVersion .Values.devhub.chartVersion .Values.devhub.helm.enabled }}
             values: |
               redhat-developer-hub:
@@ -51,8 +51,8 @@ spec:
                   host: "backstage-developer-hub-backstage.{{ .Values.cluster.domain }}"
               host: "{{ .Values.cluster.domain }}"
               catalogs:
-                - https://github.com/poc-examples/software-templates/blob/main/catalogs/templates.yaml
-                - https://github.com/poc-examples/software-templates/blob/main/workshop/templates.yaml
+                - https://github.com/na-launch-workshop/platform-software-templates/blob/main/catalogs/templates.yaml
+                - https://github.com/na-launch-workshop/platform-software-templates/blob/main/workshop/templates.yaml
               gitlab:
                 enabled: {{ .Values.gitlab.enabled }}
               clusters:
@@ -63,7 +63,7 @@ spec:
             namespace: devspaces
             chart: 
               name: dev-spaces
-              url: https://poc-examples.github.io/charts
+              url: https://na-launch-workshop.github.io/platform-charts
               version: "{{ .Values.devspaces.chartVersion }}"
             values: |
               domain: "{{ .Values.cluster.domain }}"
@@ -77,7 +77,7 @@ spec:
             namespace: redhat-ods-operator
             chart: 
               name: rhoai
-              url: https://poc-examples.github.io/charts
+              url: https://na-launch-workshop.github.io/platform-charts
               version: "{{ .Values.rhoai.chartVersion }}"
         {{- end }}
   template:

@@ -26,7 +26,7 @@ spec:
             namespace: system-roles
             chart: 
               name: system_roles
-              url: https://poc-examples.github.io/charts
+              url: https://na-launch-workshop.github.io/platform-charts
               version: "{{ .Values.system_roles.chartVersion }}"
         {{- end }}
         {{- if .Values.gatekeeper.enabled }}
@@ -34,7 +34,7 @@ spec:
             namespace: gatekeeper
             chart: 
               name: gatekeeper
-              url: https://poc-examples.github.io/charts
+              url: https://na-launch-workshop.github.io/platform-charts
               version: "{{ .Values.gatekeeper.chartVersion }}"
         {{- end }}
         # Probably Should go on shared w/ another chart for bootstrapping workers
@@ -44,7 +44,7 @@ spec:
             namespace: rhacs-operator
             chart: 
               name: acs
-              url: https://poc-examples.github.io/charts
+              url: https://na-launch-workshop.github.io/platform-charts
               version: "{{ .Values.acs.chartVersion }}"
         {{- end }}
         {{- if .Values.authorino.enabled }}
@@ -52,7 +52,7 @@ spec:
             namespace: authorino
             chart: 
               name: authorino
-              url: https://poc-examples.github.io/charts
+              url: https://na-launch-workshop.github.io/platform-charts
               version: "{{ .Values.authorino.chartVersion }}"
         {{- end }}
         # Probably Should go on shared w/ another chart for bootstrapping workers
@@ -62,7 +62,7 @@ spec:
             namespace: rhtas
             chart: 
               name: rhtas
-              url: https://poc-examples.github.io/charts
+              url: https://na-launch-workshop.github.io/platform-charts
               version: "{{ .Values.rhtas.chartVersion }}"
             values: |
               domain: {{ .Values.cluster.domain }}
@@ -72,7 +72,7 @@ spec:
             namespace: keycloak
             chart: 
               name: keycloak
-              url: https://poc-examples.github.io/charts
+              url: https://na-launch-workshop.github.io/platform-charts
               version: "{{ .Values.keycloak.chartVersion }}"
             values: |
               domain: {{ .Values.cluster.domain }}

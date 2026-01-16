@@ -28,7 +28,7 @@ spec:
             wave: "-2"
             chart: 
               name: quay-bridge
-              url: https://poc-examples.github.io/charts
+              url: https://na-launch-workshop.github.io/platform-charts
               version: "{{ .Values.quay_bridge.chartVersion }}"
             values: |
               domain: "{{ .Values.cluster.domain }}"
@@ -40,7 +40,7 @@ spec:
             wave: "-2"
             chart: 
               name: gitlab-repo-credentials
-              url: https://poc-examples.github.io/supporting-charts
+              url: https://na-launch-workshop.github.io/platform-supporting-charts
               version: "0.0.1"
             values: |
               domain: "{{ .Values.shared.domain }}"
@@ -51,7 +51,7 @@ spec:
             wave: "-2"
             chart: 
               name: user-sync
-              url: https://poc-examples.github.io/charts
+              url: https://na-launch-workshop.github.io/platform-charts
               version: "0.1.5"
             values: |
               domain: "{{ .Values.cluster.domain }}"

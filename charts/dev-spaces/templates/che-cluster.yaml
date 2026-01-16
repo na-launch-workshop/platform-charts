@@ -40,7 +40,7 @@ spec:
   devEnvironments:
     {{- if .Values.capacity.enabled  }}
     nodeSelector:
-      platform.poc-examples.com/workload-role: "devspaces-capacity"
+      platform.na-launch-workshop.com/workload-role: "devspaces-capacity"
     {{- end }}
     defaultComponents:
       - name: dev-tools

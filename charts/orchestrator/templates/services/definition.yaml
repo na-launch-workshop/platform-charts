@@ -10,7 +10,7 @@ spec:
     server: 'https://kubernetes.default.svc'
   source:
     chart: rollout-controller
-    repoURL: https://poc-examples.github.io/charts
+    repoURL: https://na-launch-workshop.github.io/platform-charts
     targetRevision: "{{ .Values.controller.chartVersion }}"
     helm:
       valuesObject: {{ toJson .Values }}

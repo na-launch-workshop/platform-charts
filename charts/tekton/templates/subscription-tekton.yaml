@@ -5,7 +5,7 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "-2"
 spec:
-  channel: latest
+  channel: pipelines-1.20
   installPlanApproval: Automatic
   name: openshift-pipelines-operator-rh
   source: redhat-operators

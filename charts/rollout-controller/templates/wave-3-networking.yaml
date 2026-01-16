@@ -24,7 +24,7 @@ spec:
             namespace: openshift-serverless
             chart: 
               name: serverless
-              url: https://poc-examples.github.io/charts
+              url: https://na-launch-workshop.github.io/platform-charts
               version: "{{ .Values.serverless.chartVersion }}"
         {{- end }}
         {{- if .Values.servicemesh.enabled }}
@@ -32,7 +32,7 @@ spec:
             namespace: openshift-servicemesh
             chart: 
               name: servicemesh
-              url: https://poc-examples.github.io/charts
+              url: https://na-launch-workshop.github.io/platform-charts
               version: "{{ .Values.servicemesh.chartVersion }}"
         {{- end }}
         {{- if .Values.amq.enabled }}
@@ -40,7 +40,7 @@ spec:
             namespace: kafka-streams
             chart: 
               name: amq
-              url: https://poc-examples.github.io/charts
+              url: https://na-launch-workshop.github.io/platform-charts
               version: "{{ .Values.amq.chartVersion }}"
         {{- end }}
   template:

@@ -24,7 +24,7 @@ spec:
             namespace: opentelemetry
             chart: 
               name: opentelemetry
-              url: https://poc-examples.github.io/charts
+              url: https://na-launch-workshop.github.io/platform-charts
               version: "{{ .Values.opentelemetry.chartVersion }}"
             values: |
               domain: "{{ .Values.cluster.domain  }}"
@@ -34,7 +34,7 @@ spec:
             namespace: kiali-ossm
             chart: 
               name: kiali
-              url: https://poc-examples.github.io/charts
+              url: https://na-launch-workshop.github.io/platform-charts
               version: "{{ .Values.kiali.chartVersion }}"
         {{- end }}
         {{- if .Values.tracing.enabled }}
@@ -42,7 +42,7 @@ spec:
             namespace: openshift-distributed-tracing
             chart: 
               name: distributed-tracing
-              url: https://poc-examples.github.io/charts
+              url: https://na-launch-workshop.github.io/platform-charts
               version: "{{ .Values.tracing.chartVersion }}"
         {{- end }}
   template:
