@@ -1,0 +1,24 @@
+{{- if not .Values.shared.enabled }}
+apiVersion: keycloak.org/v1alpha1
+kind: Keycloak
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+    argocd.argoproj.io/sync-wave: "-1"
+  labels:
+    app: sso
+  name: keycloak
+spec:
+  external:
+    enabled: false
+  externalAccess:
+    enabled: true
+  keycloakDeploymentSpec:
+    experimental:
+      env:
+        - name: JAVA_OPTS
+          value: '-Dkeycloak.profile=preview -Dkeycloak.profile.feature.token_exchange=enabled'
+  profile: preview
+  instances: 1
+  DisableDefaultServiceMonitor: true
+{{- end }}

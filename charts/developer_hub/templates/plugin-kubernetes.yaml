@@ -1,0 +1,42 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: kubernetes-plugin
+data:
+  kubernetes-plugin.yaml: |
+    kubernetes:
+      clusterLocatorMethods:
+        - type: config
+          clusters:
+            {{- range .Values.clusters  }}
+            - authProvider: oidc
+              name: {{ .name }}
+              skipTLSVerify: true
+              oidcTokenProvider: oidc
+              url: https://api.{{ .domain }}:{{ .api_port }}
+            {{- end }}
+      customResources:
+        - apiVersion: v1
+          group: route.openshift.io
+          plural: routes
+      serviceLocatorMethod:
+        type: multiTenant
+
+    dynamicPlugins:
+      frontend:
+        backstage.plugin-kubernetes:
+          mountPoints:
+            - mountPoint: entity.page.kubernetes/cards
+              importName: EntityKubernetesContent
+              config:
+                layout:
+                  gridColumn: "1 / -1"
+                if:
+                  anyOf:
+                    - hasAnnotation: backstage.io/kubernetes-id
+                    - hasAnnotation: backstage.io/kubernetes-namespace
+        "slf-my-teams-dynamic":
+          dynamicRoutes:
+            - path: /my-teams
+              menuItem:
+                text: My Teams

@@ -1,0 +1,342 @@
+redhat-developer-hub:
+
+  global:
+    dynamic:
+      # -- Array of YAML files listing dynamic plugins to include with those listed in the `plugins` field.
+      # Relative paths are resolved from the working directory of the initContainer that will install the plugins (`/opt/app-root/src`).
+      includes:
+        # -- List of dynamic plugins included inside the `janus-idp/backstage-showcase` container image, some of which are disabled by default.
+        # This file ONLY works with the `janus-idp/backstage-showcase` container image.
+        - 'dynamic-plugins.default.yaml'
+      # -- List of dynamic plugins, possibly overriding the plugins listed in `includes` files.
+      # Every item defines the plugin `package` as a [NPM package spec](https://docs.npmjs.com/cli/v10/using-npm/package-spec),
+      # an optional `pluginConfig` with plugin-specific backstage configuration, and an optional `disabled` flag to disable/enable a plugin
+      # listed in `includes` files. It also includes an `integrity` field that is used to verify the plugin package [integrity](https://w3c.github.io/webappsec-subresource-integrity/#integrity-metadata-description).
+      plugins: []
+    # -- Shorthand for users who do not want to specify a custom HOSTNAME. Used ONLY with the DEFAULT upstream.backstage.appConfig value and with OCP Route enabled.
+    clusterRouterBase: "apps.example.com"
+    # -- Custom hostname shorthand, overrides `global.clusterRouterBase`, `upstream.ingress.host`, `route.host`, and url values in `upstream.backstage.appConfig`.
+    host: ""
+    # -- Enable service authentication within Backstage instance
+    auth:
+      # -- Backend service to service authentication
+      # <br /> Ref: https://backstage.io/docs/auth/service-to-service-auth/
+      backend:
+        # -- Enable backend service to service authentication, unless configured otherwise it generates a secret value
+        enabled: true
+        # -- Instead of generating a secret value, refer to existing secret
+        existingSecret: ""
+        # -- Instead of generating a secret value, use the following value
+        value: ""
+  # -- Upstream Backstage [chart configuration](https://github.com/backstage/charts/blob/main/charts/backstage/values.yaml)
+  # @default -- Use Openshift compatible settings
+
+  upstream:
+    # upstream.nameOverride affects the resources created by the upstream Backstage Chart,
+    # like the baseUrl fields set in the app-config ConfigMap created by that Chart.
+    nameOverride: developer-hub
+    backstage:
+      image:
+        registry: registry.redhat.io
+        repository: rhdh/rhdh-hub-rhel9@sha256
+        tag: 677c7bc9730cf58a93e19ea7ba70a12147ea50e503668ddc57d47d408d9dc68c
+      command: []
+      # FIXME (tumido): USE POSTGRES_PASSWORD and POSTGRES_USER instead of POSTGRES_ADMIN_PASSWORD
+      # This is a hack. In {fedora,rhel}/postgresql images, regular user is forbidden
+      # from creating DBs in runtime. A single DB can be created ahead of time via
+      # POSTGRESQL_DATABASE env variable (in this case via
+      # upstream.postgresql.primary.extraEnvVars value), but this doesn't allow us to
+      # create multiple DBs. Since Backstage requires by default 5 different DBs, we
+      # can't accommodate that properly.
+      appConfig: ""
+
+      containerSecurityContext:
+        readOnlyRootFilesystem: true
+        allowPrivilegeEscalation: false
+        capabilities:
+          drop: ["ALL"]
+        runAsNonRoot: true
+        seccompProfile:
+          type: "RuntimeDefault"
+
+      resources:
+        requests:
+          cpu: 250m
+          memory: 1Gi
+        limits:
+          cpu: 1000m
+          memory: 2.5Gi
+          ephemeral-storage: 5Gi
+
+      startupProbe:
+        httpGet:
+          path: /.backstage/health/v1/liveness
+          port: backend
+          scheme: HTTP
+        initialDelaySeconds: 30
+        timeoutSeconds: 4
+        periodSeconds: 20
+        successThreshold: 1
+        failureThreshold: 3
+
+      readinessProbe:
+        failureThreshold: 3
+        httpGet:
+          path: /.backstage/health/v1/readiness
+          port: backend
+          scheme: HTTP
+        periodSeconds: 10
+        successThreshold: 2
+        timeoutSeconds: 4
+
+      livenessProbe:
+        failureThreshold: 3
+        httpGet:
+          path: /.backstage/health/v1/liveness
+          port: backend
+          scheme: HTTP
+        periodSeconds: 10
+        successThreshold: 1
+        timeoutSeconds: 4
+
+      extraAppConfig:
+        - configMapRef: techdocs-plugin
+          filename: techdocs-plugin.yaml
+        - configMapRef: catalog-config
+          filename: catalog-config.yaml
+        - configMapRef: tech-radar-plugin
+          filename: tech-radar-plugin.yaml
+        - configMapRef: kubernetes-plugin
+          filename: kubernetes-plugin.yaml
+      # {{- if .Values.gitlab.enabled }}
+        - configMapRef: gitlab-plugin
+          filename: gitlab-plugin.yaml
+      # {{- end }}
+        - configMapRef: argocd-plugin
+          filename: argocd-plugin.yaml
+        # - configMapRef: dynamic-plugins
+        #   filename: dynamic-plugins.yaml
+        - configMapRef: backstage-app-config
+          filename: app-config.yaml
+
+      extraEnvVarsSecrets:
+        - postgres-credentials
+        - keycloak-client-secret-openshift
+        - credential-keycloak
+
+      extraEnvVars:
+        # SIMPLY FOR DEBUGGING
+        - name: NODE_TLS_REJECT_UNAUTHORIZED
+          value: '0'
+        - name: REGISTRY_AUTH_FILE
+          value: /app/.docker/.dockerconfigjson
+        - name: SKIP_INTEGRITY_CHECK
+          value: "true"
+        - name: LOG_LEVEL
+          value: info
+        #FOR USE WITH DYNAMIC PLUGINS
+        - name: GITLAB_TOKEN
+          valueFrom:
+            secretKeyRef:
+              key: GITLAB_TOKEN
+              name: gitlab-token
+        - name: DEVHUB_BACKEND_SECRET
+          valueFrom:
+            secretKeyRef:
+              key: DEVHUB_BACKEND_SECRET
+              name: backend-credentials
+        - name: ARGOCD_TOKEN
+          valueFrom:
+            secretKeyRef:
+              key: ARGOCD_TOKEN
+              name: argocd-token
+        - name: token
+          valueFrom:
+            secretKeyRef:
+              key: token
+              name: service-account-token
+
+      args:
+        # This additional `app-config`` file is generated by the initContainer below, and contains the merged configuration of installed dynamic plugins.
+        - '--config'
+        - dynamic-plugins-root/app-config.dynamic-plugins.yaml
+
+      extraVolumeMounts:
+        # The initContainer below will install dynamic plugins in this volume mount.
+        - name: dynamic-plugins-root
+          mountPath: /opt/app-root/src/dynamic-plugins-root
+        - name: registry-credentials
+          mountPath: /app/.docker
+        # Adding Permissions File
+        - name: rbac-policies
+          mountPath: /opt/app-root/src/rbac
+        # Adding Conditional RBAC Policies
+        - name: rbac-conditional-policies
+          mountPath: /opt/app-root/src/conditional-rbac
+        # Audit Log data will be stored in this volume mount.
+        - name: audit-log-data
+          mountPath: /var/log/audit
+        - name: temp
+          mountPath: /tmp
+
+      extraVolumes:
+        - name: dynamic-plugins-root
+          persistentVolumeClaim:
+            claimName: dynamic-plugins-root
+        - name: audit-log-data
+          persistentVolumeClaim:
+            claimName: audit-log
+        - name: dynamic-plugins
+          configMap:
+            defaultMode: 420
+            name: 'dynamic-plugins'
+            optional: true
+        - name: rbac-policies
+          configMap:
+            defaultMode: 420
+            name: 'rbac-policies'
+            optional: true
+        - name: rbac-conditional-policies
+          configMap:
+            defaultMode: 420
+            name: 'rbac-conditional-policies'
+            optional: true
+        - name: dynamic-plugins-npmrc
+          secret:
+            defaultMode: 420
+            optional: true
+            secretName: '{{ printf "%s-dynamic-plugins-npmrc" .Release.Name }}'
+        - name: registry-credentials
+          secret:
+            defaultMode: 420
+            secretName: 'package-credentials'
+        - name: dynamic-plugins-registry-auth
+          secret:
+            defaultMode: 416
+            optional: true
+            secretName: '{{ printf "%s-dynamic-plugins-registry-auth" .Release.Name }}'
+        - name: npmcacache
+          emptyDir: {}
+        - name: temp
+          emptyDir: {}
+
+      initContainers:
+        - name: install-dynamic-plugins
+          resources:
+            requests:
+              cpu: 250m
+              memory: 256Mi
+            limits:
+              cpu: 1000m
+              memory: 2.5Gi
+              ephemeral-storage: 5Gi
+          securityContext:
+            readOnlyRootFilesystem: true
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop: ["ALL"]
+            runAsNonRoot: true
+            seccompProfile:
+              type: "RuntimeDefault"
+          # -- Image used by the initContainer to install dynamic plugins into the `dynamic-plugins-root` volume mount.
+          # It could be replaced by a custom image based on this one.
+          # @default -- `quay.io/janus-idp/backstage-showcase:latest`
+          image: '{{ include "backstage.image" . }}'
+          command:
+            - ./install-dynamic-plugins.sh
+            - /dynamic-plugins-root
+          env:
+            - name: NPM_CONFIG_USERCONFIG
+              value: /opt/app-root/src/.npmrc.dynamic-plugins
+            - name: SKIP_INTEGRITY_CHECK
+              value: 'true'
+            - name: MAX_ENTRY_SIZE
+              value: "30000000"
+            - name: REGISTRY_AUTH_FILE
+              value: /app/.docker/.dockerconfigjson
+          imagePullPolicy: Always
+          volumeMounts:
+            - mountPath: /dynamic-plugins-root
+              name: dynamic-plugins-root
+            - mountPath: /opt/app-root/src/dynamic-plugins.yaml
+              name: dynamic-plugins
+              readOnly: true
+              subPath: dynamic-plugins.yaml
+            - mountPath: /opt/app-root/src/.npmrc.dynamic-plugins
+              name: dynamic-plugins-npmrc
+              readOnly: true
+              subPath: .npmrc
+            - name: registry-credentials
+              mountPath: /app/.docker
+              readOnly: true
+            - mountPath: /opt/app-root/src/.config/containers
+              name: dynamic-plugins-registry-auth
+              readOnly: true
+            - mountPath: /opt/app-root/src/.npm/_cacache
+              name: npmcacache
+            - name: temp
+              mountPath: /tmp
+          workingDir: /opt/app-root/src
+      installDir: /opt/app-root/src
+
+      podAnnotations:
+        checksum/dynamic-plugins: >-
+          {{- include "common.tplvalues.render" ( dict "value" .Values.global.dynamic "context" $) | sha256sum }}
+
+    # ingress:
+    #   host: "{{ .Values.global.host }}"
+
+    metrics:
+      serviceMonitor:
+        enabled: false
+        path: /metrics
+        port: http-metrics
+
+    postgresql:
+      enabled: false
+
+    service:
+      extraPorts:
+        - name: http-metrics
+          port: 9464
+          targetPort: 9464
+
+# Approved
+  route:
+    enabled: true
+    host: api.openshift.io
+    path: "/"
+    wildcardPolicy: None
+    tls:
+      enabled: true
+      termination: "edge"
+      insecureEdgeTerminationPolicy: "Redirect"
+
+  nameOverride: developer-hub
+
+
+
+# CUSTOM TO THE HELM CHART
+host: api.openshift.io
+
+backend:
+  postgres:
+    enabled: true
+  sqlite3:
+    enabled: false
+
+orchestrator:
+  postgres:
+    enabled: true
+
+gitlab:
+  enabled: false
+
+github:
+  enabled: false
+
+catalogs:
+  - https://github.com/poc-examples/software-templates/blob/main/catalogs/templates.yaml
+  - https://github.com/poc-examples/software-templates/blob/main/workshop/templates.yaml
+
+clusters: []

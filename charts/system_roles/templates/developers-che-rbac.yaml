@@ -1,0 +1,191 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/part-of: che.eclipse.org
+  name: developers
+rules:
+- apiGroups:
+  - ""
+  resources:
+  - serviceaccounts
+  - replicationcontrollers
+  - replicationcontrollers/scale
+  - replicationcontrollers/status
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+    - opentelemetry.io
+  resources:
+    - opentelemetrycollectors
+    - instrumentations
+  verbs:
+    - create
+    - get
+    - list
+    - update
+    - delete
+    - patch
+
+# Maybe need to be shifted over
+- apiGroups:
+    - image.openshift.io
+  resources:
+    - imagestreams
+    - imagestreamimports
+    - imagestreamimages
+    - imagestreamtags
+  verbs:
+    - create
+    - get
+    - list
+    - delete
+    - update
+- apiGroups:
+    - build.openshift.io
+  resources:
+    - buildconfigs
+    - builds
+    - buildconfigs/instantiatebinary
+    - builds/log
+  verbs:
+    - create
+    - get
+    - list
+    - delete
+    - update
+# Flag for changeover
+- apiGroups:
+    - apps
+  resources:
+    - deployments
+  verbs:
+    - create
+    - get
+    - list
+    - update
+    - delete
+# Flag for changeover
+- apiGroups:
+    - batch
+  resources:
+    - cronjobs
+    - jobs
+  verbs:
+    - create
+    - get
+    - list
+    - patch
+    - update
+    - delete
+- apiGroups:
+    - serving.knative.dev
+  verbs:
+    - create
+    - get
+    - list
+    - update
+    - delete
+    - patch
+  resources:
+    - services
+    - revisions
+    - routes
+- apiGroups:
+    - sources.knative.dev
+  verbs:
+    - create
+    - get
+    - list
+    - update
+    - delete
+    - patch
+  resources:
+    - apiserversources
+- apiGroups:
+    - eventing.knative.dev
+  verbs:
+    - create
+    - get
+    - list
+    - update
+    - delete
+    - patch
+  resources:
+    - brokers
+    - triggers
+- apiGroups:
+    - messaging.knative.dev
+  verbs:
+    - create
+    - get
+    - list
+    - update
+    - delete
+    - patch
+  resources:
+    - channels
+    - subscriptions
+- apiGroups:
+    - operators.coreos.com
+  verbs:
+    - get
+    - list
+  resources:
+    - clusterserviceversions
+- apiGroups:
+    - operator.knative.dev
+  verbs:
+    - create
+    - get
+    - list
+# SEE KEVIN
+    - update
+    - delete
+    - patch
+  resources:
+    - knativeservings
+    - knativeeventings
+- apiGroups:
+    - operator.serverless.openshift.io
+  verbs:
+    - create
+    - get
+    - list
+    - update
+    - delete
+    - patch
+  resources:
+    - knativekafkas
+- verbs:
+    - create
+    - get
+    - list
+    - update
+    - delete
+    - patch
+  apiGroups:
+    - kafka.strimzi.io
+  resources:
+    - kafkanodepools
+    - kafkaconnects
+    - kafkabridges
+    - kafkatopics
+    - kafkausers
+    - kafkaconnectors
+    - kafkamirrormaker2s
+    - kafkarebalances
+    - kafkas
+- apiGroups:
+    - monitoring.coreos.com
+  verbs:
+    - create
+    - get
+    - list
+    - update
+    - delete
+    - patch
+  resources:
+    - servicemonitors

@@ -1,0 +1,22 @@
+host: "api.openshift.io"
+
+backend:
+  postgres:
+    enabled: true
+  sqlite3:
+    enabled: false
+
+gitlab:
+  enabled: false
+
+github:
+  enabled: false
+
+postgres:
+  storageClassName: lvms-local
+
+catalogs:
+  - https://github.com/poc-examples/software-templates/blob/main/catalogs/templates.yaml
+  - https://github.com/poc-examples/software-templates/blob/main/workshop/templates.yaml
+
+clusters: []

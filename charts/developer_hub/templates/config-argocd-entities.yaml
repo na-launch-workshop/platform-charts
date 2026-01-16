@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: argocd-entities-config
+data:
+  argocd.yaml: |
+    ---
+    apiVersion: backstage.io/v1alpha1
+    kind: Resource
+    metadata:
+      name: argocd-instances
+      description: Collection of ArgoCD Instances used for app dev
+    spec:
+      type: configuration
+      lifecycle: production
+      owner: cluster-admins
+      services:
+        domain: "{{ .Values.host }}"
+      devspaces:
+  {{- range .Values.clusters }}
+    {{- if eq .stage "dev" }}
+        domain: "{{ .domain }}"
+    {{- end }}
+  {{- end }}
+      instances:
+  {{- range .Values.clusters }}
+        - name: {{ .stage }}
+          domain: {{ .domain }}
+          cluster: {{ .name }}
+          role: {{ .role }}
+          type: {{ .type }}
+  {{- end }}

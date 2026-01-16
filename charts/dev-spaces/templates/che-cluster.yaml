@@ -1,0 +1,62 @@
+# CheCluster is the primary resource for configuring Red Hat OpenShift Dev Spaces.
+# It defines settings for the workspace environments, including IDE options (VSCode, Theia), 
+# ingress/route exposure, persistent storage for user data, authentication (e.g., OpenShift OAuth),
+# resource limits for workspaces (CPU/memory), and monitoring. It ensures Dev Spaces are deployed,
+# managed, and accessed based on this configuration.
+#
+# Typically, a single cluster-wide CheCluster is sufficient for managing Dev Spaces across multiple 
+# namespaces, including RHOAI Data Science Projects, allowing for centralized configuration and shared 
+# resources while providing namespace isolation. Multiple CheClusters are only necessary if strict 
+# isolation or significantly different configurations are required for specific projects.
+
+# References:
+#   - https://docs.redhat.com/en/documentation/red_hat_openshift_dev_spaces/3.16/html/administration_guide/configuring-devspaces#checluster-custom-resource-fields-reference
+
+apiVersion: org.eclipse.che/v2
+kind: CheCluster
+metadata:
+  name: devspaces
+  namespace: openshift-operators
+  annotations:
+    argocd.argoproj.io/sync-wave: "-1"
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+spec:
+  components:
+    cheServer:
+      debug: true
+      logLevel: INFO
+      clusterRoles:
+        - "developers"
+    dashboard:
+      logLevel: ERROR
+    devWorkspace:
+      runningLimit: "1"
+    devfileRegistry: {}
+    metrics:
+      enable: true
+    pluginRegistry:
+      disableInternalRegistry: true
+      openVSXURL: https://open-vsx.org
+  devEnvironments:
+    {{- if .Values.capacity.enabled  }}
+    nodeSelector:
+      platform.poc-examples.com/workload-role: "devspaces-capacity"
+    {{- end }}
+    defaultComponents:
+      - name: dev-tools
+        container:
+          image: image-registry.openshift-image-registry.svc:5000/openshift/udi-rhel9:3.22
+          memoryLimit: 3Gi
+          cpuLimit: "2"
+          mountSources: true
+    user:
+      clusterRoles:
+        - "developers"
+    startTimeoutSeconds: 300
+    maxNumberOfRunningWorkspacesPerUser: 2
+    maxNumberOfWorkspacesPerUser: 5
+    secondsOfInactivityBeforeIdling: 1800
+    storage:
+      pvcStrategy: per-workspace
+  networking:
+    domain: "{{ .Values.domain }}"
