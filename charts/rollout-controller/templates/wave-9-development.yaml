@@ -1,0 +1,113 @@
+{{- if or .Values.sonarqube.enabled 
+          (and .Values.devhub.enabled (not .Values.shared.enabled))
+          .Values.devspaces.enabled 
+          .Values.rhoai.enabled 
+}}
+{{- $prefix := "" }}
+{{- if eq .Values.controller.name "workshop" }}
+  {{- $prefix = "workshop-" }}
+{{- end }}
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: "{{ $prefix }}developer-services"
+  annotations:
+    argocd.argoproj.io/sync-wave: "-1"
+spec:
+  goTemplate: true
+  goTemplateOptions:
+    - "missingkey=error"
+  generators:
+    - list:
+        elements:
+        {{- if .Values.sonarqube.enabled }}
+          - application: sonarqube-service
+            namespace: sonarqube
+            chart: 
+              name: "{{ $prefix }}sonarqube"
+              url: https://poc-examples.github.io/charts
+              version: "{{ .Values.sonarqube.chartVersion }}"
+            values: |
+              OpenShift:
+                enabled: "true"
+              serviceAccount:
+                create: "true"
+              postgresql:
+                serviceAccount:
+                  enabled: "true"
+              route:
+                enabled: "true"
+        {{- end }}
+        {{- if and .Values.devhub.enabled (not .Values.shared.enabled) }}
+          - application: developer-hub-service
+            namespace: backstage
+            chart: 
+              name: {{ ternary "developer_hub_helm" "developerhub" .Values.devhub.helm.enabled }}
+              url: https://poc-examples.github.io/charts
+              version: {{ ternary .Values.devhub.helm.chartVersion .Values.devhub.chartVersion .Values.devhub.helm.enabled }}
+            values: |
+              redhat-developer-hub:
+                route:
+                  host: "backstage-developer-hub-backstage.{{ .Values.cluster.domain }}"
+              host: "{{ .Values.cluster.domain }}"
+              catalogs:
+                - https://github.com/poc-examples/software-templates/blob/main/catalogs/templates.yaml
+                - https://github.com/poc-examples/software-templates/blob/main/workshop/templates.yaml
+              gitlab:
+                enabled: {{ .Values.gitlab.enabled }}
+              clusters:
+                {{- toYaml .Values.clusters | trim | nindent 16 }}
+        {{- end }}
+        {{- if .Values.devspaces.enabled }}
+          - application: "{{ $prefix }}devspaces-service"
+            namespace: devspaces
+            chart: 
+              name: dev-spaces
+              url: https://poc-examples.github.io/charts
+              version: "{{ .Values.devspaces.chartVersion }}"
+            values: |
+              domain: "{{ .Values.cluster.domain }}"
+              {{- if .Values.devspaces.enableCapacity }}
+              capacity:
+                enabled: true
+              {{- end }}
+        {{- end }}
+        {{- if .Values.rhoai.enabled }}
+          - application: "{{ $prefix }}rhoai-service"
+            namespace: redhat-ods-operator
+            chart: 
+              name: rhoai
+              url: https://poc-examples.github.io/charts
+              version: "{{ .Values.rhoai.chartVersion }}"
+        {{- end }}
+  template:
+    metadata:
+      name: "{{ `{{ .application }}` }}"
+    spec:
+      destination:
+        namespace: "{{ `{{ .namespace }}` }}"
+        server: "https://kubernetes.default.svc"
+      source:
+        chart: "{{ `{{ .chart.name }}` }}"
+        targetRevision: "{{ `{{ .chart.version }}` }}"
+        repoURL: "{{ `{{ .chart.url }}` }}"
+      project: system
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+        managedNamespaceMetadata:
+          labels:
+            argocd.argoproj.io/managed-by: "{{ .Values.gitops.namespace }}"
+        syncOptions:
+          - CreateNamespace=true
+          - Validate=false
+  templatePatch: |
+    spec:
+      source:
+        helm:
+        {{ `{{- if (index . "values") }}` }}
+          values: |
+            {{ `{{- .values | nindent 12 }}` }}
+        {{ `{{- end }}` }}
+{{- end }}

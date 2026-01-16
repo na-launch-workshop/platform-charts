@@ -1,0 +1,36 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: "minio-bucket-job"
+  annotations:
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+    argocd.argoproj.io/sync-wave: "-3"
+spec:
+  template:
+    spec:
+      containers:
+      - name: "bucket-creator"
+        image: "docker.io/cengleby86/minio-cli:latest"
+        command: ["/bin/sh", "-c"]
+        args:
+          - |
+            mc alias set default \
+                http://minio-api.minio-operator.svc.cluster.local:9000 \
+                ${access_key_id} \
+                ${access_key_secret};
+            if mc ls default/opentelemetry >/dev/null 2>&1; then
+                echo "Bucket 'opentelemetry' already exists."
+            else
+                echo "Bucket 'opentelemetry' does not exist. Creating it..."
+                mc mb default/opentelemetry
+            fi
+        envFrom:
+          - secretRef:
+              name: minio-credentials
+        volumeMounts:
+          - name: mc-config
+            mountPath: /.mc
+      restartPolicy: Never
+      volumes:
+        - name: mc-config
+          emptyDir: {}

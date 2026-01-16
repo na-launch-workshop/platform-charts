@@ -1,0 +1,29 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: tech-radar-plugin
+data:
+  tech-radar-plugin.yaml: |
+    ##################################################
+    ## Tech Radar Plugin Configuration
+    ## https://docs.redhat.com/en/documentation/red_hat_developer_hub/1.4/html/customizing/proc-customize-rhdh-tech-radar-page_configuring-techdocs
+    ##################################################
+    dynamicPlugins:
+      frontend:
+        backstage-community.plugin-tech-radar:
+          appIcons:
+            - name: techRadar
+              importName: TechRadarIcon
+          dynamicRoutes:
+            - path: /tech-radar
+              importName: TechRadarPage
+              menuItem:
+                icon: techRadar
+                text: Tech Radar
+              config:
+                props:
+                  pageTitle: "CSA-NA"
+                  subtitle: "TechRadar for RedHat ORG"
+                  title: "RedHat - TechRadar"
+                  width: 1500
+                  height: 800

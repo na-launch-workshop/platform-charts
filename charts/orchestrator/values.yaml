@@ -1,0 +1,104 @@
+domain: openshift.api
+
+## Current Default Rollout-Controller
+controller:
+  name: infrastructure
+  chartVersion: 0.6.117
+
+system_roles:
+  chartVersion: 0.0.4
+
+# GitOps
+gitops:
+  namespace: openshift-gitops
+  channel: gitops-1.14
+  enabled: false
+  updater:
+    chartVersion: 0.1.0
+    enabled: false
+
+# Secrets Management
+external_secrets:
+  enabled: false
+  chartVersion: 0.1.30
+  namespace: external-secrets
+  connectors:
+    chartVersion: 0.1.7
+  k8sConnector:
+    enabled: true
+
+vault:
+  chartVersion: 0.27.0
+  enabled: false
+  address: "http://vault-service.vault-server.svc.cluster.local:8200"
+
+# Identity Management
+keycloak:
+  chartVersion: 0.2.7
+  enabled: false
+
+# Artifacts
+quay:
+  chartVersion: 0.1.13
+  enabled: false
+
+npm:
+  enabled: true
+  chartVersion: 4.26.1
+
+minio:
+  enabled: false
+  chartVersion: 0.0.18
+
+opentelemetry:
+  chartVersion: 0.0.13
+  enabled: false
+
+gitlab:
+  namespace: gitlab-system
+  chartVersion: 0.2.48
+  enabled: true
+  runners: 
+    enabled: false
+
+# Message Brokers
+amq:
+  enabled: false
+  chartVersion: 0.0.2
+
+# AI Requirements
+authorino:
+  enabled: false
+  chartVersion: 0.1.0
+
+kiali:
+  enabled: false
+  chartVersion: 0.1.0
+
+tracing:
+  enabled: false
+  chartVersion: 0.1.0
+
+serverless:
+  enabled: false
+  chartVersion: 0.1.1
+
+servicemesh:
+  enabled: false
+  chartVersion: 0.1.1
+
+rhoai:
+  enabled: false
+  chartVersion: 0.1.8
+
+# Developer Experience
+devhub:
+  chartVersion: 0.4.93
+  enabled: false
+  helm:
+    enabled: false
+    chartVersion: 0.0.36
+
+devspaces:
+  chartVersion: 0.1.29
+  enabled: false

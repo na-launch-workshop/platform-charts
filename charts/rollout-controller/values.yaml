@@ -1,0 +1,151 @@
+domain: openshift.io
+
+clusters: []
+
+machinesets:
+  chartVersion: 0.1.28
+
+system_roles:
+  chartVersion: 0.0.13
+
+registry:
+  enabled: false
+
+npm:
+  enabled: true
+  chartVersion: 4.26.1
+
+acs:
+  chartVersion: 0.1.22
+  enabled: false
+  enableCapacity: true
+
+acm:
+  chartVersion: 0.1.26
+  enabled: false
+  enableCapacity: true
+
+keycloak:
+  chartVersion: 0.2.7
+  enabled: false
+
+gatekeeper:
+  chartVersion: 0.1.17
+  enabled: false
+
+gitops:
+  namespace: openshift-gitops
+  channel: gitops-1.11
+  enabled: false
+  updater:
+    chartVersion: 0.1.0
+    enabled: false
+
+tekton:
+  chartVersion: 0.1.73
+  enabled: false
+  enableCapacity: false
+
+chains:
+  enabled: false
+
+sonarqube:
+  chartVersion: ~8
+  enabled: false
+
+opentelemetry:
+  chartVersion: 0.0.13
+  enabled: false
+
+devhub:
+  chartVersion: 0.4.93
+  enabled: false
+  helm:
+    enabled: false
+    chartVersion: 0.0.70
+
+devspaces:
+  chartVersion: 0.1.34
+  enabled: false
+  enableCapacity: false
+  count: 1
+  sku: Standard_D8s_v3
+
+rhtas:
+  chartVersion: 0.1.34
+  namespace: rhtas
+  enabled: false
+
+gitlab:
+  namespace: gitlab-system
+  chartVersion: 0.2.48
+  enabled: false
+  runners: 
+    enabled: false
+
+external_secrets:
+  enabled: false
+  chartVersion: 0.1.31
+  namespace: external-secrets
+  connectors:
+    chartVersion: 0.1.7
+  k8sConnector:
+    enabled: false
+
+vault:
+  chartVersion: 0.27.0
+  enabled: false
+  address: "http://vault-service.vault-server.svc.cluster.local:8200"
+
+nfd:
+  enabled: false 
+  chartVersion: 0.1.3
+
+minio:
+  enabled: false
+  chartVersion: 0.0.18
+
+nvidiagpu:
+  enabled: false 
+  chartVersion: 0.1.1
+
+authorino:
+  enabled: false
+  chartVersion: 0.1.0
+
+kiali:
+  enabled: false
+  chartVersion: 0.1.0
+
+tracing:
+  enabled: false
+  chartVersion: 0.1.0
+
+serverless:
+  enabled: false
+  chartVersion: 0.1.1
+
+servicemesh:
+  enabled: false
+  chartVersion: 0.1.1
+
+quay:
+  enabled: false
+  chartVersion: 0.1.13
+  enableCapacity: true
+
+quay_bridge:
+  enabled: false
+  chartVersion: 0.1.6
+
+rhoai:
+  enabled: false
+  chartVersion: 0.1.8
+  enableCapacity: true
+
+amq:
+  enabled: false
+  chartVersion: 0.0.3
+  enableCapacity: false
+  count: 1
+  sku: Standard_D8s_v3
