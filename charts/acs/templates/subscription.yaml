@@ -8,7 +8,7 @@ metadata:
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
   name: rhacs-operator
 spec:
-  channel: stable
+  channel: rhacs-4.9
   installPlanApproval: Automatic
   name: rhacs-operator
   source: redhat-operators

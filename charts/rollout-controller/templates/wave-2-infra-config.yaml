@@ -28,7 +28,7 @@ spec:
           wave: "-2"
           chart: 
             name: nfd
-            url: https://poc-examples.github.io/charts
+            url: https://na-launch-workshop.github.io/platform-charts
             version: "{{ .Values.nfd.chartVersion }}"
         {{- end }}
         {{- if .Values.nvidiagpu.enabled }}
@@ -37,7 +37,7 @@ spec:
           wave: "-2"
           chart: 
             name: nvidia-gpu-operator
-            url: https://poc-examples.github.io/charts
+            url: https://na-launch-workshop.github.io/platform-charts
             version: "{{ .Values.nvidiagpu.chartVersion }}"
         {{- end }}
         {{- if (and .Values.gitlab.enabled (not .Values.shared.enabled)) }}
@@ -46,7 +46,7 @@ spec:
           wave: "-2"
           chart: 
             name: cert-manager
-            url: https://poc-examples.github.io/charts
+            url: https://na-launch-workshop.github.io/platform-charts
             version: "0.1.0"
         {{- end }}
         {{- if .Values.gitops.updater.enabled }}
@@ -55,7 +55,7 @@ spec:
           wave: "-2"
           chart: 
             name: image-updater
-            url: https://poc-examples.github.io/charts
+            url: https://na-launch-workshop.github.io/platform-charts
             version: "{{ .Values.gitops.updater.chartVersion }}"
         {{- end }}
         {{- if .Values.external_secrets.enabled }}
@@ -64,7 +64,7 @@ spec:
           wave: "-2"
           chart: 
             name: external-secrets-connectors
-            url: https://poc-examples.github.io/supporting-charts
+            url: https://na-launch-workshop.github.io/platform-supporting-charts
             version: "{{ .Values.external_secrets.connectors.chartVersion }}"
           values: |
             vault:
@@ -84,7 +84,7 @@ spec:
           wave: "-1"
           chart: 
             name: tekton
-            url: https://poc-examples.github.io/charts
+            url: https://na-launch-workshop.github.io/platform-charts
             version: "{{ .Values.tekton.chartVersion }}"
           values: |
             chains:

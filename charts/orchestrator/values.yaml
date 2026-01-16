@@ -3,10 +3,10 @@ domain: openshift.api
 ## Current Default Rollout-Controller
 controller:
   name: infrastructure
-  chartVersion: 0.6.117
+  chartVersion: 1.0.0
 
 system_roles:
-  chartVersion: 0.0.4
+  chartVersion: 1.0.0
 
 # GitOps
 gitops:
@@ -14,32 +14,32 @@ gitops:
   channel: gitops-1.14
   enabled: false
   updater:
-    chartVersion: 0.1.0
+    chartVersion: 1.0.0
     enabled: false
 
 # Secrets Management
 external_secrets:
   enabled: false
-  chartVersion: 0.1.30
+  chartVersion: 1.0.0
   namespace: external-secrets
   connectors:
-    chartVersion: 0.1.7
+    chartVersion: 1.0.0
   k8sConnector:
     enabled: true
 
 vault:
-  chartVersion: 0.27.0
+  chartVersion: 1.0.0
   enabled: false
   address: "http://vault-service.vault-server.svc.cluster.local:8200"
 
 # Identity Management
 keycloak:
-  chartVersion: 0.2.7
+  chartVersion: 1.0.0
   enabled: false
 
 # Artifacts
 quay:
-  chartVersion: 0.1.13
+  chartVersion: 1.0.0
   enabled: false
 
 npm:
@@ -48,15 +48,15 @@ npm:
 
 minio:
   enabled: false
-  chartVersion: 0.0.18
+  chartVersion: 1.0.0
 
 opentelemetry:
-  chartVersion: 0.0.13
+  chartVersion: 1.0.0
   enabled: false
 
 gitlab:
   namespace: gitlab-system
-  chartVersion: 0.2.48
+  chartVersion: 1.0.0
   enabled: true
   runners: 
     enabled: false
@@ -64,41 +64,41 @@ gitlab:
 # Message Brokers
 amq:
   enabled: false
-  chartVersion: 0.0.2
+  chartVersion: 1.0.0
 
 # AI Requirements
 authorino:
   enabled: false
-  chartVersion: 0.1.0
+  chartVersion: 1.0.0
 
 kiali:
   enabled: false
-  chartVersion: 0.1.0
+  chartVersion: 1.0.0
 
 tracing:
   enabled: false
-  chartVersion: 0.1.0
+  chartVersion: 1.0.0
 
 serverless:
   enabled: false
-  chartVersion: 0.1.1
+  chartVersion: 1.0.0
 
 servicemesh:
   enabled: false
-  chartVersion: 0.1.1
+  chartVersion: 1.0.0
 
 rhoai:
   enabled: false
-  chartVersion: 0.1.8
+  chartVersion: 1.0.0
 
 # Developer Experience
 devhub:
-  chartVersion: 0.4.93
+  chartVersion: 1.0.0
   enabled: false
   helm:
     enabled: false
-    chartVersion: 0.0.36
+    chartVersion: 1.0.0
 
 devspaces:
-  chartVersion: 0.1.29
+  chartVersion: 1.0.0
   enabled: false

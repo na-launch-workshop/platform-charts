@@ -18,7 +18,7 @@ spec:
             wave: "-1"
             chart: 
               name: ansible-runner
-              url: https://poc-examples.github.io/supporting-charts
+              url: https://na-launch-workshop.github.io/platform-supporting-charts
               version: "0.2.6"
             values: |
               scope: ClusterRole
@@ -39,7 +39,7 @@ spec:
               requirements:
                 collections:
                   - name: bootstrap.post_operator_configuration
-                    source: https://github.com/poc-examples/ansible-collections.git#/bootstrap/post_operator_configuration
+                    source: https://github.com/na-launch-workshop/platform-ansible-collections.git#/bootstrap/post_operator_configuration
                     type: git
                     version: main
                     roles:

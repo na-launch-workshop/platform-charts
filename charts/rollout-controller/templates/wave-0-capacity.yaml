@@ -29,7 +29,7 @@ spec:
             namespace: acs-capacity
             chart: 
               name: machinesets
-              url: https://poc-examples.github.io/charts
+              url: https://na-launch-workshop.github.io/platform-charts
               version: "{{ .Values.machinesets.chartVersion }}"
             syncPolicy:
               automated:
@@ -57,7 +57,7 @@ spec:
             namespace: devspaces-capacity
             chart: 
               name: machinesets
-              url: https://poc-examples.github.io/charts
+              url: https://na-launch-workshop.github.io/platform-charts
               version: "{{ .Values.machinesets.chartVersion }}"
             syncPolicy:
               automated:
@@ -80,7 +80,7 @@ spec:
             namespace: quay-capacity
             chart: 
               name: machinesets
-              url: https://poc-examples.github.io/charts
+              url: https://na-launch-workshop.github.io/platform-charts
               version: "{{ .Values.machinesets.chartVersion }}"
             syncPolicy:
               automated:
@@ -108,7 +108,7 @@ spec:
             namespace: rhoai-capacity
             chart: 
               name: machinesets
-              url: https://poc-examples.github.io/charts
+              url: https://na-launch-workshop.github.io/platform-charts
               version: "{{ .Values.machinesets.chartVersion }}"
             syncPolicy:
               automated:
@@ -136,7 +136,7 @@ spec:
             namespace: kakfa-capacity
             chart: 
               name: machinesets
-              url: https://poc-examples.github.io/charts
+              url: https://na-launch-workshop.github.io/platform-charts
               version: "{{ .Values.machinesets.chartVersion }}"
             syncPolicy:
               automated:

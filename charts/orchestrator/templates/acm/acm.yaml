@@ -13,7 +13,7 @@ spec:
     server: 'https://kubernetes.default.svc'
   source:
     chart: acm
-    repoURL: "https://poc-examples.github.io/charts"
+    repoURL: "https://na-launch-workshop.github.io/platform-charts"
     targetRevision: "{{ .Values.acm.chartVersion }}"
     helm:
       valuesObject: {{ toJson .Values }}

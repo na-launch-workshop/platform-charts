@@ -25,7 +25,7 @@ spec:
             wave: "-2"
             chart:
               name: minio
-              url: https://poc-examples.github.io/charts
+              url: https://na-launch-workshop.github.io/platform-charts
               version: "{{ .Values.minio.chartVersion }}"
         {{- end }}
         {{- if (and .Values.npm.enabled (ne .Values.controller.name "workshop")) }}
@@ -69,7 +69,7 @@ spec:
             wave: "-2"
             chart: 
               name: quay
-              url: https://poc-examples.github.io/charts
+              url: https://na-launch-workshop.github.io/platform-charts
               version: "{{ .Values.quay.chartVersion }}"
             values: |
               domain: "{{ .Values.cluster.domain }}"
@@ -85,7 +85,7 @@ spec:
             wave: "-2"
             chart: 
               name: gitlab
-              url: https://poc-examples.github.io/charts
+              url: https://na-launch-workshop.github.io/platform-charts
               version: "{{ .Values.gitlab.chartVersion }}"
             ignoreDifferences: |
               - group: apps.gitlab.com
@@ -106,7 +106,7 @@ spec:
                 requirements:
                   collections:
                     - name: bootstrap.workshop
-                      source: https://github.com/poc-examples/ansible-collections.git#/bootstrap/workshop
+                      source: https://github.com/na-launch-workshop/platform-ansible-collections.git#/bootstrap/workshop
                       type: git
                       version: main
                       roles:
@@ -140,7 +140,7 @@ spec:
             wave: "-1"
             chart: 
               name: ansible-runner
-              url: https://poc-examples.github.io/supporting-charts
+              url: https://na-launch-workshop.github.io/platform-supporting-charts
               version: "0.2.7"
             values: |
               runner:

@@ -8,9 +8,8 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "-1"
 spec:
-  channel: stable
+  channel: stable-v1
   installPlanApproval: Automatic
   name: cert-manager
   source: community-operators
   sourceNamespace: openshift-marketplace
-  startingCSV: cert-manager.v1.14.2
