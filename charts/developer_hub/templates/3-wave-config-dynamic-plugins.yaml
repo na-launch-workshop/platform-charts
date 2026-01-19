@@ -97,8 +97,6 @@ data:
       - disabled: false
         package: ./dynamic-plugins/dist/roadiehq-scaffolder-backend-argocd-dynamic
       - disabled: false
-        package: ./dynamic-plugins/dist/roadiehq-backstage-plugin-argo-cd
-      - disabled: false
         package: ./dynamic-plugins/dist/backstage-community-plugin-redhat-argocd
 
       ##################################
