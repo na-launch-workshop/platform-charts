@@ -93,7 +93,7 @@ external_secrets:
     enabled: false
 
 vault:
-  chartVersion: 1.0.0
+  chartVersion: 0.31.0
   enabled: false
   address: "http://vault-service.vault-server.svc.cluster.local:8200"
 

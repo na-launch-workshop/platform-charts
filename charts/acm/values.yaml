@@ -68,5 +68,5 @@ external_secrets:
   namespace: external-secrets
 
 vault:
-  chartVersion: 1.0.0
+  chartVersion: 0.31.0
   enabled: true
