@@ -83,7 +83,7 @@ gitlab:
   runners: 
     enabled: false
 
-cert-manager
+cert-manager:
   chartVersion: 1.0.0
   enabled: true
 
