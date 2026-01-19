@@ -85,7 +85,6 @@ gitlab:
 
 certmanager:
   chartVersion: 1.0.0
-  enabled: true
 
 external_secrets:
   enabled: false
@@ -153,3 +152,6 @@ amq:
   enableCapacity: false
   count: 1
   sku: Standard_D8s_v3
+
+ansiblerunner:
+  chartVersion: 1.0.0
