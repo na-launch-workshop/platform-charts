@@ -83,6 +83,10 @@ gitlab:
   runners: 
     enabled: false
 
+cert-manager
+  chartVersion: 1.0.0
+  enabled: true
+
 external_secrets:
   enabled: false
   chartVersion: 1.0.0

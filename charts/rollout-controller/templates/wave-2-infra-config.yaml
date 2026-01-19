@@ -47,7 +47,7 @@ spec:
           chart: 
             name: cert-manager
             url: https://na-launch-workshop.github.io/platform-charts
-            version: "0.1.0"
+            version: "{{ .Values.cert-manager.chartVersion }}"
         {{- end }}
         {{- if .Values.gitops.updater.enabled }}
         - application: image-updater-service
