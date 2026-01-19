@@ -41,7 +41,7 @@ spec:
             chart: 
               name: gitlab-repo-credentials
               url: https://na-launch-workshop.github.io/platform-supporting-charts
-              version: "0.0.1"
+              version: "{{ .Values.gitlab_repo_creds.chartVersion }}"
             values: |
               domain: "{{ .Values.shared.domain }}"
         {{- end }}
@@ -52,7 +52,7 @@ spec:
             chart: 
               name: user-sync
               url: https://na-launch-workshop.github.io/platform-charts
-              version: "0.1.5"
+              version: "{{ .Values.usersync.chartVersion }}"
             values: |
               domain: "{{ .Values.cluster.domain }}"
         {{- end }}
@@ -63,7 +63,7 @@ spec:
             chart: 
               name: gitlab-runner
               url: https://charts.gitlab.io
-              version: "0.73.1"
+              version: "{{ .Values.gitlab_runner.chartVersion }}"
             values: |
               gitlabUrl: "https://gitlab.{{ .Values.cluster.domain }}"
               serviceAccount:

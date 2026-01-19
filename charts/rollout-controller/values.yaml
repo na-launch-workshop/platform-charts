@@ -83,6 +83,12 @@ gitlab:
   runners: 
     enabled: false
 
+gitlab_repo_creds:
+  chartVersion: 1.0.0
+
+gitlab_runner:
+  chartVersion: 1.0.0
+
 certmanager:
   chartVersion: 1.0.0
 
@@ -154,4 +160,7 @@ amq:
   sku: Standard_D8s_v3
 
 ansiblerunner:
+  chartVersion: 1.0.0
+
+usersync:
   chartVersion: 1.0.0
