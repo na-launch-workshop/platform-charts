@@ -141,7 +141,7 @@ spec:
             chart: 
               name: ansible-runner
               url: https://na-launch-workshop.github.io/platform-supporting-charts
-              version: "0.2.7"
+              version: "{{ .Values.ansiblerunner.chartVersion }}"
             values: |
               runner:
                 name: gitlab-configure
