@@ -48,7 +48,7 @@ quay:
 
 npm:
   enabled: true
-  chartVersion: 4.26.1
+  chartVersion: 4.29.0
 
 minio:
   enabled: false

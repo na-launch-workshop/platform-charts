@@ -6,7 +6,7 @@ data:
   dynamic-homepage-plugin.yaml: |
     ##################################
     ## DYNAMIC HOME PAGE PLUGIN CONFIGURATION
-    ## https://docs.redhat.com/en/documentation/red_hat_developer_hub/1.6/html/customizing_red_hat_developer_hub/customizing-the-home-page
+    ## https://docs.redhat.com/en/documentation/red_hat_developer_hub/1.8/html/customizing_red_hat_developer_hub/customizing-the-home-page
     ##################################
     dynamicPlugins:
       frontend:

@@ -16,9 +16,9 @@ data:
       ####################################
       ## Test Something Crazy
       ####################################
-      - disabled: false
-        package: http://npm-registry-service-verdaccio.npm-registry.svc.cluster.local:4873/@cah/backstage-plugin-slf-my-teams-dynamic/-/backstage-plugin-slf-my-teams-dynamic-1.0.4.tgz
-        integrity: sha512-84FrbR2STQGs4qvtmDn66Obh0wKUVhidWz+eDv3ItxbX6HOIsalpMBNz1tXPc0Okie3rVtBh20SKcZK32gsNdA==
+      #- disabled: false
+      #  package: http://npm-registry-service-verdaccio.npm-registry.svc.cluster.local:4873/@cah/backstage-plugin-slf-my-teams-dynamic/-/backstage-plugin-slf-my-teams-dynamic-1.0.4.tgz
+      #  integrity: sha512-84FrbR2STQGs4qvtmDn66Obh0wKUVhidWz+eDv3ItxbX6HOIsalpMBNz1tXPc0Okie3rVtBh20SKcZK32gsNdA==
 
       ####################################
       ## RED HAT HTTP REQUESTS PLUGIN
@@ -28,7 +28,7 @@ data:
 
       ####################################
       ## RED HAT RBAC PLUGIN CONFIGURATION
-      ## https://docs.redhat.com/en/documentation/red_hat_developer_hub/1.6/html/authorization_in_red_hat_developer_hub/enabling-and-giving-access-to-rbac
+      ## https://docs.redhat.com/en/documentation/red_hat_developer_hub/1.8/html/authorization_in_red_hat_developer_hub/enabling-and-giving-access-to-rbac
       ####################################
       - disabled: false
         package: ./dynamic-plugins/dist/backstage-community-plugin-rbac
@@ -55,7 +55,7 @@ data:
 
       ##################################
       ## DYNAMIC HOME PAGE PLUGIN CONFIGURATION
-      ## https://docs.redhat.com/en/documentation/red_hat_developer_hub/1.6/html/customizing_red_hat_developer_hub/customizing-the-home-page
+      ## https://docs.redhat.com/en/documentation/red_hat_developer_hub/1.8/html/customizing_red_hat_developer_hub/customizing-the-home-page
       ##################################
       - disabled: false
         package: ./dynamic-plugins/dist/red-hat-developer-hub-backstage-plugin-dynamic-home-page
@@ -98,6 +98,8 @@ data:
         package: ./dynamic-plugins/dist/roadiehq-scaffolder-backend-argocd-dynamic
       - disabled: false
         package: ./dynamic-plugins/dist/roadiehq-backstage-plugin-argo-cd
+      - disabled: false
+        package: ./dynamic-plugins/dist/backstage-community-plugin-redhat-argocd
 
       ##################################
       ## KUBERNETES PLUGIN CONFIGURATION
