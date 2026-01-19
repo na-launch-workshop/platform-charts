@@ -19,7 +19,7 @@ spec:
             chart: 
               name: ansible-runner
               url: https://na-launch-workshop.github.io/platform-supporting-charts
-              version: "0.2.6"
+              version: "{{ .Values.ansiblerunner.chartVersion }}"
             values: |
               scope: ClusterRole
               runner:
