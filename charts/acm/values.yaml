@@ -34,7 +34,7 @@ gatekeeper:
 
 gitops:
   namespace: openshift-gitops
-  channel: gitops-1.18
+  channel: gitops-1.19
   updater:
     chartVersion: 1.0.0
     enabled: true
