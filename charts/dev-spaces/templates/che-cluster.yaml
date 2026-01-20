@@ -46,7 +46,7 @@ spec:
       - name: dev-tools
         container:
           image: image-registry.openshift-image-registry.svc:5000/openshift/udi-rhel9:latest
-          memoryLimit: 3Gi
+          memoryLimit: 4Gi
           cpuLimit: "2"
           mountSources: true
     defaultContainerResources:
