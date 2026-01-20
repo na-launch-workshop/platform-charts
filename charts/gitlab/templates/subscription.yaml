@@ -8,8 +8,8 @@ metadata:
     argocd.argoproj.io/sync-wave: "-1"
 spec:
   channel: stable
-  installPlanApproval: Manual
+  installPlanApproval: Automatic
   name: gitlab-operator-kubernetes
   source: community-operators
   sourceNamespace: openshift-marketplace
-  startingCSV: gitlab-operator-kubernetes.v2.8.0
+  startingCSV: gitlab-operator-kubernetes.v2.8.1
