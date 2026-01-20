@@ -45,10 +45,17 @@ spec:
     defaultComponents:
       - name: dev-tools
         container:
-          image: image-registry.openshift-image-registry.svc:5000/openshift/udi-rhel9:3.22
+          image: image-registry.openshift-image-registry.svc:5000/openshift/udi-rhel9:latest
           memoryLimit: 3Gi
           cpuLimit: "2"
           mountSources: true
+    defaultContainerResources:
+      limits:
+        cpu: 2
+        memory: 4Gi
+      requests:
+        cpu: 500m
+        memory: 2Gi
     user:
       clusterRoles:
         - "developers"

@@ -10,7 +10,7 @@
 #
 # This configuration pulls the RHDH operator from the `redhat-operators` index
 # (usually synced from registry.redhat.io) located in the `openshift-marketplace`.
-# The `channel` specifies which version stream to track — in this case, `fast-1.2`.
+# The `channel` specifies which version stream to track — in this case, `fast-1.8`.
 #
 # Setting `installPlanApproval: Automatic` means that version upgrades will
 # happen without manual approval.
