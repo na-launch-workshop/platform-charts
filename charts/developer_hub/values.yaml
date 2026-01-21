@@ -6,6 +6,9 @@ backend:
   sqlite3:
     enabled: false
 
+gitea:
+  enabled: false
+
 gitlab:
   enabled: false
 

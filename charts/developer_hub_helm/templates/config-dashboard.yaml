@@ -16,9 +16,16 @@ data:
         - iconUrl: /homepage/icons/argo-icon-color.svg
           label: ArgoCD
           url: https://openshift-gitops-server-openshift-gitops.{{ .Values.host }}/
+        {{- if .Values.gitea.enabled }}
+        - iconUrl: https://raw.githubusercontent.com/na-launch-workshop/platform-charts/main/charts/developer_hub/images/gitea.png
+          label: Gitea
+          url: https://gitea.{{ .Values.host }}/
+        {{- end }}
+        {{- if .Values.gitlab.enabled }}
         - iconUrl: https://raw.githubusercontent.com/na-launch-workshop/platform-charts/main/charts/developer_hub/images/gitlab.png
           label: GitLab
           url: https://gitlab.{{ .Values.host }}/
+        {{- end }}
         - iconUrl: https://raw.githubusercontent.com/na-launch-workshop/platform-charts/main/charts/developer_hub/images/jaeger.png
           label: Jaeger UI - Grafana Tempo
           url: https://tempo-sample-query-frontend-observability.{{ .Values.host }}/

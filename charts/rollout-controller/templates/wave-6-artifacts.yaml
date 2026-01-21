@@ -1,5 +1,6 @@
 {{- if or .Values.minio.enabled
           .Values.quay.enabled
+          (and .Values.gitea.enabled (not .Values.shared.enabled)) 
           (and .Values.gitlab.enabled (not .Values.shared.enabled)) 
 }}
 {{- $prefix := "" }}
@@ -78,6 +79,20 @@ spec:
               ## reduce reliance  on cloud
               ###########################################################
               # region: "{{ .Values.cloud.region }}"
+        {{- end }}
+        {{- if and .Values.gitlab.enabled (not .Values.shared.enabled) }}
+          - application: gitea-service
+            namespace: "{{ .Values.gitea.namespace }}"
+            wave: "-2"
+            chart: 
+              name: gitea
+              url: https://na-launch-workshop.github.io/platform-charts
+              version: "{{ .Values.gitea.chartVersion }}"
+            values: |
+              namespace: "{{ .Values.gitea.namespace }}"
+              domain: "{{ .Values.cluster.domain }}"
+              persistence:
+                size: 100Gi
         {{- end }}
         {{- if and .Values.gitlab.enabled (not .Values.shared.enabled) }}
           - application: gitlab-service
