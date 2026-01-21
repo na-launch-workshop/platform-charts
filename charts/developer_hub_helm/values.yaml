@@ -1,3 +1,8 @@
+# RHIDP-3115: nameOverride affects the resources created by the RHDH Chart,
+# like the Route host created on OCP.
+# It needs to match the value provided in 'upstream.nameOverride'
+# to have consistent behavior between the Route and the URLs
+# from the app-config ConfigMap managed by the Chart.
 redhat-developer-hub:
 
   global:
@@ -38,8 +43,8 @@ redhat-developer-hub:
     backstage:
       image:
         registry: registry.redhat.io
-        repository: rhdh/rhdh-hub-rhel9@sha256
-        tag: 677c7bc9730cf58a93e19ea7ba70a12147ea50e503668ddc57d47d408d9dc68c
+        repository: rhdh/rhdh-hub-rhel9
+        tag: 1.8
       command: []
       # FIXME (tumido): USE POSTGRES_PASSWORD and POSTGRES_USER instead of POSTGRES_ADMIN_PASSWORD
       # This is a hack. In {fedora,rhel}/postgresql images, regular user is forbidden
@@ -69,6 +74,8 @@ redhat-developer-hub:
           ephemeral-storage: 5Gi
 
       startupProbe:
+        # This gives enough time upon container startup before the liveness and readiness probes are triggered.
+        # Giving (120s = initialDelaySeconds + failureThreshold * periodSeconds) to account for the worst case scenario.
         httpGet:
           path: /.backstage/health/v1/liveness
           port: backend
@@ -78,23 +85,31 @@ redhat-developer-hub:
         periodSeconds: 20
         successThreshold: 1
         failureThreshold: 3
-
       readinessProbe:
         failureThreshold: 3
         httpGet:
           path: /.backstage/health/v1/readiness
           port: backend
           scheme: HTTP
+        # Both liveness and readiness probes won't be triggered until the startup probe is successful.
+        # The startup probe is already configured to give enough time for the application to be started.
+        # So removing the additional delay here allows the readiness probe to be checked right away after the startup probe,
+        # which helps make the application available faster to the end-user.
+        # initialDelaySeconds: 30
         periodSeconds: 10
         successThreshold: 2
         timeoutSeconds: 4
-
       livenessProbe:
         failureThreshold: 3
         httpGet:
           path: /.backstage/health/v1/liveness
           port: backend
           scheme: HTTP
+        # Both liveness and readiness probes won't be triggered until the startup probe is successful.
+        # The startup probe is already configured to give enough time for the application to be started.
+        # So removing the additional delay here allows the liveness probe to be checked right away after the startup probe,
+        # which helps make the application available faster to the end-user.
+        # initialDelaySeconds: 60
         periodSeconds: 10
         successThreshold: 1
         timeoutSeconds: 4
@@ -108,10 +123,14 @@ redhat-developer-hub:
           filename: tech-radar-plugin.yaml
         - configMapRef: kubernetes-plugin
           filename: kubernetes-plugin.yaml
-      # {{- if .Values.gitlab.enabled }}
+        {{- if .Values.gitea.enabled }}
+        - configMapRef: gitea-plugin
+          filename: gitea-plugin.yaml
+        {{- end }}
+        {{- if .Values.gitlab.enabled }}
         - configMapRef: gitlab-plugin
           filename: gitlab-plugin.yaml
-      # {{- end }}
+        {{- end }}
         - configMapRef: argocd-plugin
           filename: argocd-plugin.yaml
         # - configMapRef: dynamic-plugins
@@ -134,12 +153,21 @@ redhat-developer-hub:
           value: "true"
         - name: LOG_LEVEL
           value: info
-        #FOR USE WITH DYNAMIC PLUGINS
+        # FOR USE WITH DYNAMIC PLUGINS
+        {{- if .Values.gitea.enabled }}
+        - name: GITEA_TOKEN
+          valueFrom:
+            secretKeyRef:
+              key: GITEA_TOKEN
+              name: gitea-token
+        {{- end }}
+        {{- if .Values.gitlab.enabled }}
         - name: GITLAB_TOKEN
           valueFrom:
             secretKeyRef:
               key: GITLAB_TOKEN
               name: gitlab-token
+        {{- end }}
         - name: DEVHUB_BACKEND_SECRET
           valueFrom:
             secretKeyRef:
@@ -173,19 +201,23 @@ redhat-developer-hub:
         # Adding Conditional RBAC Policies
         - name: rbac-conditional-policies
           mountPath: /opt/app-root/src/conditional-rbac
-        # Audit Log data will be stored in this volume mount.
-        - name: audit-log-data
-          mountPath: /var/log/audit
         - name: temp
           mountPath: /tmp
 
       extraVolumes:
+        # -- Ephemeral volume that will contain the dynamic plugins installed by the initContainer below at start.
         - name: dynamic-plugins-root
-          persistentVolumeClaim:
-            claimName: dynamic-plugins-root
-        - name: audit-log-data
-          persistentVolumeClaim:
-            claimName: audit-log
+          ephemeral:
+            volumeClaimTemplate:
+              spec:
+                accessModes:
+                  - ReadWriteOnce
+                resources:
+                  requests:
+                    # -- Size of the volume that will contain the dynamic plugins. It should be large enough to contain all the plugins.
+                    storage: 5Gi
+        # Volume that will expose the `dynamic-plugins.yaml` file from the `dynamic-plugins` config map.
+        # The `dynamic-plugins` config map is created by the helm chart from the content of the `global.dynamic` field.
         - name: dynamic-plugins
           configMap:
             defaultMode: 420
@@ -201,6 +233,8 @@ redhat-developer-hub:
             defaultMode: 420
             name: 'rbac-conditional-policies'
             optional: true
+        # Optional volume that allows exposing the `.npmrc` file (through a `dynamic-plugins-npmrc` secret)
+        # to be used when running `npm pack` during the dynamic plugins installation by the initContainer.
         - name: dynamic-plugins-npmrc
           secret:
             defaultMode: 420
@@ -210,6 +244,8 @@ redhat-developer-hub:
           secret:
             defaultMode: 420
             secretName: 'package-credentials'
+        # Optional volume that allows adding a container registry `auth.json` file (through a `dynamic-plugins-registry-auth` secret)
+        # to be used when installing plugins from secure container registries during the dynamic plugins installation by the initContainer.
         - name: dynamic-plugins-registry-auth
           secret:
             defaultMode: 416
@@ -278,7 +314,6 @@ redhat-developer-hub:
               mountPath: /tmp
           workingDir: /opt/app-root/src
       installDir: /opt/app-root/src
-
       podAnnotations:
         checksum/dynamic-plugins: >-
           {{- include "common.tplvalues.render" ( dict "value" .Values.global.dynamic "context" $) | sha256sum }}
@@ -315,7 +350,6 @@ redhat-developer-hub:
   nameOverride: developer-hub
 
 
-
 # CUSTOM TO THE HELM CHART
 host: api.openshift.io
 
@@ -328,6 +362,9 @@ backend:
 orchestrator:
   postgres:
     enabled: true
+
+gitea:
+  enabled: false
 
 gitlab:
   enabled: false

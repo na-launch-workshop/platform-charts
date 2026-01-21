@@ -22,6 +22,9 @@ spec:
       configMaps:
         - name: backstage-app-config
         - name: argocd-plugin
+      {{- if .Values.gitea.enabled }}
+        - name: gitea-plugin
+      {{- end }}
       {{- if .Values.gitlab.enabled }}
         - name: gitlab-plugin
       {{- end }}
@@ -39,6 +42,10 @@ spec:
         - name: LOG_LEVEL
           value: info
       secrets:
+      {{- if .Values.gitea.enabled }}
+        - name: gitea-token
+          key: GITEA_TOKEN
+      {{- end }}
       {{- if .Values.gitlab.enabled }}
         - name: gitlab-token
           key: GITLAB_TOKEN

@@ -2,37 +2,30 @@ domain: openshift.io
 
 clusters: []
 
+# Platform
 machinesets:
   chartVersion: 1.0.0
 
 system_roles:
   chartVersion: 1.0.0
 
-registry:
-  enabled: false
-
-npm:
-  enabled: true
-  chartVersion: 4.29.0
-
-acs:
-  chartVersion: 1.0.0
-  enabled: false
-  enableCapacity: true
-
 acm:
   chartVersion: 1.0.0
   enabled: false
   enableCapacity: true
 
-keycloak:
+ansiblerunner:
   chartVersion: 1.0.0
-  enabled: false
 
-gatekeeper:
+nfd:
+  enabled: false 
   chartVersion: 1.0.0
-  enabled: false
 
+nvidiagpu:
+  enabled: false 
+  chartVersion: 1.0.0
+
+# GitOps
 gitops:
   namespace: openshift-gitops
   channel: gitops-1.19
@@ -40,40 +33,46 @@ gitops:
     chartVersion: 1.0.0
     enabled: false
 
+chains:
+  enabled: false
+
 tekton:
   chartVersion: 1.0.0
   enabled: false
   enableCapacity: false
 
-chains:
-  enabled: false
-
-sonarqube:
-  chartVersion: ~8
-  enabled: false
-
-opentelemetry:
+# Secrets Management
+certmanager:
   chartVersion: 1.0.0
-  enabled: false
+  enabled: true
 
-devhub:
-  chartVersion: 1.0.0
+external_secrets:
   enabled: false
-  helm:
-    enabled: false
+  chartVersion: 1.0.0
+  namespace: external-secrets
+  connectors:
     chartVersion: 1.0.0
+  k8sConnector:
+    enabled: true
 
-devspaces:
+vault:
+  chartVersion: 0.31.0
+  enabled: false
+  address: "http://vault-service.vault-server.svc.cluster.local:8200"
+
+# Identity Management
+keycloak:
   chartVersion: 1.0.0
   enabled: false
-  enableCapacity: false
-  count: 1
-  sku: Standard_D8s_v3
 
-rhtas:
+usersync:
   chartVersion: 1.0.0
-  namespace: rhtas
-  enabled: false
+
+# Artifacts
+gitea:
+  namespace: gitea
+  chartVersion: 1.0.0
+  enabled: true
 
 gitlab:
   namespace: gitlab-system
@@ -88,54 +87,17 @@ gitlab_repo_creds:
 gitlab_runner:
   chartVersion: 1.0.0
 
-certmanager:
-  chartVersion: 1.0.0
-
-external_secrets:
-  enabled: false
-  chartVersion: 1.0.0
-  namespace: external-secrets
-  connectors:
-    chartVersion: 1.0.0
-  k8sConnector:
-    enabled: false
-
-vault:
-  chartVersion: 0.31.0
-  enabled: false
-  address: "http://vault-service.vault-server.svc.cluster.local:8200"
-
-nfd:
-  enabled: false 
-  chartVersion: 1.0.0
-
 minio:
   enabled: false
   chartVersion: 1.0.0
 
-nvidiagpu:
-  enabled: false 
-  chartVersion: 1.0.0
+npm:
+  enabled: true
+  chartVersion: 4.29.0
 
-authorino:
-  enabled: false
+opentelemetry:
   chartVersion: 1.0.0
-
-kiali:
   enabled: false
-  chartVersion: 1.0.0
-
-tracing:
-  enabled: false
-  chartVersion: 1.0.0
-
-serverless:
-  enabled: false
-  chartVersion: 1.0.0
-
-servicemesh:
-  enabled: false
-  chartVersion: 1.0.0
 
 quay:
   enabled: false
@@ -146,11 +108,10 @@ quay_bridge:
   enabled: false
   chartVersion: 1.0.0
 
-rhoai:
+registry:
   enabled: false
-  chartVersion: 1.0.0
-  enableCapacity: true
 
+# Message Brokers
 amq:
   enabled: false
   chartVersion: 1.0.0
@@ -158,8 +119,61 @@ amq:
   count: 1
   sku: Standard_D8s_v3
 
-ansiblerunner:
+# AI Requirements
+authorino:
+  enabled: false
   chartVersion: 1.0.0
 
-usersync:
+kiali:
+  enabled: false
   chartVersion: 1.0.0
+
+rhoai:
+  enabled: false
+  chartVersion: 1.0.0
+  enableCapacity: true
+
+serverless:
+  enabled: false
+  chartVersion: 1.0.0
+
+servicemesh:
+  enabled: false
+  chartVersion: 1.0.0
+
+tracing:
+  enabled: false
+  chartVersion: 1.0.0
+
+# Developer Experience
+acs:
+  chartVersion: 1.0.0
+  enabled: false
+  enableCapacity: true
+
+devhub:
+  chartVersion: 1.0.1
+  enabled: false
+  helm:
+    enabled: false
+    chartVersion: 1.0.0
+
+devspaces:
+  chartVersion: 1.0.0
+  enabled: false
+  enableCapacity: false
+  count: 1
+  sku: Standard_D8s_v3
+
+gatekeeper:
+  chartVersion: 1.0.0
+  enabled: false
+
+rhtas:
+  chartVersion: 1.0.0
+  namespace: rhtas
+  enabled: false
+
+sonarqube:
+  chartVersion: ~8
+  enabled: false

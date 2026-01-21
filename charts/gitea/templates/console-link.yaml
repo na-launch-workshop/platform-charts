@@ -1,0 +1,10 @@
+apiVersion: console.openshift.io/v1
+kind: ConsoleLink
+metadata:
+  name: gitea
+spec:
+  applicationMenu:
+    section: Gitea
+  href: "https://gitea.{{ .Values.domain }}"
+  location: ApplicationMenu
+  text: Gitea Dashboard

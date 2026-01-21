@@ -1,0 +1,5 @@
+namespace: gitea
+domain: apps.domain.com
+
+persistence:
+  size: 100Gi
