@@ -126,6 +126,10 @@ data:
   {{- end }}
 
     scaffolder:
+    {{- if .Values.gitea.enabled }}
+      gitea:
+        token: ${GITEA_TOKEN}
+    {{- end }}
     {{- if .Values.gitlab.enabled }}
       gitlab:
         token: ${GITLAB_TOKEN}

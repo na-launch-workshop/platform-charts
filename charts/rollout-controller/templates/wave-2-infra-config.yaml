@@ -1,5 +1,6 @@
 {{- if or .Values.nfd.enabled 
           .Values.nvidiagpu.enabled 
+          (and .Values.gitea.enabled (not .Values.shared.enabled))
           (and .Values.gitlab.enabled (not .Values.shared.enabled))
           .Values.gitops.updater.enabled 
           .Values.external_secrets.enabled 
@@ -40,7 +41,7 @@ spec:
             url: https://na-launch-workshop.github.io/platform-charts
             version: "{{ .Values.nvidiagpu.chartVersion }}"
         {{- end }}
-        {{- if (and .Values.gitlab.enabled (not .Values.shared.enabled)) }}
+        {{- if (and (or .Values.gitlab.enabled .Values.gitea.enabled) (not .Values.shared.enabled)) }}
         - application: cert-manager-service
           namespace: cert-manager
           wave: "-2"
