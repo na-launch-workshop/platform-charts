@@ -10,7 +10,7 @@ system_roles:
   chartVersion: 1.0.0
 
 acm:
-  chartVersion: 1.0.0
+  chartVersion: 1.0.1
   enabled: false
   enableCapacity: true
 
