@@ -10,9 +10,10 @@ spec:
     targetPort: http
   tls:
     insecureEdgeTerminationPolicy: Redirect
-    termination: passthrough
+    termination: edge
   to:
     kind: Service
     name: gitea-http
     weight: 100
   wildcardPolicy: None
+  
