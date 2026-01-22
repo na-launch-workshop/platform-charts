@@ -5,13 +5,12 @@ metadata:
     app: gitea
     app.kubernetes.io/instance: gitea
   name: gitea-http
-  namespace: "{{ .Values.namespace }}"
 spec:
   port:
     targetPort: http
   tls:
     insecureEdgeTerminationPolicy: Redirect
-    termination: edge
+    termination: passthrough
   to:
     kind: Service
     name: gitea-http
