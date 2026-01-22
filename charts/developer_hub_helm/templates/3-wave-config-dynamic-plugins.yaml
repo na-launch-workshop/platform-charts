@@ -22,6 +22,15 @@ data:
       - package: oci://docker.io/cengleby86/backstage-my-teams:v0.1.1!cah-backstage-plugin-slf-my-teams
         disabled: false
 
+    {{- if .Values.gitea.enabled }}
+      ##############################
+      ## GITEA PLUGIN CONFIGURATION
+      ##############################
+      # To get image digest, run 'skopeo inspect docker://quay.io/na-east-launch/scaffolder-backend-module-gitea:0.2.17'
+      - package: oci://quay.io/na-east-launch/scaffolder-backend-module-gitea@sha256:fc6faebce073c29410cc5f1f6c8595147fef5c1fac31170214bfd6dc0f36c0bf!backstage-plugin-scaffolder-backend-module-gitea
+        disabled: false
+    {{- end }}
+
     {{- if .Values.gitlab.enabled }}
       ##############################
       ## GITLAB PLUGIN CONFIGURATION
@@ -147,7 +156,7 @@ data:
       - disabled: false
         package: ./dynamic-plugins/dist/roadiehq-scaffolder-backend-argocd-dynamic
       - disabled: false
-        package: ./dynamic-plugins/dist/roadiehq-backstage-plugin-argo-cd
+        package: ./dynamic-plugins/dist/backstage-community-plugin-redhat-argocd
 
       ##################################
       ## KUBERNETES PLUGIN CONFIGURATION

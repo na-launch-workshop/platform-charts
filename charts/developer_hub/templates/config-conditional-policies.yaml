@@ -38,7 +38,7 @@ data:
     #           # - Location
     # ---
     # result: CONDITIONAL
-    # roleEntityRef: role:default/cluster-admins
+    # roleEntityRef: role:default/workshop-admins
     # pluginId: catalog
     # resourceType: catalog-entity
     # permissionMapping:
