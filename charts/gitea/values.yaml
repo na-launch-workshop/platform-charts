@@ -1,5 +1,41 @@
-namespace: gitea
 domain: apps.domain.com
 
-persistence:
-  size: 100Gi
+gitea:
+  containerSecurityContext:
+    runAsUser: 1000
+
+  persistence:
+    enabled: true
+    size: 100Gi
+
+  gitea:
+    config:
+      database:
+        DB_TYPE: postgres
+      session:
+        PROVIDER: db
+      cache:
+        ADAPTER: memory
+      queue:
+        TYPE: level
+      indexer:
+        ISSUE_INDEXER_TYPE: bleve
+        REPO_INDEXER_ENABLED: true
+
+  valkey-cluster:
+    enabled: false
+  valkey:
+    enabled: true
+    # Use legacy bitnami image until Gitea community finds better solution
+    # https://gitea.com/gitea/helm-gitea/issues/903
+    image:
+      repository: bitnamilegacy/valkey
+      tag: 8.1.3-debian-12-r3
+
+  postgresql-ha:
+    enabled: false
+  postgresql:
+    enabled: true
+    image:
+      repository: bitnamilegacy/postgresql
+      tag: 17.6.0-debian-12-r4
