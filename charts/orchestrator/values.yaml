@@ -3,7 +3,7 @@ domain: openshift.api
 ## Current Default Rollout-Controller
 controller:
   name: infrastructure
-  chartVersion: 1.0.1
+  chartVersion: 1.0.2
 
 system_roles:
   chartVersion: 1.0.0
@@ -22,8 +22,8 @@ certmanager:
   enabled: true
 
 external_secrets:
-  enabled: false
   chartVersion: 1.0.0
+  enabled: true
   namespace: external-secrets
   connectors:
     chartVersion: 1.0.0
@@ -32,7 +32,8 @@ external_secrets:
 
 vault:
   chartVersion: 0.31.0
-  enabled: false
+  appVersion: 1.21
+  enabled: true
   address: "http://vault-service.vault-server.svc.cluster.local:8200"
 
 # Identity Management
