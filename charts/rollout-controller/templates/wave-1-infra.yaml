@@ -31,6 +31,9 @@ spec:
                 enabled: false
               server:
                 enabled: true
+                image:
+                  repository: "registry.connect.redhat.com/hashicorp/vault"
+                  tag: "{{ .Values.vault.appVersion }}"
                 dev:
                   enabled: true
                   devRootToken: "{{ .Values.settings.vault.token }}"
