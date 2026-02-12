@@ -15,7 +15,7 @@ acm:
   enableCapacity: true
 
 ansiblerunner:
-  chartVersion: 1.0.0
+  chartVersion: 1.0.1
 
 nfd:
   enabled: false 
