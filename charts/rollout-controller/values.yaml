@@ -71,14 +71,14 @@ usersync:
 
 # Artifacts
 gitea:
-  namespace: gitea
   chartVersion: 1.0.0
   enabled: true
+  namespace: gitea
 
 gitlab:
-  namespace: gitlab-system
   chartVersion: 1.0.0
   enabled: false
+  namespace: gitlab-system
   runners: 
     enabled: false
 
