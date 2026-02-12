@@ -56,6 +56,11 @@ rhtas:
   namespace: rhtas
   enabled: false
 
+gitea:
+  chartVersion: 1.0.0
+  enabled: true
+  namespace: gitea
+
 gitlab:
   namespace: gitlab-system
   chartVersion: 1.0.0
