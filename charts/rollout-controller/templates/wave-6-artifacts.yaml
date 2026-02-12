@@ -111,8 +111,8 @@ spec:
               scope: ClusterRole
               additionalVars:
                 domain: "{{ .Values.cluster.domain }}"
-              #additionalPackages:
-              #  - python-gitea
+              additionalPackages:
+                - python-gitlab
               rules:
                 - apiGroups:
                     - "external-secrets.io"
