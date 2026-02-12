@@ -80,7 +80,7 @@ spec:
               ###########################################################
               # region: "{{ .Values.cloud.region }}"
         {{- end }}
-        {{- if and .Values.gitlab.enabled (not .Values.shared.enabled) }}
+        {{- if and .Values.gitea.enabled (not .Values.shared.enabled) }}
           - application: gitea-service
             namespace: "{{ .Values.gitea.namespace }}"
             wave: "-2"
@@ -93,6 +93,57 @@ spec:
               domain: "{{ .Values.cluster.domain }}"
               persistence:
                 size: 100Gi
+        {{- end }}
+        {{- if and .Values.gitea.enabled (not .Values.shared.enabled) }}
+          - application: gitea-config
+            namespace: "{{ .Values.gitea.namespace }}"
+            wave: "-1"
+            chart:
+              name: ansible-runner
+              url: https://na-launch-workshop.github.io/platform-supporting-charts
+              version: "{{ .Values.ansiblerunner.chartVersion }}"
+            values: |
+              runner:
+                name: gitea-configure
+                namespace: gitea
+                annotations:
+                  argocd.argoproj.io/sync-wave: "0"
+              scope: ClusterRole
+              additionalVars:
+                domain: "{{ .Values.cluster.domain }}"
+              #additionalPackages:
+              #  - python-gitea
+              rules:
+                - apiGroups:
+                    - "external-secrets.io"
+                  resources:
+                    - "pushsecrets"
+                  verbs:
+                    - "get"
+                    - "list"
+                    - "create"
+                    - "update"
+                    - "patch"
+                - apiGroups:
+                    - ""
+                  resources:
+                    - "secrets"
+                    - "configmaps"
+                  verbs:
+                    - "get"
+                    - "list"
+                    - "create"
+                    - "update"
+                    - "patch"
+                - apiGroups:
+                    - "apps"
+                  resources:
+                    - "deployments"
+                  verbs:
+                    - "get"
+                    - "list"
+                    - "create"
+                    - "update"
         {{- end }}
         {{- if and .Values.gitlab.enabled (not .Values.shared.enabled) }}
           - application: gitlab-service

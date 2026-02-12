@@ -46,13 +46,15 @@ gitea:
   chartVersion: 1.0.0
   enabled: true
   namespace: gitea
+  runners:
+    enabled: true
 
 gitlab:
   chartVersion: 1.0.0
-  enabled: false
+  enabled: true
   namespace: gitlab-system
   runners: 
-    enabled: false
+    enabled: true
 
 minio:
   enabled: false
