@@ -3,6 +3,16 @@ entries:
   acm:
   - apiVersion: v2
     appVersion: "2.10"
+    created: "2026-02-13T19:07:11.424798715Z"
+    description: A Helm chart for Kubernetes
+    digest: 581c03a2a6244a2c47a7c4e01b58782fdabd44907280df0c2b263bb4b7a43272
+    name: acm
+    type: application
+    urls:
+    - https://github.com/na-launch-workshop/platform-charts/releases/download/acm-1.0.1/acm-1.0.1.tgz
+    version: 1.0.1
+  - apiVersion: v2
+    appVersion: "2.10"
     created: "2026-01-19T18:51:59.756427096Z"
     description: A Helm chart for Kubernetes
     digest: feab84b31da54f7b8f62c9e694a498434e95f52de0e6ae5dbac2c14285fbbd95
@@ -68,6 +78,20 @@ entries:
     version: 1.0.0
   developer_hub_helm:
   - apiVersion: v2
+    appVersion: 1.8.2
+    created: "2026-02-13T19:07:11.609871762Z"
+    dependencies:
+    - name: redhat-developer-hub
+      repository: https://charts.openshift.io/
+      version: 1.8.2
+    description: A chart for deploying backstage
+    digest: db216803807677f9f4b05b8d86b2991440996d3ab558d0109602d489f0a2c384
+    name: developer_hub_helm
+    type: application
+    urls:
+    - https://github.com/na-launch-workshop/platform-charts/releases/download/developer_hub_helm-1.0.1/developer_hub_helm-1.0.1.tgz
+    version: 1.0.1
+  - apiVersion: v2
     appVersion: 1.6.3
     created: "2026-01-19T18:52:00.613472335Z"
     dependencies:
@@ -82,6 +106,16 @@ entries:
     - https://github.com/na-launch-workshop/platform-charts/releases/download/developer_hub_helm-1.0.0/developer_hub_helm-1.0.0.tgz
     version: 1.0.0
   developerhub:
+  - apiVersion: v2
+    appVersion: 1.8.2
+    created: "2026-02-13T19:07:11.774226569Z"
+    description: A chart for deploying Red Hat Developer Hub.
+    digest: 646203979507f132f7019ecf51338549dc430b55eb2ecd54ad3b3ff3755b2d01
+    name: developerhub
+    type: application
+    urls:
+    - https://github.com/na-launch-workshop/platform-charts/releases/download/developerhub-1.0.1/developerhub-1.0.1.tgz
+    version: 1.0.1
   - apiVersion: v2
     appVersion: 1.6.5
     created: "2026-01-19T18:52:00.765698022Z"
@@ -124,6 +158,21 @@ entries:
     type: application
     urls:
     - https://github.com/na-launch-workshop/platform-charts/releases/download/gatekeeper-1.0.0/gatekeeper-1.0.0.tgz
+    version: 1.0.0
+  gitea:
+  - apiVersion: v2
+    appVersion: 1.24.6
+    created: "2026-02-13T19:07:11.960094227Z"
+    dependencies:
+    - name: gitea
+      repository: https://dl.gitea.io/charts/
+      version: 12.4.0
+    description: A Helm chart for Kubernetes
+    digest: e4199d57abedfff34a28ba682bef679b94552856415ee5b5fbae9b3cf2a32180
+    name: gitea
+    type: application
+    urls:
+    - https://github.com/na-launch-workshop/platform-charts/releases/download/gitea-1.0.0/gitea-1.0.0.tgz
     version: 1.0.0
   gitlab:
   - apiVersion: v2
@@ -235,6 +284,16 @@ entries:
   orchestrator:
   - apiVersion: v2
     appVersion: 1.0.0
+    created: "2026-02-13T19:07:12.095017357Z"
+    description: A Helm chart for Kubernetes
+    digest: 74ba98054000d5aa8352908cb1d6f03b3ec898b009e2fa3995675c207470ed98
+    name: orchestrator
+    type: application
+    urls:
+    - https://github.com/na-launch-workshop/platform-charts/releases/download/orchestrator-1.0.3/orchestrator-1.0.3.tgz
+    version: 1.0.3
+  - apiVersion: v2
+    appVersion: 1.0.0
     created: "2026-02-06T17:38:21.733553199Z"
     description: A Helm chart for Kubernetes
     digest: 2c1f9d503b5ad5588d001094cea08452eca8107f150855680976273304b197c8
@@ -308,6 +367,16 @@ entries:
     - https://github.com/na-launch-workshop/platform-charts/releases/download/rhtas-1.0.0/rhtas-1.0.0.tgz
     version: 1.0.0
   rollout-controller:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2026-02-13T19:07:12.235514253Z"
+    description: A Helm chart for Kubernetes
+    digest: cd43749e04492d469f1cfd0a79d8508e8622d279662924427487250747178e27
+    name: rollout-controller
+    type: application
+    urls:
+    - https://github.com/na-launch-workshop/platform-charts/releases/download/rollout-controller-1.0.3/rollout-controller-1.0.3.tgz
+    version: 1.0.3
   - apiVersion: v2
     appVersion: 1.0.0
     created: "2026-02-06T17:38:21.896346799Z"
@@ -393,4 +462,4 @@ entries:
     urls:
     - https://github.com/na-launch-workshop/platform-charts/releases/download/user-sync-1.0.0/user-sync-1.0.0.tgz
     version: 1.0.0
-generated: "2026-02-13T16:38:51.627941007Z"
+generated: "2026-02-13T19:07:12.235561486Z"
