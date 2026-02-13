@@ -107,16 +107,6 @@ entries:
     version: 1.0.0
   developerhub:
   - apiVersion: v2
-    appVersion: 1.8.2
-    created: "2026-02-12T20:54:16.662674102Z"
-    description: A chart for deploying Red Hat Developer Hub.
-    digest: c694ff519144969bc9e209c4fd07fd9a9892bbe3fcdab2b7eea430b1c943631b
-    name: developerhub
-    type: application
-    urls:
-    - https://github.com/na-launch-workshop/platform-charts/releases/download/developerhub-1.0.1/developerhub-1.0.1.tgz
-    version: 1.0.1
-  - apiVersion: v2
     appVersion: 1.6.5
     created: "2026-01-19T18:52:00.765698022Z"
     description: A chart for deploying Red Hat Developer Hub.
@@ -284,16 +274,6 @@ entries:
   orchestrator:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2026-02-12T20:54:16.966046804Z"
-    description: A Helm chart for Kubernetes
-    digest: f6643ab7b9d43407dcf616106d6709db2b2cc435184c6aeabf17e49f6fbb112b
-    name: orchestrator
-    type: application
-    urls:
-    - https://github.com/na-launch-workshop/platform-charts/releases/download/orchestrator-1.0.3/orchestrator-1.0.3.tgz
-    version: 1.0.3
-  - apiVersion: v2
-    appVersion: 1.0.0
     created: "2026-02-06T17:38:21.733553199Z"
     description: A Helm chart for Kubernetes
     digest: 2c1f9d503b5ad5588d001094cea08452eca8107f150855680976273304b197c8
@@ -367,16 +347,6 @@ entries:
     - https://github.com/na-launch-workshop/platform-charts/releases/download/rhtas-1.0.0/rhtas-1.0.0.tgz
     version: 1.0.0
   rollout-controller:
-  - apiVersion: v2
-    appVersion: 1.0.0
-    created: "2026-02-12T20:54:17.114449928Z"
-    description: A Helm chart for Kubernetes
-    digest: 3c7305dc3c103302f7a1f99048b66518564c1e813f0b91385fdb7ae6ec685abc
-    name: rollout-controller
-    type: application
-    urls:
-    - https://github.com/na-launch-workshop/platform-charts/releases/download/rollout-controller-1.0.3/rollout-controller-1.0.3.tgz
-    version: 1.0.3
   - apiVersion: v2
     appVersion: 1.0.0
     created: "2026-02-06T17:38:21.896346799Z"
