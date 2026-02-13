@@ -188,6 +188,13 @@ data:
           changeOrigin: true
           secure: false
 
+      {{- if .Values.gitea.enabled }}
+        /gitea.com:
+          target: https://gitea.{{ .Values.host }}
+          changeOrigin: true
+          secure: false
+      {{- end }}
+
       {{- if .Values.gitlab.enabled }}
         /gitlab.com:
           target: https://gitlab.{{ .Values.host }}
