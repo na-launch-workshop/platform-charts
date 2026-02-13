@@ -62,9 +62,9 @@ gitea:
   namespace: gitea
 
 gitlab:
-  namespace: gitlab-system
   chartVersion: 1.0.0
   enabled: true
+  namespace: gitlab-system
 
 external_secrets:
   enabled: true
