@@ -125,7 +125,11 @@ data:
         connection: ':memory:'
   {{- end }}
 
+    # https://backstage.io/docs/features/software-templates/configuration/#publishing-defaults
     scaffolder:
+      defaultEnvironment:
+        parameters:
+          host: {{ .Values.host }}
     {{- if .Values.gitea.enabled }}
       gitea:
         token: ${GITEA_TOKEN}
