@@ -129,7 +129,7 @@ data:
     scaffolder:
       defaultEnvironment:
         parameters:
-          host: {{ .Values.host }}
+          giteaUrl: gitea.{{ .Values.host }}
     {{- if .Values.gitea.enabled }}
       gitea:
         token: ${GITEA_TOKEN}

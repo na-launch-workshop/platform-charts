@@ -16,8 +16,8 @@ data:
               importName: DynamicHomePage
               config:
                 props:
-                  title: RHDH demo instance
-                  subtitle: 'Welcome {{ `{{displayName}}` }}'
+                  title: Red Hat Launch Workshop
+                  subtitle: 'Welcome to Developer Hub {{ `{{displayName}}` }}!'
                   localClock:
                     format: full
           mountPoints:
