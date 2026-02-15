@@ -3,16 +3,6 @@ entries:
   acm:
   - apiVersion: v2
     appVersion: "2.10"
-    created: "2026-02-14T05:17:15.3558076Z"
-    description: A Helm chart for Kubernetes
-    digest: 1c98cb0a2eb3456bca56eeebf3b064e5033685996fdda58cbd3e681775eca7b1
-    name: acm
-    type: application
-    urls:
-    - https://github.com/na-launch-workshop/platform-charts/releases/download/acm-1.0.1/acm-1.0.1.tgz
-    version: 1.0.1
-  - apiVersion: v2
-    appVersion: "2.10"
     created: "2026-01-19T18:51:59.756427096Z"
     description: A Helm chart for Kubernetes
     digest: feab84b31da54f7b8f62c9e694a498434e95f52de0e6ae5dbac2c14285fbbd95
@@ -78,20 +68,6 @@ entries:
     version: 1.0.0
   developer_hub_helm:
   - apiVersion: v2
-    appVersion: 1.8.2
-    created: "2026-02-14T05:17:15.50205642Z"
-    dependencies:
-    - name: redhat-developer-hub
-      repository: https://charts.openshift.io/
-      version: 1.8.2
-    description: A chart for deploying backstage
-    digest: d6a3e47d087b3db92ff92a09cd7b77aade6f69382621d7e0abde9231f49ba346
-    name: developer_hub_helm
-    type: application
-    urls:
-    - https://github.com/na-launch-workshop/platform-charts/releases/download/developer_hub_helm-1.0.1/developer_hub_helm-1.0.1.tgz
-    version: 1.0.1
-  - apiVersion: v2
     appVersion: 1.6.3
     created: "2026-01-19T18:52:00.613472335Z"
     dependencies:
@@ -106,16 +82,6 @@ entries:
     - https://github.com/na-launch-workshop/platform-charts/releases/download/developer_hub_helm-1.0.0/developer_hub_helm-1.0.0.tgz
     version: 1.0.0
   developerhub:
-  - apiVersion: v2
-    appVersion: 1.8.2
-    created: "2026-02-14T05:17:15.637432016Z"
-    description: A chart for deploying Red Hat Developer Hub.
-    digest: 3411aa18180707f412f5d708c7d03fdee7588883c70f7c8bc77754d190d89e72
-    name: developerhub
-    type: application
-    urls:
-    - https://github.com/na-launch-workshop/platform-charts/releases/download/developerhub-1.0.1/developerhub-1.0.1.tgz
-    version: 1.0.1
   - apiVersion: v2
     appVersion: 1.6.5
     created: "2026-01-19T18:52:00.765698022Z"
@@ -158,21 +124,6 @@ entries:
     type: application
     urls:
     - https://github.com/na-launch-workshop/platform-charts/releases/download/gatekeeper-1.0.0/gatekeeper-1.0.0.tgz
-    version: 1.0.0
-  gitea:
-  - apiVersion: v2
-    appVersion: 1.24.6
-    created: "2026-02-14T05:17:15.822451254Z"
-    dependencies:
-    - name: gitea
-      repository: https://dl.gitea.io/charts/
-      version: 12.4.0
-    description: A Helm chart for Kubernetes
-    digest: 513c8c209cdaa27aa23726acf6f68145be2bb21d4a5c2813619ee2e8fa6da2c2
-    name: gitea
-    type: application
-    urls:
-    - https://github.com/na-launch-workshop/platform-charts/releases/download/gitea-1.0.0/gitea-1.0.0.tgz
     version: 1.0.0
   gitlab:
   - apiVersion: v2
@@ -284,16 +235,6 @@ entries:
   orchestrator:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2026-02-14T05:17:15.942161577Z"
-    description: A Helm chart for Kubernetes
-    digest: c43255d0d0c53a69d02773605bef32b72716c5094464af1cda0ed66db4d4e170
-    name: orchestrator
-    type: application
-    urls:
-    - https://github.com/na-launch-workshop/platform-charts/releases/download/orchestrator-1.0.3/orchestrator-1.0.3.tgz
-    version: 1.0.3
-  - apiVersion: v2
-    appVersion: 1.0.0
     created: "2026-02-06T17:38:21.733553199Z"
     description: A Helm chart for Kubernetes
     digest: 2c1f9d503b5ad5588d001094cea08452eca8107f150855680976273304b197c8
@@ -367,16 +308,6 @@ entries:
     - https://github.com/na-launch-workshop/platform-charts/releases/download/rhtas-1.0.0/rhtas-1.0.0.tgz
     version: 1.0.0
   rollout-controller:
-  - apiVersion: v2
-    appVersion: 1.0.0
-    created: "2026-02-14T05:17:16.090854048Z"
-    description: A Helm chart for Kubernetes
-    digest: 480cc260a798e50408c1cd8071249736c64dbb35220e8ca5ce541ad642ad134a
-    name: rollout-controller
-    type: application
-    urls:
-    - https://github.com/na-launch-workshop/platform-charts/releases/download/rollout-controller-1.0.3/rollout-controller-1.0.3.tgz
-    version: 1.0.3
   - apiVersion: v2
     appVersion: 1.0.0
     created: "2026-02-06T17:38:21.896346799Z"
