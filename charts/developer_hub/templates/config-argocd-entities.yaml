@@ -13,7 +13,7 @@ data:
     spec:
       type: configuration
       lifecycle: production
-      owner: cluster-admins
+      owner: workshop-admins
       services:
         domain: "{{ .Values.host }}"
       devspaces:
