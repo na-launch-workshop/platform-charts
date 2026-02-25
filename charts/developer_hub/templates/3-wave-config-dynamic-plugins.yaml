@@ -43,8 +43,8 @@ data:
       ##############################
       ## GITEA PLUGIN CONFIGURATION
       ##############################
-      # To get image digest, run 'skopeo inspect docker://quay.io/na-east-launch/scaffolder-backend-module-gitea:0.2.17'
-      - package: oci://quay.io/na-east-launch/scaffolder-backend-module-gitea@sha256:fc6faebce073c29410cc5f1f6c8595147fef5c1fac31170214bfd6dc0f36c0bf!backstage-plugin-scaffolder-backend-module-gitea
+      # To get image digest, run 'skopeo inspect docker://quay.io/na-east-launch/scaffolder-backend-module-gitea:0.2.18'
+      - package: oci://quay.io/na-east-launch/scaffolder-backend-module-gitea@sha256:e6ad69865b439c54d90876058db8284998789aa723c4eb39ba185a1e0f66469f!backstage-plugin-scaffolder-backend-module-gitea
         disabled: false
     {{- end }}
 
