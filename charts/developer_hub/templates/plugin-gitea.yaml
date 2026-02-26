@@ -8,6 +8,6 @@ data:
     integrations:
       gitea:
         - host: gitea.{{ .Values.host }}
-          token: ${GITEA_TOKEN}
+          password: ${GITEA_TOKEN}
 
 {{- end }}
