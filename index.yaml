@@ -66,21 +66,6 @@ entries:
     urls:
     - https://github.com/na-launch-workshop/platform-charts/releases/download/dev-spaces-1.0.0/dev-spaces-1.0.0.tgz
     version: 1.0.0
-  developer_hub_helm:
-  - apiVersion: v2
-    appVersion: 1.6.3
-    created: "2026-01-19T18:52:00.613472335Z"
-    dependencies:
-    - name: redhat-developer-hub
-      repository: https://charts.openshift.io/
-      version: 1.6.3
-    description: A chart for deploying backstage
-    digest: 6182e457d86e4b2d62f4b96a04d5bd0006db7376e036a99c0a54ec23227cf9a9
-    name: developer_hub_helm
-    type: application
-    urls:
-    - https://github.com/na-launch-workshop/platform-charts/releases/download/developer_hub_helm-1.0.0/developer_hub_helm-1.0.0.tgz
-    version: 1.0.0
   developerhub:
   - apiVersion: v2
     appVersion: 1.6.5
