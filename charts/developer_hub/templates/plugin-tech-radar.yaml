@@ -6,7 +6,7 @@ data:
   tech-radar-plugin.yaml: |
     ##################################################
     ## Tech Radar Plugin Configuration
-    ## https://docs.redhat.com/en/documentation/red_hat_developer_hub/1.4/html/customizing/proc-customize-rhdh-tech-radar-page_configuring-techdocs
+    ## https://docs.redhat.com/en/documentation/red_hat_developer_hub/1.8/html/customizing_red_hat_developer_hub/proc-customizing-the-tech-radar-page_customizing-the-quickstarts
     ##################################################
     dynamicPlugins:
       frontend:
