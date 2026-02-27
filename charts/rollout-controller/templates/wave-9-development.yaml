@@ -42,9 +42,9 @@ spec:
           - application: developer-hub-service
             namespace: backstage
             chart: 
-              name: {{ ternary "developer_hub_helm" "developerhub" .Values.devhub.helm.enabled }}
+              name: "developerhub"
               url: https://na-launch-workshop.github.io/platform-charts
-              version: {{ ternary .Values.devhub.helm.chartVersion .Values.devhub.chartVersion .Values.devhub.helm.enabled }}
+              version: {{ .Values.devhub.chartVersion }}
             values: |
               redhat-developer-hub:
                 route:

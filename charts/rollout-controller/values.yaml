@@ -155,9 +155,6 @@ acs:
 devhub:
   chartVersion: 1.0.1
   enabled: false
-  helm:
-    enabled: false
-    chartVersion: 1.0.0
 
 devspaces:
   chartVersion: 1.0.0
