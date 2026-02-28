@@ -8,7 +8,13 @@ spec:
       serviceAccountName: gitea-admin-job-sa
       containers:
       - name: oc-cli
-        image: quay.io/openshift/origin-cli:latest
+        image: registry.access.redhat.com/openshift4/ose-cli-rhel9:latest
+        env:
+        - name: OIDC_CLIENT_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: keycloak-gitea-oidc-client # The secret created by ExternalSecret
+              key: CLIENT_SECRET
         command:
         - /bin/sh
         - -c
@@ -21,7 +27,7 @@ spec:
             --name "keycloak" \
             --provider openidConnect \
             --key "openshift" \
-            --secret "CLIENT_SECRET" \
+            --secret "$OIDC_CLIENT_SECRET" \
             --auto-discover-url "https://keycloak-keycloak.{{ .Values.domain }}/auth/realms/openshift/.well-known/openid-configuration" \
             --group-claim-name "groups" \
             --admin-group "workshop-admins" \
