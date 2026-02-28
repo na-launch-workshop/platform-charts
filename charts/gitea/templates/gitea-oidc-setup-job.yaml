@@ -8,7 +8,7 @@ spec:
       serviceAccountName: gitea-admin-job-sa
       containers:
       - name: oc-cli
-        image: registry.access.redhat.com/openshift4/ose-cli-rhel9:latest
+        image: registry.redhat.io/openshift4/ose-cli-rhel9:latest
         env:
         - name: OIDC_CLIENT_SECRET
           valueFrom:
