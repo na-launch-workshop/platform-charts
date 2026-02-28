@@ -28,6 +28,7 @@ spec:
             --provider openidConnect \
             --key "openshift" \
             --secret "$OIDC_CLIENT_SECRET" \
+            --skip-local-2fa \
             --auto-discover-url "https://keycloak-keycloak.{{ .Values.domain }}/auth/realms/openshift/.well-known/openid-configuration" \
             --group-claim-name "groups" \
             --admin-group "workshop-admins" \
