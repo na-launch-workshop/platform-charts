@@ -1,0 +1,30 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: gitea-oidc-setup
+spec:
+  template:
+    spec:
+      serviceAccountName: gitea-admin-job-sa
+      containers:
+      - name: oc-cli
+        image: quay.io/openshift/origin-cli:latest
+        command:
+        - /bin/sh
+        - -c
+        - |
+          # Find the Gitea pod name
+          GITEA_POD=$(oc get pods -l app=gitea -o jsonpath='{.items[0].metadata.name}')
+          
+          # Execute the gitea admin command inside the pod
+          oc rsh $GITEA_POD gitea admin auth add-oauth \
+            --name "keycloak" \
+            --provider openidConnect \
+            --key "openshift" \
+            --secret "CLIENT_SECRET" \
+            --auto-discover-url "https://keycloak-keycloak.{{ .Values.domain }}/auth/realms/openshift/.well-known/openid-configuration" \
+            --group-claim-name "groups" \
+            --admin-group "workshop-admins" \
+            --restricted-group "developers" \
+            --group-team-map '{"developers": {"developers": ["Owners"]}}'
+      restartPolicy: OnFailure
