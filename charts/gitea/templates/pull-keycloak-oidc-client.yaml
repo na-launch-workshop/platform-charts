@@ -10,8 +10,8 @@ spec:
   target:
     name: "keycloak-gitea-oidc-client"
     template:
-      type: Opaque
-      stringData:
+      type: generic
+      data:
         oauth2_client: |
           [oauth2_client.keycloak]:
           NAME: "keycloak"
