@@ -15,6 +15,7 @@ spec:
       - "https://oauth-openshift.{{ .Values.domain }}/oauth2callback/*"
       - "https://backstage-developer-hub-backstage.{{ .Values.domain }}/*"
       - "http://backstage-developer-hub-backstage.{{ .Values.domain }}/*"
+      - "https://gitea.{{ .Values.domain }}/user/oauth2/keycloak/callback"
       - "*"
     protocolMappers:
       - name: groups
