@@ -9,20 +9,6 @@ gitea:
     enabled: true
     size: 100Gi
 
-  gitea:
-    config:
-      database:
-        DB_TYPE: postgres
-      session:
-        PROVIDER: db
-      cache:
-        ADAPTER: memory
-      queue:
-        TYPE: level
-      indexer:
-        ISSUE_INDEXER_TYPE: bleve
-        REPO_INDEXER_ENABLED: true
-
   valkey-cluster:
     enabled: false
   valkey:
