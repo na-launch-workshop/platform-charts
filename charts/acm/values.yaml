@@ -53,24 +53,31 @@ devhub:
 
 rhtas:
   chartVersion: 1.0.0
-  namespace: rhtas
   enabled: false
+  namespace: rhtas
 
 gitea:
   chartVersion: 1.0.0
   enabled: true
   namespace: gitea
+  size: 20Gi
 
 gitlab:
   chartVersion: 1.0.0
   enabled: true
   namespace: gitlab-system
 
-external_secrets:
-  enabled: true
+nexus:
   chartVersion: 1.0.0
+  enabled: true
+  namespace: nexus
+  size: 100Gi
+
+external_secrets:
+  chartVersion: 1.0.0
+  enabled: true
   namespace: external-secrets
 
 vault:
-  chartVersion: 0.31.0
+  chartVersion: 0.32.0
   enabled: true

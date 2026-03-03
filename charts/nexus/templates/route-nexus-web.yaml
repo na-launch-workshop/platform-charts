@@ -1,0 +1,19 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  labels:
+    app: docker-nexus3
+    app.kubernetes.io/instance: nexus-web
+  name: nexus-web
+spec:
+  host: "nexus-web.{{ .Values.domain }}"
+  port:
+    targetPort: 8081-tcp
+  tls:
+    insecureEdgeTerminationPolicy: None
+    termination: edge
+  to:
+    kind: Service
+    name: nexus-web
+    weight: 100
+  wildcardPolicy: None

@@ -3,7 +3,7 @@ domain: openshift.api
 ## Current Default Rollout-Controller
 controller:
   name: infrastructure
-  chartVersion: 1.0.3
+  chartVersion: 1.0.4
 
 system_roles:
   chartVersion: 1.0.0
@@ -31,7 +31,7 @@ external_secrets:
     enabled: true
 
 vault:
-  chartVersion: 0.31.0
+  chartVersion: 0.32.0
   appVersion: 1.21
   enabled: true
   address: "http://vault-service.vault-server.svc.cluster.local:8200"
@@ -46,6 +46,7 @@ gitea:
   chartVersion: 1.0.0
   enabled: true
   namespace: gitea
+  size: 20Gi
 
 gitlab:
   chartVersion: 1.0.0
@@ -55,12 +56,18 @@ gitlab:
     enabled: false
 
 minio:
-  enabled: false
   chartVersion: 1.0.0
+  enabled: false
+
+nexus:
+  chartVersion: 1.0.0
+  enabled: true
+  namespace: nexus
+  size: 100Gi
 
 npm:
-  enabled: true
   chartVersion: 4.29.0
+  enabled: true
 
 opentelemetry:
   chartVersion: 1.0.0
@@ -72,33 +79,33 @@ quay:
 
 # Message Brokers
 amq:
-  enabled: false
   chartVersion: 1.0.0
+  enabled: false
 
 # AI Requirements
 authorino:
-  enabled: false
   chartVersion: 1.0.0
+  enabled: false
 
 kiali:
-  enabled: false
   chartVersion: 1.0.0
+  enabled: false
 
 rhoai:
-  enabled: false
   chartVersion: 1.0.0
+  enabled: false
 
 serverless:
-  enabled: false
   chartVersion: 1.0.0
+  enabled: false
 
 servicemesh:
-  enabled: false
   chartVersion: 1.0.0
+  enabled: false
 
 tracing:
-  enabled: false
   chartVersion: 1.0.0
+  enabled: false
 
 # Developer Experience
 devhub:
