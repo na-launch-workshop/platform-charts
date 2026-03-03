@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: docker-nexus3
-          image: 'quay.io/na-launch/docker-nexus3:latest'
+          image: 'quay.io/na-east-launch/docker-nexus3:latest'
           ports:
             - containerPort: 8080
               protocol: "TCP"
