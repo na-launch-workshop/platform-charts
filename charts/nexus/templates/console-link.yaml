@@ -1,10 +1,10 @@
 apiVersion: console.openshift.io/v1
 kind: ConsoleLink
 metadata:
-  name: gitea
+  name: nexus
 spec:
   applicationMenu:
     section: Artifacts Repository
-  href: "https://gitea.{{ .Values.domain }}"
+  href: "https://nexus-web.{{ .Values.domain }}"
   location: ApplicationMenu
-  text: Gitea Dashboard
+  text: Nexus Repository Web Dashboard

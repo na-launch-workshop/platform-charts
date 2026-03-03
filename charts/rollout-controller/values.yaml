@@ -18,12 +18,12 @@ ansiblerunner:
   chartVersion: 1.0.1
 
 nfd:
-  enabled: false 
   chartVersion: 1.0.0
+  enabled: false 
 
 nvidiagpu:
-  enabled: false 
   chartVersion: 1.0.0
+  enabled: false 
 
 # GitOps
 gitops:
@@ -56,7 +56,7 @@ external_secrets:
     enabled: true
 
 vault:
-  chartVersion: 0.31.0
+  chartVersion: 0.32.0
   enabled: true
   appVersion: 1.21
   address: "http://vault-service.vault-server.svc.cluster.local:8200"
@@ -74,6 +74,7 @@ gitea:
   chartVersion: 1.0.0
   enabled: true
   namespace: gitea
+  size: 20Gi
 
 gitlab:
   chartVersion: 1.0.0
@@ -89,62 +90,68 @@ gitlab_runner:
   chartVersion: 1.0.0
 
 minio:
-  enabled: false
   chartVersion: 1.0.0
+  enabled: false
+
+nexus:
+  chartVersion: 1.0.0
+  enabled: true
+  namespace: nexus
+  size: 100Gi
 
 npm:
+  chartVersion: 1.0.0
   enabled: true
-  chartVersion: 4.29.0
 
 opentelemetry:
   chartVersion: 1.0.0
   enabled: false
 
 quay:
-  enabled: false
   chartVersion: 1.0.0
+  enabled: false
   enableCapacity: true
 
 quay_bridge:
-  enabled: false
   chartVersion: 1.0.0
+  enabled: false
 
 registry:
   enabled: false
 
 # Message Brokers
 amq:
-  enabled: false
   chartVersion: 1.0.0
+  enabled: false
   enableCapacity: false
   count: 1
   sku: Standard_D8s_v3
 
 # AI Requirements
 authorino:
-  enabled: false
   chartVersion: 1.0.0
+  enabled: false
 
 kiali:
-  enabled: false
   chartVersion: 1.0.0
+  enabled: false
 
 rhoai:
-  enabled: false
   chartVersion: 1.0.0
+  enabled: false
   enableCapacity: true
 
 serverless:
-  enabled: false
   chartVersion: 1.0.0
+  enabled: false
 
 servicemesh:
-  enabled: false
   chartVersion: 1.0.0
+  enabled: false
 
 tracing:
-  enabled: false
   chartVersion: 1.0.0
+  enabled: false
 
 # Developer Experience
 acs:

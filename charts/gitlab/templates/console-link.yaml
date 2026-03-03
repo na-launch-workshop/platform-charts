@@ -4,7 +4,7 @@ metadata:
   name: gitlab
 spec:
   applicationMenu:
-    section: GitLab
+    section: Artifacts Repository
   href: "https://gitlab.{{ .Values.domain }}"
   location: ApplicationMenu
   text: GitLab Dashboard

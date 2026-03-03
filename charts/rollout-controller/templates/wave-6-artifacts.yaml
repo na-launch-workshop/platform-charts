@@ -92,7 +92,7 @@ spec:
               namespace: "{{ .Values.gitea.namespace }}"
               domain: "{{ .Values.cluster.domain }}"
               persistence:
-                size: 100Gi
+                size: "{{ .Values.gitea.size }}"
         {{- end }}
         {{- if and .Values.gitea.enabled (not .Values.shared.enabled) }}
           - application: gitea-config
@@ -250,6 +250,20 @@ spec:
                     - "list"
                     - "create"
                     - "update"
+        {{- end }}
+        {{- if and .Values.nexus.enabled (not .Values.shared.enabled) }}
+          - application: nexus
+            namespace: "{{ .Values.nexus.namespace }}"
+            wave: "-2"
+            chart:  
+              name: nexus
+              url: https://na-launch-workshop.github.io/platform-charts
+              version: "{{ .Values.nexus.chartVersion }}"
+            values: |
+              namespace: "{{ .Values.nexus.namespace }}"
+              domain: "{{ .Values.cluster.domain }}"
+              persistence:
+                size: "{{ .Values.nexus.size }}"
         {{- end }}
   template:
     metadata:
