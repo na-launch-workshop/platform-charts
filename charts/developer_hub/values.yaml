@@ -20,7 +20,7 @@ postgres:
 
 catalogs:
 ### Templates to deploy OpenShift AI ecosystem
-#  - https://github.com/na-launch-workshop/platform-software-templates/blob/main/catalogs/templates.yaml
+# - https://github.com/na-launch-workshop/platform-software-templates/blob/main/catalogs/templates.yaml
 ### Templates to deploy Launch workshop
   - https://github.com/na-launch-workshop/platform-software-templates/blob/main/workshop/templates.yaml
 

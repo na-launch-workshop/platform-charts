@@ -51,7 +51,10 @@ spec:
                   host: "backstage-developer-hub-backstage.{{ .Values.cluster.domain }}"
               host: "{{ .Values.cluster.domain }}"
               catalogs:
-                - https://github.com/na-launch-workshop/platform-software-templates/blob/main/catalogs/templates.yaml
+
+             ### Templates to deploy OpenShift AI ecosystem
+             #  - https://github.com/na-launch-workshop/platform-software-templates/blob/main/catalogs/templates.yaml
+             ### Templates to deploy Launch workshop
                 - https://github.com/na-launch-workshop/platform-software-templates/blob/main/workshop/templates.yaml
               gitea:
                 enabled: {{ .Values.gitea.enabled }}
