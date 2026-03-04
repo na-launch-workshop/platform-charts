@@ -10,4 +10,4 @@ spec:
   volumeMode: Filesystem
   resources:
     requests:
-      storage: {{ .Values.nexus.size }}
+      storage: {{ .Values.size }}

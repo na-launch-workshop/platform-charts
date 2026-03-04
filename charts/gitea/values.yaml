@@ -7,7 +7,7 @@ gitea:
 
   persistence:
     enabled: true
-    size: 100Gi
+    size: 20Gi
 
   valkey-cluster:
     enabled: false

@@ -97,7 +97,7 @@ nexus:
   chartVersion: 1.0.0
   enabled: true
   namespace: nexus
-  size: 100Gi
+  size: 200Gi
 
 npm:
   chartVersion: 1.0.0
