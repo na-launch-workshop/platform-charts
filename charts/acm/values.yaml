@@ -71,7 +71,7 @@ nexus:
   chartVersion: 1.0.0
   enabled: true
   namespace: nexus
-  size: 200Gi
+  size: 100Gi
 
 external_secrets:
   chartVersion: 1.0.0
