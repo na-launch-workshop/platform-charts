@@ -23,5 +23,10 @@ catalogs:
 # - https://github.com/na-launch-workshop/platform-software-templates/blob/main/catalogs/templates.yaml
 ### Templates to deploy Launch workshop
   - https://github.com/na-launch-workshop/platform-software-templates/blob/main/workshop/templates.yaml
+### Ansible plug-ins software templates
+# https://docs.redhat.com/en/documentation/red_hat_ansible_automation_platform/2.6/html/installing_ansible_plug-ins_for_red_hat_developer_hub/rhdh-install-ocp-operator_aap-plugin-rhdh-installing#rhdh-add-plugin-software-templates_choose-a-plug-in-delivery-method-when-using-the-operator
+
+### TODO: Convert this upstream GitHub template to self-hosted GitLab + Gitea supported templates in GitHub's na-launch-workshop repos
+  - https://github.com/ansible/ansible-rhdh-templates/blob/main/all.yaml
 
 clusters: []
