@@ -1,0 +1,19 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: ansible-devtools-server
+data:
+  deployment.yaml: |
+    spec:
+      template:
+        spec:
+          containers:
+          - command:
+              - adt
+              - server
+            image: >-
+              registry.redhat.io/ansible-automation-platform-26/ansible-dev-tools-rhel9:latest
+            imagePullPolicy: Always
+            name: ansible-devtools-server
+            ports:
+              - containerPort: 8000

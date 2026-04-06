@@ -1,0 +1,12 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: ansible-plugin
+data:
+  ansible-plugin.yaml: |
+    ansible:
+      creatorService:
+        baseUrl: 127.0.0.1
+        port: '8000'
+      feedback:
+        enabled: false
