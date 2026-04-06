@@ -10,13 +10,21 @@ spec:
       spec:
         template:
           spec:
+            containers:
+            - command:
+                - adt
+                - server
+              image: >-
+                registry.redhat.io/ansible-automation-platform-26/ansible-dev-tools-rhel9:latest
+              imagePullPolicy: Always
+              name: ansible-devtools-server
+              ports:
+                - containerPort: 8000
             volumes:
               - $patch: replace
                 name: dynamic-plugins-root
                 persistentVolumeClaim:
                   claimName: dynamic-plugins-root
-      configMapRef:
-        name: ansible-devtools-server
   application:
     dynamicPluginsConfigMapName: dynamic-plugins
     appConfig:
