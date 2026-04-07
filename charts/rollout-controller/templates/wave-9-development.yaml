@@ -52,6 +52,7 @@ spec:
               host: "{{ .Values.cluster.domain }}"
               catalogs:
                 - https://github.com/na-launch-workshop/platform-software-templates/blob/main/workshop/templates.yaml
+                - https://github.com/na-launch-workshop/platform-software-templates/tree/main/workshop/ansible-rhdh-templates/all.yaml
               gitea:
                 enabled: {{ .Values.gitea.enabled }}
               gitlab:
