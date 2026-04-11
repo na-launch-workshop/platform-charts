@@ -18,6 +18,9 @@ data:
       proxySecure: false
 
     integrations:
+      github:
+        - host: github.com
+          token: ${GITHUB_TOKEN}
       gitlab:
         - host: gitlab.com
           token: ${GITLAB_TOKEN}
