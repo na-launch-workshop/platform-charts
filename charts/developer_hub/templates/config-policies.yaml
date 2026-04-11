@@ -39,7 +39,7 @@ data:
     p, role:default/workshop-admins, search.query, read, allow
 
     ## Scaffolder Perms Developers
-    # p, role:default/developers, scaffolder.template.read, read, allow
+    p, role:default/developers, scaffolder.template.read, read, allow
     # p, role:default/developers, scaffolder.template.management, use, allow
     p, role:default/developers, scaffolder.template.parameter.read, read, allow
     p, role:default/developers, scaffolder.template.step.read, read, allow
