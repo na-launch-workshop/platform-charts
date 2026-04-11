@@ -94,6 +94,7 @@ data:
       reading:
         allow:
           - host: "dynamic-dashboard.backstage.svc.cluster.local"
+          - host: "codeload.github.com"
       csp:
         connect-src:
           - "'self'"
