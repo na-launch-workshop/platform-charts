@@ -76,6 +76,9 @@ gitea:
   namespace: gitea
   size: 20Gi
 
+github:
+  enabled: false
+
 gitlab:
   chartVersion: 1.0.0
   enabled: true
