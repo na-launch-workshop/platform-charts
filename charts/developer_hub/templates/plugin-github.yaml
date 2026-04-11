@@ -21,6 +21,9 @@ data:
       github:
         - host: github.com
           token: ${GITHUB_TOKEN}
+        - host: "gitea.{{ .Values.host }}"
+          token: ${GITEA_TOKEN}
+          apiBaseUrl: "https://gitea.{{ .Values.host }}/api/v1"
       gitlab:
         - host: gitlab.com
           token: ${GITLAB_TOKEN}
