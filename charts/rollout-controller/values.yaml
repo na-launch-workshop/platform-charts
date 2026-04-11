@@ -160,7 +160,7 @@ acs:
   enableCapacity: true
 
 devhub:
-  chartVersion: 1.0.1
+  chartVersion: 1.0.2
   enabled: false
 
 devspaces:
