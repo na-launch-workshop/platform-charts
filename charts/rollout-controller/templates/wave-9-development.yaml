@@ -57,6 +57,8 @@ spec:
                 enabled: {{ .Values.gitea.enabled }}
               gitlab:
                 enabled: {{ .Values.gitlab.enabled }}
+              github:
+                enabled: {{ .Values.github.enabled }}
               clusters:
                 {{- toYaml .Values.clusters | trim | nindent 16 }}
         {{- end }}
