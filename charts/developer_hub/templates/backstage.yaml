@@ -61,6 +61,10 @@ spec:
         - name: gitlab-token
           key: GITLAB_TOKEN
       {{- end }}
+      {{- if .Values.github.enabled }}
+        - name: github-token
+          key: GITHUB_TOKEN
+      {{- end }}
         - name: keycloak-client-secret-openshift
         - name: credential-keycloak
         - name: postgres-credentials
