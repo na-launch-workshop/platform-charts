@@ -7,12 +7,16 @@ data:
     argocd:
       appLocatorMethods:
       - instances:
-        {{- range .Values.clusters }}
-        - name: {{ .stage }}
-          password: {{`${`}}{{ .stage }}_ARGOCD_TOKEN{{`}`}}
-          url: https://openshift-gitops-server-openshift-gitops.apps.{{ .domain }}
-          username: admin
-        {{- end }}
+          {{- if .Values.clusters }}
+          {{- range .Values.clusters }}
+          - name: {{ .stage }}
+            password: {{`${`}}{{ .stage }}_ARGOCD_TOKEN{{`}`}}
+            url: https://openshift-gitops-server-openshift-gitops.apps.{{ .domain }}
+            username: admin
+          {{- end }}
+          {{- else }}
+          []
+          {{- end }}
         type: config
       # baseUrl: https://openshift-gitops-server-openshift-gitops.{{ .Values.host }}
 
