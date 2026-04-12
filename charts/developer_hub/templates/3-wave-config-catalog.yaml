@@ -94,7 +94,7 @@ data:
       #######################################################################
       providers:
 
-      {{- if .Values.gitlab.enabled }}
+      {{- if .Values.gitlab.discoveryEnabled }}
         ###################################################################
         # GitLab Provider (self-hosted)
         #
