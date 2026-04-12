@@ -57,6 +57,7 @@ spec:
                 enabled: {{ .Values.gitea.enabled }}
               gitlab:
                 enabled: {{ .Values.gitlab.enabled }}
+                discoveryEnabled: {{ .Values.gitlab.discoveryEnabled | default false }}
               github:
                 enabled: {{ .Values.github.enabled }}
               clusters:
