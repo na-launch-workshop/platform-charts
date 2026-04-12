@@ -79,7 +79,7 @@ entries:
   developerhub:
   - apiVersion: v2
     appVersion: 1.8.2
-    created: "2026-04-11T21:17:22.784031-04:00"
+    created: "2026-04-11T22:27:46.129854-04:00"
     description: A chart for deploying Red Hat Developer Hub.
     digest: 4b5c7c2ecdf6ec9b5463f08327abb428ff28a2ca4834f4a5f8a26ff026a309db
     name: developerhub
@@ -89,7 +89,7 @@ entries:
     version: 1.0.9
   - apiVersion: v2
     appVersion: 1.8.2
-    created: "2026-04-11T21:17:22.782089-04:00"
+    created: "2026-04-11T22:27:46.128057-04:00"
     description: A chart for deploying Red Hat Developer Hub.
     digest: 21dae11ad38f3b854bfe079c5556baa9c74ac7efb9b9e2fd07c2fcfabbbda27a
     name: developerhub
@@ -99,7 +99,7 @@ entries:
     version: 1.0.8
   - apiVersion: v2
     appVersion: 1.8.2
-    created: "2026-04-11T21:17:22.78027-04:00"
+    created: "2026-04-11T22:27:46.125029-04:00"
     description: A chart for deploying Red Hat Developer Hub.
     digest: e67af6bba7e177ee8c066ecf3666135e7fb4a800c90b36634d9017e52c21ffe2
     name: developerhub
@@ -461,6 +461,16 @@ entries:
   rollout-controller:
   - apiVersion: v2
     appVersion: 1.0.0
+    created: "2026-04-11T22:27:46.130294-04:00"
+    description: A Helm chart for Kubernetes
+    digest: 01b71ee032157a42b1c0f13c37ae235f21561ef1c84c204bcc87483acab7fe64
+    name: rollout-controller
+    type: application
+    urls:
+    - rollout-controller-1.0.8.tgz
+    version: 1.0.8
+  - apiVersion: v2
+    appVersion: 1.0.0
     created: "2026-04-11T01:09:41.692264948Z"
     description: A Helm chart for Kubernetes
     digest: 2a8e9fe812e909e1a48c58c4081aa7de4b223d790eb792e1cb5920f89cb1f136
@@ -584,4 +594,4 @@ entries:
     urls:
     - https://github.com/na-launch-workshop/platform-charts/releases/download/user-sync-1.0.0/user-sync-1.0.0.tgz
     version: 1.0.0
-generated: "2026-04-11T21:17:22.778206-04:00"
+generated: "2026-04-11T22:27:46.122743-04:00"
