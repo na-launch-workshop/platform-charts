@@ -26,7 +26,7 @@ data:
             key: type
             value: workshop
     ---
-    # Developers can view most entities, and templates with spec.type=service (inferring we shouldn't view templates with spec.type=workshop)
+    # Developers can view templates with spec.type=service and shared entity kinds
     result: CONDITIONAL
     roleEntityRef: role:default/developers
     pluginId: catalog
@@ -45,7 +45,6 @@ data:
           params:
             kinds:
               - API
-              - Component
               - Group
               - Location
               - Package
@@ -53,6 +52,17 @@ data:
               - Resource
               - System
               - User
+        - allOf:
+            - rule: IS_ENTITY_KIND
+              resourceType: catalog-entity
+              params:
+                kinds:
+                  - Component
+            - rule: IS_ENTITY_OWNER
+              resourceType: catalog-entity
+              params:
+                claims:
+                  - ${{ user.entity.ref }}
     # ---
     # result: CONDITIONAL
     # roleEntityRef: role:default/workshop-admins
