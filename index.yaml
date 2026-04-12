@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  developerhub:
+  - apiVersion: v2
+    appVersion: 1.8.2
+    created: "2026-04-12T00:27:07.743812-04:00"
+    description: A chart for deploying Red Hat Developer Hub.
+    digest: eb0384633fbb0e0d34712583def1836ad38c3e00facd7ebd4e7ec159614510bd
+    name: developerhub
+    type: application
+    urls:
+    - developerhub-1.0.11.tgz
+    version: 1.0.11
+generated: "2026-04-12T00:27:07.741443-04:00"
