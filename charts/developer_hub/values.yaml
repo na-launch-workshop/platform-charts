@@ -2,7 +2,7 @@
 
 backend:
   postgres:
-    enabled: false
+    enabled: true
   sqlite3:
     enabled: false
 
