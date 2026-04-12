@@ -81,7 +81,7 @@ data:
               resourceType: catalog-entity
               params:
                 claims:
-                  - ${{ user.entity.ref }}
+                  - ${{ "{{" }} user.entity.ref {{ "}}" }}
     # ---
     # result: CONDITIONAL
     # roleEntityRef: role:default/workshop-admins
