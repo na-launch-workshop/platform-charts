@@ -6,7 +6,7 @@ metadata:
   name: rbac-conditional-policies
 data:
   policies.yaml: |
-    # Workshop admins can view templates with spec.type=workshop or service
+    # Workshop admins can view all entities
     result: CONDITIONAL
     roleEntityRef: role:default/workshop-admins
     pluginId: catalog
@@ -25,6 +25,25 @@ data:
           params:
             key: type
             value: workshop
+        - rule: HAS_SPEC
+          resourceType: catalog-entity
+          params:
+            key: type
+            value: workshop-lab
+        - rule: IS_ENTITY_KIND
+          resourceType: catalog-entity
+          params:
+            kinds:
+              - API
+              - Component
+              - Group
+              - Location
+              - Package
+              - Plugin
+              - Resource
+              - System
+              - User
+              - Template
     ---
     # Developers can view templates with spec.type=service and shared entity kinds
     result: CONDITIONAL
