@@ -3,7 +3,17 @@ entries:
   developerhub:
   - apiVersion: v2
     appVersion: 1.8.2
-    created: "2026-04-12T00:53:59.584484-04:00"
+    created: "2026-04-12T11:13:02.412273-04:00"
+    description: A chart for deploying Red Hat Developer Hub.
+    digest: 208419d8cb77a2d30fce6cfb029677e24f8cb785c7e72634105b92d6fa177b33
+    name: developerhub
+    type: application
+    urls:
+    - https://na-launch-workshop.github.io/platform-charts/developerhub-1.0.15.tgz
+    version: 1.0.15
+  - apiVersion: v2
+    appVersion: 1.8.2
+    created: "2026-04-12T11:13:02.410543-04:00"
     description: A chart for deploying Red Hat Developer Hub.
     digest: 9d92573b4616bab8d94bacc42bbd8efabce957c0bd1e0938a3311c3f36bb48ff
     name: developerhub
@@ -13,7 +23,7 @@ entries:
     version: 1.0.14
   - apiVersion: v2
     appVersion: 1.8.2
-    created: "2026-04-12T00:53:59.582588-04:00"
+    created: "2026-04-12T11:13:02.408299-04:00"
     description: A chart for deploying Red Hat Developer Hub.
     digest: ebf107118c1e59cb3b714b88b5cc05be6befdab74d2da0374819dae3a698d1cc
     name: developerhub
@@ -23,7 +33,7 @@ entries:
     version: 1.0.13
   - apiVersion: v2
     appVersion: 1.8.2
-    created: "2026-04-12T00:53:59.580498-04:00"
+    created: "2026-04-12T11:13:02.405581-04:00"
     description: A chart for deploying Red Hat Developer Hub.
     digest: 6024b5a9fef104a45ba0d7ba7c2f73cd2e4126d8c183d06cdce57793e4eab9e1
     name: developerhub
@@ -33,7 +43,7 @@ entries:
     version: 1.0.12
   - apiVersion: v2
     appVersion: 1.8.2
-    created: "2026-04-12T00:53:59.578068-04:00"
+    created: "2026-04-12T11:13:02.402608-04:00"
     description: A chart for deploying Red Hat Developer Hub.
     digest: eb0384633fbb0e0d34712583def1836ad38c3e00facd7ebd4e7ec159614510bd
     name: developerhub
@@ -43,7 +53,7 @@ entries:
     version: 1.0.11
   - apiVersion: v2
     appVersion: 1.8.2
-    created: "2026-04-12T00:53:59.576124-04:00"
+    created: "2026-04-12T11:13:02.400418-04:00"
     description: A chart for deploying Red Hat Developer Hub.
     digest: a81fec85b49ea6fd5a0fb88436f7b246a68bad00925fd75d845dd821328cf404
     name: developerhub
@@ -53,7 +63,7 @@ entries:
     version: 1.0.10
   - apiVersion: v2
     appVersion: 1.8.2
-    created: "2026-04-12T00:53:59.590747-04:00"
+    created: "2026-04-12T11:13:02.418262-04:00"
     description: A chart for deploying Red Hat Developer Hub.
     digest: 4b5c7c2ecdf6ec9b5463f08327abb428ff28a2ca4834f4a5f8a26ff026a309db
     name: developerhub
@@ -63,7 +73,7 @@ entries:
     version: 1.0.9
   - apiVersion: v2
     appVersion: 1.8.2
-    created: "2026-04-12T00:53:59.588275-04:00"
+    created: "2026-04-12T11:13:02.416498-04:00"
     description: A chart for deploying Red Hat Developer Hub.
     digest: 21dae11ad38f3b854bfe079c5556baa9c74ac7efb9b9e2fd07c2fcfabbbda27a
     name: developerhub
@@ -73,7 +83,7 @@ entries:
     version: 1.0.8
   - apiVersion: v2
     appVersion: 1.8.2
-    created: "2026-04-12T00:53:59.586378-04:00"
+    created: "2026-04-12T11:13:02.414685-04:00"
     description: A chart for deploying Red Hat Developer Hub.
     digest: e67af6bba7e177ee8c066ecf3666135e7fb4a800c90b36634d9017e52c21ffe2
     name: developerhub
@@ -84,7 +94,7 @@ entries:
   rollout-controller:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2026-04-12T00:53:59.591217-04:00"
+    created: "2026-04-12T11:13:02.418653-04:00"
     description: A Helm chart for Kubernetes
     digest: 01b71ee032157a42b1c0f13c37ae235f21561ef1c84c204bcc87483acab7fe64
     name: rollout-controller
@@ -92,4 +102,4 @@ entries:
     urls:
     - https://na-launch-workshop.github.io/platform-charts/rollout-controller-1.0.8.tgz
     version: 1.0.8
-generated: "2026-04-12T00:53:59.574133-04:00"
+generated: "2026-04-12T11:13:02.398262-04:00"
