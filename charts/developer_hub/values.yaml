@@ -1,33 +1,11 @@
-host: "api.openshift.io"
+# Default values for the developer_hub chart.
 
-backend:
-  postgres:
-    enabled: true
-  sqlite3:
-    enabled: false
-
-gitea:
-  enabled: false
-
-gitlab:
-  enabled: false
-
-github:
-  enabled: false
-
-postgres:
-  storageClassName: lvms-local
-
-catalogs:
-
-### These values are superceded by this rollout-controller configuration: rollout-controller/templates/wave-9-development.yaml
-
-### Templates to deploy OpenShift AI ecosystem
-# - https://github.com/na-launch-workshop/platform-software-templates/blob/main/catalogs/templates.yaml
-### Templates to deploy Launch workshop
-  - https://github.com/na-launch-workshop/platform-software-templates/blob/main/workshop/templates.yaml
-### Ansible plug-ins software templates
-# https://docs.redhat.com/en/documentation/red_hat_ansible_automation_platform/2.6/html/installing_ansible_plug-ins_for_red_hat_developer_hub/rhdh-install-ocp-operator_aap-plugin-rhdh-installing#rhdh-add-plugin-software-templates_choose-a-plug-in-delivery-method-when-using-the-operator
-  - https://github.com/na-launch-workshop/platform-software-templates/tree/main/workshop/ansible-rhdh-templates/all.yaml
-
-clusters: []
+# List of developer usernames (GitLab/Keycloak) for per-user catalog RBAC.
+# Each entry generates a role:default/user-<name> with IS_ENTITY_OWNER
+# so developers see only their own catalog components.
+# Configure per deployment in the orchestrator valuesObject.
+developers:
+  users: []
+  # users:
+  #   - devben
+  #   - devken

@@ -162,6 +162,9 @@ acs:
   enabled: false
   enableCapacity: true
 
+developers:
+  users: []
+
 devhub:
   chartVersion: 1.0.3
   enabled: false

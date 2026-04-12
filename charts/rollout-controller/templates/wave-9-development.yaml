@@ -62,6 +62,11 @@ spec:
                 enabled: {{ .Values.github.enabled }}
               clusters:
                 {{- toYaml .Values.clusters | trim | nindent 16 }}
+              {{- if .Values.developers.users }}
+              developers:
+                users:
+                {{- toYaml .Values.developers.users | trim | nindent 16 }}
+              {{- end }}
         {{- end }}
         {{- if .Values.devspaces.enabled }}
           - application: "{{ $prefix }}devspaces-service"

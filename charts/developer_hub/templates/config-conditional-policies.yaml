@@ -43,8 +43,34 @@ data:
               - System
               - User
               - Template
+    {{- if .Values.developers.users }}
+    {{- range .Values.developers.users }}
     ---
-    # Developers can view workshop-lab components and shared entity kinds
+    result: CONDITIONAL
+    roleEntityRef: role:default/user-{{ . }}
+    pluginId: catalog
+    resourceType: catalog-entity
+    permissionMapping:
+      - read
+    conditions:
+      anyOf:
+        - rule: IS_ENTITY_KIND
+          resourceType: catalog-entity
+          params:
+            kinds: [API, Group, Location, Package, Plugin, Resource, System, User]
+        - allOf:
+            - rule: IS_ENTITY_KIND
+              resourceType: catalog-entity
+              params:
+                kinds: [Component]
+            - rule: IS_ENTITY_OWNER
+              resourceType: catalog-entity
+              params:
+                claims: [user:default/{{ . }}]
+    {{- end }}
+    {{- else }}
+    ---
+    # Fallback: developers see all workshop-lab components (no per-user filtering)
     result: CONDITIONAL
     roleEntityRef: role:default/developers
     pluginId: catalog
@@ -66,12 +92,5 @@ data:
         - rule: IS_ENTITY_KIND
           resourceType: catalog-entity
           params:
-            kinds:
-              - API
-              - Group
-              - Location
-              - Package
-              - Plugin
-              - Resource
-              - System
-              - User
+            kinds: [API, Group, Location, Package, Plugin, Resource, System, User]
+    {{- end }}

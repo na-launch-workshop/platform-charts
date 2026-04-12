@@ -22,7 +22,18 @@ data:
     p, role:default/workshop-admins, catalog.location.delete, delete, allow
 
     ## Catalog Perms Developers
+    # catalog.entity.read is granted per-user via IS_ENTITY_OWNER when developers.users is set,
+    # otherwise falls back to the shared developers role (sees all workshop-lab).
+    {{- if .Values.developers.users }}
+    {{- range .Values.developers.users }}
+    p, role:default/user-{{ . }}, catalog.entity.read, read, allow
+    {{- end }}
+    {{- range .Values.developers.users }}
+    g, user:default/{{ . }}, role:default/user-{{ . }}
+    {{- end }}
+    {{- else }}
     p, role:default/developers, catalog.entity.read, read, allow
+    {{- end }}
     # p, role:default/developers, catalog.entity.create, create, allow
 
     ## Scaffolder Perms Admin
