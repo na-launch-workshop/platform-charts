@@ -45,7 +45,7 @@ data:
               - User
               - Template
     ---
-    # Developers can view their own components and shared entity kinds
+    # Developers can view workshop-lab components and shared entity kinds
     result: CONDITIONAL
     roleEntityRef: role:default/developers
     pluginId: catalog
@@ -59,6 +59,11 @@ data:
           params:
             key: type
             value: service
+        - rule: HAS_SPEC
+          resourceType: catalog-entity
+          params:
+            key: type
+            value: workshop-lab
         - rule: IS_ENTITY_KIND
           resourceType: catalog-entity
           params:
@@ -71,17 +76,6 @@ data:
               - Resource
               - System
               - User
-        - allOf:
-            - rule: IS_ENTITY_KIND
-              resourceType: catalog-entity
-              params:
-                kinds:
-                  - Component
-            - rule: IS_ENTITY_OWNER
-              resourceType: catalog-entity
-              params:
-                claims:
-                  - ${{ "{{" }} user.entity.ref {{ "}}" }}
     # ---
     # result: CONDITIONAL
     # roleEntityRef: role:default/workshop-admins
