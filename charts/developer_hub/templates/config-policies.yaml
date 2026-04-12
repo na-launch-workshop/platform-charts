@@ -21,22 +21,9 @@ data:
     p, role:default/workshop-admins, catalog.location.create, create, allow
     p, role:default/workshop-admins, catalog.location.delete, delete, allow
 
-    ## Catalog Perms Developers (per-user catalog read via conditional policies)
-    # catalog.entity.read is NOT granted to the shared developers role.
-    # Each developer gets their own role so IS_ENTITY_OWNER works with a static claim.
-    p, role:default/user-devben, catalog.entity.read, read, allow
-    p, role:default/user-devken, catalog.entity.read, read, allow
-    p, role:default/user-devlen, catalog.entity.read, read, allow
-    p, role:default/user-devmike, catalog.entity.read, read, allow
-    p, role:default/user-devphil, catalog.entity.read, read, allow
-    p, role:default/user-pghetia, catalog.entity.read, read, allow
-
-    g, user:default/devben, role:default/user-devben
-    g, user:default/devken, role:default/user-devken
-    g, user:default/devlen, role:default/user-devlen
-    g, user:default/devmike, role:default/user-devmike
-    g, user:default/devphil, role:default/user-devphil
-    g, user:default/pghetia, role:default/user-pghetia
+    ## Catalog Perms Developers
+    p, role:default/developers, catalog.entity.read, read, allow
+    # p, role:default/developers, catalog.entity.create, create, allow
 
     ## Scaffolder Perms Admin
     p, role:default/workshop-admins, scaffolder.template.read, read, allow

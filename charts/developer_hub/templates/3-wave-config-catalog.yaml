@@ -104,7 +104,7 @@ data:
         gitlab:
           selfHosted:
             host: "gitlab.{{ .Values.host }}"
-            projectPattern: '^(developers|devben|devken|devlen|devmike|devphil|pghetia|bdoucour)/workshop-.*'
+            projectPattern: '^[^/]+/workshop-'
             schedule:
               frequency:
                 seconds: 10

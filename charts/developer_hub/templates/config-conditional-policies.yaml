@@ -1,5 +1,4 @@
 # https://www.npmjs.com/package/@backstage-community/plugin-rbac-backend
-## Example multiple conditionals
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -45,155 +44,34 @@ data:
               - User
               - Template
     ---
-    # Per-user catalog access: each developer sees only their own Components + shared kinds
-    ---
+    # Developers can view workshop-lab components and shared entity kinds
     result: CONDITIONAL
-    roleEntityRef: role:default/user-devben
+    roleEntityRef: role:default/developers
     pluginId: catalog
     resourceType: catalog-entity
     permissionMapping:
       - read
     conditions:
       anyOf:
+        - rule: HAS_SPEC
+          resourceType: catalog-entity
+          params:
+            key: type
+            value: service
+        - rule: HAS_SPEC
+          resourceType: catalog-entity
+          params:
+            key: type
+            value: workshop-lab
         - rule: IS_ENTITY_KIND
           resourceType: catalog-entity
           params:
-            kinds: [API, Group, Location, Package, Plugin, Resource, System, User]
-        - allOf:
-            - rule: IS_ENTITY_KIND
-              resourceType: catalog-entity
-              params:
-                kinds: [Component]
-            - rule: IS_ENTITY_OWNER
-              resourceType: catalog-entity
-              params:
-                claims: [user:default/devben]
-    ---
-    result: CONDITIONAL
-    roleEntityRef: role:default/user-devken
-    pluginId: catalog
-    resourceType: catalog-entity
-    permissionMapping:
-      - read
-    conditions:
-      anyOf:
-        - rule: IS_ENTITY_KIND
-          resourceType: catalog-entity
-          params:
-            kinds: [API, Group, Location, Package, Plugin, Resource, System, User]
-        - allOf:
-            - rule: IS_ENTITY_KIND
-              resourceType: catalog-entity
-              params:
-                kinds: [Component]
-            - rule: IS_ENTITY_OWNER
-              resourceType: catalog-entity
-              params:
-                claims: [user:default/devken]
-    ---
-    result: CONDITIONAL
-    roleEntityRef: role:default/user-devlen
-    pluginId: catalog
-    resourceType: catalog-entity
-    permissionMapping:
-      - read
-    conditions:
-      anyOf:
-        - rule: IS_ENTITY_KIND
-          resourceType: catalog-entity
-          params:
-            kinds: [API, Group, Location, Package, Plugin, Resource, System, User]
-        - allOf:
-            - rule: IS_ENTITY_KIND
-              resourceType: catalog-entity
-              params:
-                kinds: [Component]
-            - rule: IS_ENTITY_OWNER
-              resourceType: catalog-entity
-              params:
-                claims: [user:default/devlen]
-    ---
-    result: CONDITIONAL
-    roleEntityRef: role:default/user-devmike
-    pluginId: catalog
-    resourceType: catalog-entity
-    permissionMapping:
-      - read
-    conditions:
-      anyOf:
-        - rule: IS_ENTITY_KIND
-          resourceType: catalog-entity
-          params:
-            kinds: [API, Group, Location, Package, Plugin, Resource, System, User]
-        - allOf:
-            - rule: IS_ENTITY_KIND
-              resourceType: catalog-entity
-              params:
-                kinds: [Component]
-            - rule: IS_ENTITY_OWNER
-              resourceType: catalog-entity
-              params:
-                claims: [user:default/devmike]
-    ---
-    result: CONDITIONAL
-    roleEntityRef: role:default/user-devphil
-    pluginId: catalog
-    resourceType: catalog-entity
-    permissionMapping:
-      - read
-    conditions:
-      anyOf:
-        - rule: IS_ENTITY_KIND
-          resourceType: catalog-entity
-          params:
-            kinds: [API, Group, Location, Package, Plugin, Resource, System, User]
-        - allOf:
-            - rule: IS_ENTITY_KIND
-              resourceType: catalog-entity
-              params:
-                kinds: [Component]
-            - rule: IS_ENTITY_OWNER
-              resourceType: catalog-entity
-              params:
-                claims: [user:default/devphil]
-    ---
-    result: CONDITIONAL
-    roleEntityRef: role:default/user-pghetia
-    pluginId: catalog
-    resourceType: catalog-entity
-    permissionMapping:
-      - read
-    conditions:
-      anyOf:
-        - rule: IS_ENTITY_KIND
-          resourceType: catalog-entity
-          params:
-            kinds: [API, Group, Location, Package, Plugin, Resource, System, User]
-        - allOf:
-            - rule: IS_ENTITY_KIND
-              resourceType: catalog-entity
-              params:
-                kinds: [Component]
-            - rule: IS_ENTITY_OWNER
-              resourceType: catalog-entity
-              params:
-                claims: [user:default/pghetia]
-    # ---
-    # result: CONDITIONAL
-    # roleEntityRef: role:default/workshop-admins
-    # pluginId: catalog
-    # resourceType: catalog-entity
-    # permissionMapping:
-    #   - read
-    # conditions:
-    #   anyOf:
-    #     - rule: HAS_SPEC
-    #       resourceType: catalog-entity
-    #       params:
-    #         key: type
-    #         value: service
-    #     - rule: HAS_SPEC
-    #       resourceType: catalog-entity
-    #       params:
-    #         key: type
-    #         value: workshop
+            kinds:
+              - API
+              - Group
+              - Location
+              - Package
+              - Plugin
+              - Resource
+              - System
+              - User
