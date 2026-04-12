@@ -24,6 +24,7 @@ spec:
             allowSingleSignOn: ["openid_connect"]
             blockAutoCreatedUsers: false
             autoLinkUser: ['openid_connect']
+            autoConfirmUser: true
             providers:
               - secret: keycloak-oidc-client
         runner:
