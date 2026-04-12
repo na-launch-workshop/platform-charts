@@ -22,7 +22,7 @@ data:
     p, role:default/workshop-admins, catalog.location.delete, delete, allow
 
     ## Catalog Perms Developers
-    # p, role:default/developers, catalog.entity.read, read, allow
+    p, role:default/developers, catalog.entity.read, read, allow
     # p, role:default/developers, catalog.entity.create, create, allow
 
     ## Scaffolder Perms Admin
