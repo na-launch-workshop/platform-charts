@@ -86,4 +86,4 @@ spec:
     route:
       enabled: true
   database:
-    enableLocalDb: {{ .Values.backend.sqlite3.enabled }}
+    enableLocalDb: {{ not .Values.backend.postgres.enabled }}
