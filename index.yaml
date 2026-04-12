@@ -79,6 +79,16 @@ entries:
   developerhub:
   - apiVersion: v2
     appVersion: 1.8.2
+    created: "2026-04-11T20:46:57.995462-04:00"
+    description: A chart for deploying Red Hat Developer Hub.
+    digest: e67af6bba7e177ee8c066ecf3666135e7fb4a800c90b36634d9017e52c21ffe2
+    name: developerhub
+    type: application
+    urls:
+    - developerhub-1.0.7.tgz
+    version: 1.0.7
+  - apiVersion: v2
+    appVersion: 1.8.2
     created: "2026-04-11T03:35:13.275414923Z"
     description: A chart for deploying Red Hat Developer Hub.
     digest: 6c1bce1e98b6d4eedd30c8cee0e4a02a1d5b9795b254ed1a7e8f78161e5d4f20
@@ -554,4 +564,4 @@ entries:
     urls:
     - https://github.com/na-launch-workshop/platform-charts/releases/download/user-sync-1.0.0/user-sync-1.0.0.tgz
     version: 1.0.0
-generated: "2026-04-11T03:35:13.275517303Z"
+generated: "2026-04-11T20:46:57.992474-04:00"
