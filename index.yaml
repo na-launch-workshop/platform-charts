@@ -1,5 +1,71 @@
 apiVersion: v1
 entries:
+  acm:
+  - apiVersion: v2
+    appVersion: "2.10"
+    created: "2026-04-14T19:14:57.71681535Z"
+    description: A Helm chart for Kubernetes
+    digest: 0e97b5aa3b019bd72839c7f03b83b7668108e4fa7e3e3f992ca31a7d06c24c5c
+    name: acm
+    type: application
+    urls:
+    - https://github.com/na-launch-workshop/platform-charts/releases/download/acm-1.0.1/acm-1.0.1.tgz
+    version: 1.0.1
+  acs:
+  - apiVersion: v2
+    appVersion: "4.9"
+    created: "2026-04-14T19:14:57.955279083Z"
+    description: A Helm chart for Kubernetes
+    digest: 669d069a930e8f7244aae8dae57e4304426e4cca14dc5aae88e8fe4e42c35eed
+    name: acs
+    type: application
+    urls:
+    - https://github.com/na-launch-workshop/platform-charts/releases/download/acs-1.0.0/acs-1.0.0.tgz
+    version: 1.0.0
+  amq:
+  - apiVersion: v2
+    appVersion: "2.9"
+    created: "2026-04-14T19:14:58.147946684Z"
+    description: A Helm chart for Kubernetes
+    digest: 03d6177c96a19a6dc758618fb9dfad5f703e1fc5ff15d6108d84d1e60b448b86
+    name: amq
+    type: application
+    urls:
+    - https://github.com/na-launch-workshop/platform-charts/releases/download/amq-1.0.0/amq-1.0.0.tgz
+    version: 1.0.0
+  authorino:
+  - apiVersion: v2
+    appVersion: 1.2.4
+    created: "2026-04-14T19:14:58.317545941Z"
+    description: A Helm chart for Kubernetes
+    digest: 2bd212d68b7c5ba36b71c6c3601cb2fffd0e5bcc6f02ee517964374471cd4950
+    name: authorino
+    type: application
+    urls:
+    - https://github.com/na-launch-workshop/platform-charts/releases/download/authorino-1.0.0/authorino-1.0.0.tgz
+    version: 1.0.0
+  cert-manager:
+  - apiVersion: v2
+    appVersion: 1.18.0
+    created: "2026-04-14T19:14:58.475877003Z"
+    description: A Helm chart for Kubernetes
+    digest: 0d86fcac2c0273aa8e374e047fc9882aaf216e14b2b9ff00af80afea20268316
+    name: cert-manager
+    type: application
+    urls:
+    - https://github.com/na-launch-workshop/platform-charts/releases/download/cert-manager-1.0.0/cert-manager-1.0.0.tgz
+    version: 1.0.0
+  dev-spaces:
+  - apiVersion: v2
+    appVersion: 3.25.0
+    created: "2026-04-14T19:14:58.676048138Z"
+    description: A chart for deploying dev spaces
+    digest: 80d68b6b867c45e9bebfdb4ac837d26d39b1af88d660a7387489ef97c56969a5
+    name: dev-spaces
+    type: application
+    urls:
+    - https://github.com/na-launch-workshop/platform-charts/releases/download/dev-spaces-1.0.0/dev-spaces-1.0.0.tgz
+    version: 1.0.0
   developerhub:
   - apiVersion: v2
     appVersion: 1.8.2
@@ -191,6 +257,117 @@ entries:
     urls:
     - https://na-launch-workshop.github.io/platform-charts/developerhub-1.0.7.tgz
     version: 1.0.7
+  distributed-tracing:
+  - apiVersion: v2
+    appVersion: 0.140.0-1
+    created: "2026-04-14T19:14:59.171485029Z"
+    description: A Helm chart for Kubernetes
+    digest: 62a2818fac7fc8ab12f57f25c9ccc1f26f2997b2e46d4944b6c015c052e09bd9
+    name: distributed-tracing
+    type: application
+    urls:
+    - https://github.com/na-launch-workshop/platform-charts/releases/download/distributed-tracing-1.0.0/distributed-tracing-1.0.0.tgz
+    version: 1.0.0
+  external_secrets:
+  - apiVersion: v2
+    appVersion: 0.11.0
+    created: "2026-04-14T19:14:59.390315281Z"
+    description: A Helm chart for Kubernetes
+    digest: 99a8e4f748ca3b6d887473664d5392f93eb9e32368a54a3c8f4ecf498a6f11d3
+    name: external_secrets
+    type: application
+    urls:
+    - https://github.com/na-launch-workshop/platform-charts/releases/download/external_secrets-1.0.0/external_secrets-1.0.0.tgz
+    version: 1.0.0
+  gatekeeper:
+  - apiVersion: v2
+    appVersion: "3.20"
+    created: "2026-04-14T19:14:59.59244726Z"
+    description: A Helm chart for Kubernetes
+    digest: 1484b79496e2c0e43224631c16b7432b38bbda8990fc0342d5f72f944eedd6e6
+    name: gatekeeper
+    type: application
+    urls:
+    - https://github.com/na-launch-workshop/platform-charts/releases/download/gatekeeper-1.0.0/gatekeeper-1.0.0.tgz
+    version: 1.0.0
+  gitea:
+  - apiVersion: v2
+    appVersion: 1.25.4
+    created: "2026-04-14T19:14:59.836782006Z"
+    dependencies:
+    - name: gitea
+      repository: https://dl.gitea.io/charts/
+      version: 12.5.0
+    description: A Helm chart for Kubernetes
+    digest: 6c5c51d0412d085e15ef99230b4f51b460a289f37d181ebe3016cea11afd9357
+    name: gitea
+    type: application
+    urls:
+    - https://github.com/na-launch-workshop/platform-charts/releases/download/gitea-1.0.0/gitea-1.0.0.tgz
+    version: 1.0.0
+  gitlab:
+  - apiVersion: v2
+    appVersion: 2.8.0
+    created: "2026-04-14T19:15:00.026250944Z"
+    dependencies:
+    - name: ansible-runner
+      repository: https://na-launch-workshop.github.io/platform-supporting-charts
+      version: 1.0.0
+    description: A Helm chart for Kubernetes
+    digest: 1823afaef04abb5a7e39dff781e9567211b76659abb937789d284bf5111c1511
+    name: gitlab
+    type: application
+    urls:
+    - https://github.com/na-launch-workshop/platform-charts/releases/download/gitlab-1.0.0/gitlab-1.0.0.tgz
+    version: 1.0.0
+  image-updater:
+  - apiVersion: v2
+    appVersion: 0.15.2
+    created: "2026-04-14T19:15:00.233132072Z"
+    description: A Helm chart for Kubernetes
+    digest: 8feea76ad1531d5ec3594a7ddb623a8f3e1106d7936b72eff08f48f9bc56dbb0
+    name: image-updater
+    type: application
+    urls:
+    - https://github.com/na-launch-workshop/platform-charts/releases/download/image-updater-1.0.0/image-updater-1.0.0.tgz
+    version: 1.0.0
+  keycloak:
+  - apiVersion: v2
+    appVersion: 7.6.12
+    created: "2026-04-14T19:15:00.39722049Z"
+    description: A Helm chart for Kubernetes
+    digest: 9854a8ea3327c33f74de4e1914331e2239d595bad06c6815733a5a4d052ffef4
+    name: keycloak
+    type: application
+    urls:
+    - https://github.com/na-launch-workshop/platform-charts/releases/download/keycloak-1.0.0/keycloak-1.0.0.tgz
+    version: 1.0.0
+  kiali:
+  - apiVersion: v2
+    appVersion: "2.17"
+    created: "2026-04-14T19:15:00.577949206Z"
+    description: A Helm chart for Kubernetes
+    digest: 90f5b191ed85c8d64ec0a63c831164d34bf9734f79d9adfcfe90c92a9d0d7151
+    name: kiali
+    type: application
+    urls:
+    - https://github.com/na-launch-workshop/platform-charts/releases/download/kiali-1.0.0/kiali-1.0.0.tgz
+    version: 1.0.0
+  machinesets:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2026-04-14T19:15:00.791393173Z"
+    dependencies:
+    - name: ansible-runner
+      repository: https://na-launch-workshop.github.io/platform-supporting-charts
+      version: 1.0.0
+    description: A Helm chart for Kubernetes
+    digest: 3c97b151bf95ec88492907f846b6a4ee6662bb647b56482175b2daf5d48e4148
+    name: machinesets
+    type: application
+    urls:
+    - https://github.com/na-launch-workshop/platform-charts/releases/download/machinesets-1.0.0/machinesets-1.0.0.tgz
+    version: 1.0.0
   minio:
   - apiVersion: v2
     appVersion: 1.0.0
@@ -212,6 +389,71 @@ entries:
     urls:
     - https://na-launch-workshop.github.io/platform-charts/minio-1.0.1.tgz
     version: 1.0.1
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2026-04-14T19:15:01.002818217Z"
+    description: A Helm chart that installs Minio for OpenShift
+    digest: 8f141c738a1ca66c7d7d5f0a9889891b863a1a464c97d5566b67d2b358fe4dfa
+    name: minio
+    type: application
+    urls:
+    - https://github.com/na-launch-workshop/platform-charts/releases/download/minio-1.0.0/minio-1.0.0.tgz
+    version: 1.0.0
+  nexus:
+  - apiVersion: v2
+    appVersion: 3.89.1
+    created: "2026-04-14T19:15:01.224968567Z"
+    description: A Helm chart for Kubernetes
+    digest: 78f5a76ab45d9e5821a3604e44b26d456366717aba774af6f6a8574d625fed66
+    name: nexus
+    type: application
+    urls:
+    - https://github.com/na-launch-workshop/platform-charts/releases/download/nexus-1.0.0/nexus-1.0.0.tgz
+    version: 1.0.0
+  nfd:
+  - apiVersion: v2
+    appVersion: 4.20.0
+    created: "2026-04-14T19:15:01.416921387Z"
+    description: A Helm chart that installs Node Feature Discovery in OpenShift
+    digest: f52fac5c472fee9732da6228ac1bfcc1eca5dc7456628a984815e083fe92732c
+    name: nfd
+    type: application
+    urls:
+    - https://github.com/na-launch-workshop/platform-charts/releases/download/nfd-1.0.0/nfd-1.0.0.tgz
+    version: 1.0.0
+  nvidia-gpu-operator:
+  - apiVersion: v2
+    appVersion: 24.6.0
+    created: "2026-04-14T19:15:01.638726368Z"
+    description: A Helm chart that installs Nvidia GPU Operator
+    digest: a31756b13e6365c157d6226690c2283ca8350ac1c13fd856809d97f1de6d805c
+    name: nvidia-gpu-operator
+    type: application
+    urls:
+    - https://github.com/na-launch-workshop/platform-charts/releases/download/nvidia-gpu-operator-1.0.0/nvidia-gpu-operator-1.0.0.tgz
+    version: 1.0.0
+  opentelemetry:
+  - apiVersion: v2
+    appVersion: 0.140.0-1
+    created: "2026-04-14T19:15:01.894853694Z"
+    description: A Helm chart for Kubernetes
+    digest: 19841008a525fb921258f0b25560c0b0d23a552e92b58991c6c520370cc5f3fd
+    name: opentelemetry
+    type: application
+    urls:
+    - https://github.com/na-launch-workshop/platform-charts/releases/download/opentelemetry-1.0.0/opentelemetry-1.0.0.tgz
+    version: 1.0.0
+  orchestrator:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2026-04-14T19:15:02.104577983Z"
+    description: A Helm chart for Kubernetes
+    digest: 1271257b78fc2055067c90f977f497e106a0467e48292b9cfeeb022c866a8a9f
+    name: orchestrator
+    type: application
+    urls:
+    - https://github.com/na-launch-workshop/platform-charts/releases/download/orchestrator-1.0.7/orchestrator-1.0.7.tgz
+    version: 1.0.7
   provision-repos:
   - apiVersion: v2
     appVersion: 1.0.0
@@ -279,6 +521,50 @@ entries:
     urls:
     - https://na-launch-workshop.github.io/platform-charts/provision-repos-1.0.0.tgz
     version: 1.0.0
+  quay:
+  - apiVersion: v2
+    appVersion: 3.13.10
+    created: "2026-04-14T19:15:02.382811767Z"
+    description: A Helm chart for Kubernetes
+    digest: ae4c302e35f1edd20f3a68af74968d8adaf6c8ccc05b5720c5b8c0f675c9720a
+    name: quay
+    type: application
+    urls:
+    - https://github.com/na-launch-workshop/platform-charts/releases/download/quay-1.0.0/quay-1.0.0.tgz
+    version: 1.0.0
+  quay-bridge:
+  - apiVersion: v2
+    appVersion: 3.13.10
+    created: "2026-04-14T19:15:02.657782542Z"
+    description: A Helm chart for Kubernetes
+    digest: a5e23ece1088e94f218af943ddef7cd0120949213f51f4de008a669b5d418ff6
+    name: quay-bridge
+    type: application
+    urls:
+    - https://github.com/na-launch-workshop/platform-charts/releases/download/quay-bridge-1.0.0/quay-bridge-1.0.0.tgz
+    version: 1.0.0
+  rhoai:
+  - apiVersion: v2
+    appVersion: 2.25.1
+    created: "2026-04-14T19:15:02.894039498Z"
+    description: A Helm chart for Kubernetes
+    digest: a9223f690c396dcb59993a6084da27ca3cb6f3669a8ff56beb577df2dbc6d39a
+    name: rhoai
+    type: application
+    urls:
+    - https://github.com/na-launch-workshop/platform-charts/releases/download/rhoai-1.0.0/rhoai-1.0.0.tgz
+    version: 1.0.0
+  rhtas:
+  - apiVersion: v2
+    appVersion: 1.3.1
+    created: "2026-04-14T19:15:03.142854993Z"
+    description: A Helm chart for Kubernetes
+    digest: 2922684cdaaab25b728e4e4c40963c80f8a6937de470548aedd45c52fd356d6a
+    name: rhtas
+    type: application
+    urls:
+    - https://github.com/na-launch-workshop/platform-charts/releases/download/rhtas-1.0.0/rhtas-1.0.0.tgz
+    version: 1.0.0
   rollout-controller:
   - apiVersion: v2
     appVersion: 1.0.0
@@ -310,4 +596,59 @@ entries:
     urls:
     - https://na-launch-workshop.github.io/platform-charts/rollout-controller-1.0.8.tgz
     version: 1.0.8
-generated: "2026-04-13T21:46:59.173402-04:00"
+  serverless:
+  - apiVersion: v2
+    appVersion: 1.37.0
+    created: "2026-04-14T19:15:03.544453571Z"
+    description: A Helm chart for Kubernetes
+    digest: f9e4b700544b0690ac5bd38c2aadb09a9416e6b4a49c014975a571a391aaba76
+    name: serverless
+    type: application
+    urls:
+    - https://github.com/na-launch-workshop/platform-charts/releases/download/serverless-1.0.0/serverless-1.0.0.tgz
+    version: 1.0.0
+  servicemesh:
+  - apiVersion: v2
+    appVersion: 2.6.12-0"
+    created: "2026-04-14T19:15:03.747678726Z"
+    description: A Helm chart for Kubernetes
+    digest: c7b7d63e9ba2d111008f8bf1974bfc452ef99092dd775e6273606dd4ab23e98a
+    name: servicemesh
+    type: application
+    urls:
+    - https://github.com/na-launch-workshop/platform-charts/releases/download/servicemesh-1.0.0/servicemesh-1.0.0.tgz
+    version: 1.0.0
+  system_roles:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2026-04-14T19:15:03.966684232Z"
+    description: A Helm chart for Kubernetes
+    digest: 7e2e358e53d06bc8e9348e47475530de85b9202a8fd7098933651024dceb0144
+    name: system_roles
+    type: application
+    urls:
+    - https://github.com/na-launch-workshop/platform-charts/releases/download/system_roles-1.0.0/system_roles-1.0.0.tgz
+    version: 1.0.0
+  tekton:
+  - apiVersion: v2
+    appVersion: 1.20.2
+    created: "2026-04-14T19:15:04.17040325Z"
+    description: A chart for deploying tekton
+    digest: e60f9728384dcf71764bb43d558af3cb3c4ee5082823d649b9afe5e6f3933656
+    name: tekton
+    type: application
+    urls:
+    - https://github.com/na-launch-workshop/platform-charts/releases/download/tekton-1.0.0/tekton-1.0.0.tgz
+    version: 1.0.0
+  user-sync:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2026-04-14T19:15:04.364117707Z"
+    description: A Helm chart that installs Node Feature Discovery in OpenShift
+    digest: 776f4991ee8f25f2267c99aa116383f92b7cdcbc7584ffc475cfc596cdd065bf
+    name: user-sync
+    type: application
+    urls:
+    - https://github.com/na-launch-workshop/platform-charts/releases/download/user-sync-1.0.0/user-sync-1.0.0.tgz
+    version: 1.0.0
+generated: "2026-04-14T19:15:04.364201371Z"
