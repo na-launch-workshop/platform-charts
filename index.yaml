@@ -578,26 +578,6 @@ entries:
   rollout-controller:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2026-04-13T21:46:59.222351-04:00"
-    description: A Helm chart for Kubernetes
-    digest: 23fa5e58b4107af0d633182436b7f200becfbe5c24349ea9ffe0304b49f6db2a
-    name: rollout-controller
-    type: application
-    urls:
-    - https://na-launch-workshop.github.io/platform-charts/rollout-controller-1.0.10.tgz
-    version: 1.0.10
-  - apiVersion: v2
-    appVersion: 1.0.0
-    created: "2026-04-13T21:46:59.223526-04:00"
-    description: A Helm chart for Kubernetes
-    digest: 6e5176971d7367149c1a12b5de2e5e073e509013e2359fb20a351dee276706e5
-    name: rollout-controller
-    type: application
-    urls:
-    - https://na-launch-workshop.github.io/platform-charts/rollout-controller-1.0.9.tgz
-    version: 1.0.9
-  - apiVersion: v2
-    appVersion: 1.0.0
     created: "2026-04-13T21:46:59.223028-04:00"
     description: A Helm chart for Kubernetes
     digest: 01b71ee032157a42b1c0f13c37ae235f21561ef1c84c204bcc87483acab7fe64
