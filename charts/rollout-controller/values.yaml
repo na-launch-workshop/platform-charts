@@ -166,7 +166,7 @@ developers:
   users: []
 
 devhub:
-  chartVersion: 1.0.3
+  chartVersion: 1.0.21
   enabled: false
 
 devspaces:
