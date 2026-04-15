@@ -37,20 +37,18 @@ spec:
                 dev:
                   enabled: true
                   devRootToken: "{{ .Values.settings.vault.token }}"
-                {{ if eq .Values.cluster.role "shared" }}
                 route:
                   enabled: true
                   host: "vault.{{ .Values.cluster.domain }}"
                   tls:
                     termination: edge
-                {{- end }}
                 resources:
                   requests:
-                    memory: "128Mi"
-                    cpu: "100m"
+                    memory: "256Mi"
+                    cpu: "50m"
                   limits:
-                    memory: "168Mi"
-                    cpu: "150m"
+                    memory: "256Mi"
+                    cpu: "200m"
         {{- end }}
         {{- if .Values.external_secrets.enabled }}
           - application: external-secrets-service
