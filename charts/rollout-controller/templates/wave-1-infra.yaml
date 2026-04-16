@@ -36,7 +36,7 @@ spec:
                   tag: "{{ .Values.vault.appVersion }}"
                 dev:
                   enabled: true
-                  devRootToken: "{{ .Values.settings.vault.token }}"
+                  devRootToken: "vaultcredential"
                 route:
                   enabled: true
                   host: "vault.{{ .Values.cluster.domain }}"
