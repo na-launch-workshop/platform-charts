@@ -46,7 +46,7 @@ spec:
                       - name: keycloak
               additionalVars:
               {{- if .Values.shared.enabled }}
-                domain: "{{ .Values.shared.domain }}"
+                domain: "{{ .Values.cluster.domain }}"
               {{- else }}
                 domain: "{{ .Values.cluster.domain }}"
               {{- end }}

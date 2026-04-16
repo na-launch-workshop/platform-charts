@@ -73,7 +73,7 @@ spec:
               address: "{{ .Values.vault.address }}"
             shared:
               enabled: "{{ .Values.shared.enabled }}"
-              address: "vault.{{ .Values.shared.domain }}"
+              address: "vault.{{ .Values.cluster.domain }}"
             k8s:
               enabled: "{{ .Values.external_secrets.k8sConnector.enabled }}"
             cluster_name: "{{ .Values.cluster.name }}"
