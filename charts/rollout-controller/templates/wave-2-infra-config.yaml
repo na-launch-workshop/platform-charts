@@ -3,7 +3,7 @@
           (and .Values.gitea.enabled (not .Values.shared.enabled))
           (and .Values.gitlab.enabled (not .Values.shared.enabled))
           .Values.gitops.updater.enabled 
-          .Values.external_secrets.enabled 
+          (and .Values.external_secrets.enabled (not .Values.shared.enabled))
           .Values.tekton.enabled 
 }}
 {{- $prefix := "" }}
