@@ -1,11 +1,11 @@
 {{- if and (or (not (hasKey .Values "controller")) (ne .Values.controller.name "workshop"))
-           (or .Values.nfd.enabled 
+      (or .Values.nfd.enabled 
           .Values.nvidiagpu.enabled 
           (and .Values.gitea.enabled (not .Values.shared.enabled))
           (and .Values.gitlab.enabled (not .Values.shared.enabled))
           .Values.gitops.updater.enabled 
           .Values.external_secrets.enabled
-          .Values.tekton.enabled 
+          .Values.tekton.enabled)
 }}
 {{- $prefix := "" }}
 {{- if eq .Values.controller.name "workshop" }}
