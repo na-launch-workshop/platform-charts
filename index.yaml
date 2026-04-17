@@ -79,46 +79,6 @@ entries:
   developerhub:
   - apiVersion: v2
     appVersion: 1.8.2
-    created: "2026-04-13T21:46:59.212117-04:00"
-    description: A chart for deploying Red Hat Developer Hub.
-    digest: 238788e2cc75e677047c83135dbd179a52e487ed620d3ce41d1cdb5188c2bc85
-    name: developerhub
-    type: application
-    urls:
-    - https://na-launch-workshop.github.io/platform-charts/developerhub-1.0.25.tgz
-    version: 1.0.25
-  - apiVersion: v2
-    appVersion: 1.8.2
-    created: "2026-04-13T21:46:59.209713-04:00"
-    description: A chart for deploying Red Hat Developer Hub.
-    digest: 35df9b38763273eb917c2d3dfadd83093f6bf657037e907d48e640586754ed6d
-    name: developerhub
-    type: application
-    urls:
-    - https://na-launch-workshop.github.io/platform-charts/developerhub-1.0.24.tgz
-    version: 1.0.24
-  - apiVersion: v2
-    appVersion: 1.8.2
-    created: "2026-04-13T21:46:59.207256-04:00"
-    description: A chart for deploying Red Hat Developer Hub.
-    digest: 4859d2001918a622fda565ca7c4e7d9f74ca21d4a37323de8e3d57659a185920
-    name: developerhub
-    type: application
-    urls:
-    - https://na-launch-workshop.github.io/platform-charts/developerhub-1.0.23.tgz
-    version: 1.0.23
-  - apiVersion: v2
-    appVersion: 1.8.2
-    created: "2026-04-13T21:46:59.205057-04:00"
-    description: A chart for deploying Red Hat Developer Hub.
-    digest: 9546c5728755a4b7deeee92b65bc249b7493a33ae87c8b45931474905be6822a
-    name: developerhub
-    type: application
-    urls:
-    - https://na-launch-workshop.github.io/platform-charts/developerhub-1.0.22.tgz
-    version: 1.0.22
-  - apiVersion: v2
-    appVersion: 1.8.2
     created: "2026-04-13T21:46:59.202649-04:00"
     description: A chart for deploying Red Hat Developer Hub.
     digest: db22b90be944ecf2fe0f75d38fbd77f564a731342ca9f731c54685f56adefac2
