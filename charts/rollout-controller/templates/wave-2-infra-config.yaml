@@ -5,6 +5,9 @@
           .Values.gitops.updater.enabled 
           .Values.external_secrets.enabled
           .Values.tekton.enabled 
+          (and .Values.external_secrets.enabled (or (not (hasKey .Values "controller")) (ne .Values.controller.name "workshop")))
+          (and (or (not (hasKey .Values "controller")) (ne .Values.controller.name "workshop"))
+               (or .Values.gitlab.enabled .Values.gitea.enabled))
 }}
 {{- $prefix := "" }}
 {{- if eq .Values.controller.name "workshop" }}
