@@ -41,7 +41,9 @@ spec:
             url: https://na-launch-workshop.github.io/platform-charts
             version: "{{ .Values.nvidiagpu.chartVersion }}"
         {{- end }}
-        {{- if (and (or .Values.gitlab.enabled .Values.gitea.enabled) (not .Values.shared.enabled)) }}
+        {{- if and (or (not (hasKey .Values "controller")) (ne .Values.controller.name "workshop"))
+           (or .Values.gitlab.enabled .Values.gitea.enabled)
+        }}
         - application: cert-manager-service
           namespace: cert-manager
           wave: "-2"
@@ -59,7 +61,7 @@ spec:
             url: https://na-launch-workshop.github.io/platform-charts
             version: "{{ .Values.gitops.updater.chartVersion }}"
         {{- end }}
-        {{- if and .Values.external_secrets.enabled (or (not .Values.controller) (ne .Values.controller.name "workshop")) }}
+        {{- if and .Values.external_secrets.enabled (or (not (hasKey .Values "controller")) (ne .Values.controller.name "workshop")) }}
         - application: secrets-connectors-service
           namespace: secrets-connectors
           wave: "-2"

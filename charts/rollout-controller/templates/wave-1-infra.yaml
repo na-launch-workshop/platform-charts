@@ -1,6 +1,7 @@
-{{- if or .Values.machinesets.enabled 
-          .Values.vault.enabled 
-          .Values.external_secrets.enabled 
+{{- if and (or (not (hasKey .Values "controller")) (ne .Values.controller.name "workshop"))
+           (or .Values.machinesets.enabled 
+               .Values.vault.enabled 
+               .Values.external_secrets.enabled)
 }}
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
@@ -36,7 +37,7 @@ spec:
                   tag: "{{ .Values.vault.appVersion }}"
                 dev:
                   enabled: true
-                  devRootToken: "vaultcredential"
+                  devRootToken: "{{ .Values.settings.vault.token }}"
                 route:
                   enabled: true
                   host: "vault.{{ .Values.cluster.domain }}"
