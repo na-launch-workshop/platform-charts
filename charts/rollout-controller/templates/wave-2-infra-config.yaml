@@ -3,7 +3,7 @@
           (and .Values.gitea.enabled (not .Values.shared.enabled))
           (and .Values.gitlab.enabled (not .Values.shared.enabled))
           .Values.gitops.updater.enabled 
-          (and .Values.external_secrets.enabled (not .Values.shared.enabled))
+          .Values.external_secrets.enabled
           .Values.tekton.enabled 
 }}
 {{- $prefix := "" }}
@@ -59,7 +59,7 @@ spec:
             url: https://na-launch-workshop.github.io/platform-charts
             version: "{{ .Values.gitops.updater.chartVersion }}"
         {{- end }}
-        {{- if .Values.external_secrets.enabled }}
+        {{- if and .Values.external_secrets.enabled (or (not .Values.controller) (ne .Values.controller.name "workshop")) }}
         - application: secrets-connectors-service
           namespace: secrets-connectors
           wave: "-2"
@@ -73,7 +73,7 @@ spec:
               address: "{{ .Values.vault.address }}"
             shared:
               enabled: "{{ .Values.shared.enabled }}"
-              address: "vault.{{ .Values.cluster.domain }}"
+              address: "vault.{{ .Values.shared.domain }}"
             k8s:
               enabled: "{{ .Values.external_secrets.k8sConnector.enabled }}"
             cluster_name: "{{ .Values.cluster.name }}"

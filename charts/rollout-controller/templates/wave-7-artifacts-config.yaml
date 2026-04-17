@@ -43,7 +43,7 @@ spec:
               url: https://na-launch-workshop.github.io/platform-supporting-charts
               version: "{{ .Values.gitlab_repo_creds.chartVersion }}"
             values: |
-              domain: "{{ .Values.cluster.domain }}"
+              domain: "{{ .Values.shared.domain }}"
         {{- end }}
         {{- if and .Values.gitlab.enabled (not .Values.shared.enabled) .Values.keycloak.enabled }}
           - application: user-sync-service
