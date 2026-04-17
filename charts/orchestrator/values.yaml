@@ -23,7 +23,7 @@ certmanager:
 
 external_secrets:
   chartVersion: 1.0.0
-  enabled: true
+  enabled: false
   namespace: external-secrets
   connectors:
     chartVersion: 1.0.0
@@ -44,13 +44,13 @@ keycloak:
 # Artifacts
 gitea:
   chartVersion: 1.0.0
-  enabled: true
+  enabled: false
   namespace: gitea
   size: 20Gi
 
 gitlab:
   chartVersion: 1.0.0
-  enabled: true
+  enabled: false
   namespace: gitlab-system
   runners: 
     enabled: false
