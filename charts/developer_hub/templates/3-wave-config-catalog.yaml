@@ -105,11 +105,12 @@ data:
           selfHosted:
             host: "gitlab.{{ .Values.host }}"
             projectPattern: '^[^/]+/workshop-'
+            branch: main
             schedule:
               frequency:
-                seconds: 10
-              timeout:
                 seconds: 60
+              timeout:
+                seconds: 300
       {{- end }}
 
         ###################################################################

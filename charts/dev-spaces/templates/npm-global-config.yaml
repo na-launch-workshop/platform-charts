@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: npm-global-config
+  namespace: devspaces
+  labels:
+    app.kubernetes.io/part-of: che.eclipse.org
+    app.kubernetes.io/component: workspaces-config
+  annotations:
+    controller.devfile.io/mount-as: subpath
+    controller.devfile.io/mount-path: /usr/share/node
+data:
+  npmrc: |
+    registry = https://nexus-web.{{ .Values.cluster.domain }}/repository/npm-registry/

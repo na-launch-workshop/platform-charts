@@ -83,6 +83,7 @@ gitlab:
   chartVersion: 1.0.0
   enabled: true
   namespace: gitlab-system
+  discoveryEnabled: true
   runners: 
     enabled: false
 
@@ -166,11 +167,11 @@ developers:
   users: []
 
 devhub:
-  chartVersion: 1.0.22
+  chartVersion: 1.0.23
   enabled: false
 
 devspaces:
-  chartVersion: 1.0.0
+  chartVersion: 1.0.1
   enabled: false
   enableCapacity: false
   count: 1

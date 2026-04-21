@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: prepull-dotnet-python-image
+  namespace: devspaces-build
+  labels:
+    app: prepull-dotnet-python
+spec:
+  selector:
+    matchLabels:
+      name: prepull-dotnet-python
+  template:
+    metadata:
+      labels:
+        name: prepull-dotnet-python
+    spec:
+      tolerations:
+      - operator: Exists
+      containers:
+      - name: dotnet-python-container
+        image: image-registry.openshift-image-registry.svc:5000/openshift/devspaces-dotnet-python
+        command: ["/bin/sh", "-c", "sleep infinity"]
+        resources:
+          requests:
+            cpu: 10m
+            memory: 50Mi
+          limits:
+            cpu: 50m
+            memory: 100Mi
