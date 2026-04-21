@@ -19,7 +19,7 @@ data:
         <mirror>
           <id>maven-public</id>
           <name>maven-public</name>
-          <url>https://nexus-web.{{ .Values.cluster.domain }}/repository/maven-public/</url>
+          <url>https://nexus-web.{{ .Values.domain }}/repository/maven-public/</url>
           <mirrorOf>*</mirrorOf>
         </mirror>
       </mirrors>
@@ -30,7 +30,7 @@ data:
             <repository>
               <id>maven-public</id>
               <name>maven-public</name>
-              <url>https://nexus-web.{{ .Values.cluster.domain }}/repository/maven-public/</url>
+              <url>https://nexus-web.{{ .Values.domain }}/repository/maven-public/</url>
             </repository>
           </repositories>
         </profile>

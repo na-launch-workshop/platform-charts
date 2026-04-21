@@ -11,4 +11,4 @@ metadata:
     controller.devfile.io/mount-path: /usr/share/node
 data:
   npmrc: |
-    registry = https://nexus-web.{{ .Values.cluster.domain }}/repository/npm-registry/
+    registry = https://nexus-web.{{ .Values.domain }}/repository/npm-registry/
