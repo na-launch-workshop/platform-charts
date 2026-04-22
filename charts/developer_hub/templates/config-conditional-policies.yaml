@@ -23,6 +23,11 @@ data:
           resourceType: catalog-entity
           params:
             key: type
+            value: docs
+        - rule: HAS_SPEC
+          resourceType: catalog-entity
+          params:
+            key: type
             value: workshop
         - rule: HAS_SPEC
           resourceType: catalog-entity
@@ -84,6 +89,11 @@ data:
           params:
             key: type
             value: service
+        - rule: HAS_SPEC
+          resourceType: catalog-entity
+          params:
+            key: type
+            value: docs
         - rule: HAS_SPEC
           resourceType: catalog-entity
           params:
