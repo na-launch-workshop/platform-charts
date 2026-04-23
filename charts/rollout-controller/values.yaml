@@ -133,7 +133,7 @@ amq:
 
 # AI Requirements
 authorino:
-  chartVersion: 1.0.1
+  chartVersion: 1.0.2
   enabled: false
 
 kiali:
