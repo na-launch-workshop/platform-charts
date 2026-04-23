@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backstage-notifications
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backstage-notifications
+  template:
+    metadata:
+      labels:
+        app: backstage-notifications
+    spec:
+      containers:
+      - name: web
+        image: quay.io/na-east-launch/backstage-notifications:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+        - name: RHDH_URL
+          value: http://backstage-developer-hub.backstage.svc.cluster.local
+        - name: RHDH_TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: keycloak-client-secret-openshift
+              key: CLIENT_SECRET
