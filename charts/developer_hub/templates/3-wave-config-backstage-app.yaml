@@ -128,7 +128,7 @@ data:
         - type: static
           options:
             token: ${CLIENT_SECRET}              # Store the actual token in an environment variable
-            subject: backstage-notifications     # Used for identification in audit logs
+            subject: admin                       # Tied to Backstage RBAC user
           accessRestrictions:
             - plugin: notifications              # Restrict this token only to the notifications plugin
     signInPage: oidc

@@ -20,6 +20,7 @@ data:
     p, role:default/workshop-admins, catalog.location.read, read, allow
     p, role:default/workshop-admins, catalog.location.create, create, allow
     p, role:default/workshop-admins, catalog.location.delete, delete, allow
+    p, role:default/workshop-admins, notifications.notification, create, allow
 
     ## Catalog Perms Developers
     # catalog.entity.read is granted per-user via IS_ENTITY_OWNER when developers.users is set,
