@@ -430,7 +430,7 @@ entries:
     type: application
     urls:
     - https://github.com/na-launch-workshop/platform-charts/releases/download/nfd-1.0.2/nfd-1.0.2.tgz
-    version: 1.0.0
+    version: 1.0.2
   - apiVersion: v2
     appVersion: 4.20.0
     created: "2026-04-14T19:15:01.416921387Z"
@@ -451,7 +451,7 @@ entries:
     type: application
     urls:
     - https://github.com/na-launch-workshop/platform-charts/releases/download/nvidia-gpu-operator-1.0.2/nvidia-gpu-operator-1.0.2.tgz
-    version: 1.0.0
+    version: 1.0.2
   - apiVersion: v2
     appVersion: 24.6.0
     created: "2026-04-14T19:15:01.638726368Z"
