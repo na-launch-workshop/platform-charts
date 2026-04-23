@@ -138,6 +138,14 @@ data:
                           - hasAnnotation: backstage.io/kubernetes-namespace
 
       ##################################
+      ## NOTIFICATIONS PLUGIN CONFIGURATION
+      ##################################
+      - package: ./dynamic-plugins/dist/backstage-plugin-notifications
+        disabled: false
+      - package: ./dynamic-plugins/dist/backstage-plugin-notifications-backend-dynamic
+        disabled: false
+
+      ##################################
       ## ANSIBLE PLUGIN CONFIGURATION
       ##################################
       # Ansible Automation
