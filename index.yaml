@@ -38,7 +38,7 @@ entries:
     appVersion: 1.2.4
     created: "2026-04-23T19:43:29.820614107Z"
     description: A Helm chart for Kubernetes
-    digest: sha256:f81eade4982f99bd7934712c959d04b616cdd9040ba4acd185d689ff98a3e3d2
+    digest: f81eade4982f99bd7934712c959d04b616cdd9040ba4acd185d689ff98a3e3d2
     name: authorino
     type: application
     urls:
@@ -81,7 +81,7 @@ entries:
     appVersion: 1.8.2
     created: "2026-04-13T21:46:59.212117-04:00"
     description: A chart for deploying Red Hat Developer Hub.
-    digest: 238788e2cc75e677047c83135dbd179a52e487ed620d3ce41d1cdb5188c2bc85
+    digest: c6a2fdda7185f57f90f75c738a715b45a623b8ff733b558cbef6314a395b9d20
     name: developerhub
     type: application
     urls:
@@ -91,7 +91,7 @@ entries:
     appVersion: 1.8.2
     created: "2026-04-13T21:46:59.209713-04:00"
     description: A chart for deploying Red Hat Developer Hub.
-    digest: 35df9b38763273eb917c2d3dfadd83093f6bf657037e907d48e640586754ed6d
+    digest: 06fb0c17f99bfc0671a53df85e4f0cb989c2f453736d29f7cb90e20ef01af013
     name: developerhub
     type: application
     urls:
@@ -101,7 +101,7 @@ entries:
     appVersion: 1.8.2
     created: "2026-04-13T21:46:59.207256-04:00"
     description: A chart for deploying Red Hat Developer Hub.
-    digest: 4859d2001918a622fda565ca7c4e7d9f74ca21d4a37323de8e3d57659a185920
+    digest: bdc842ed33f46474689eef6da11e926d92f585821a470436cc05932d7c2cecc0
     name: developerhub
     type: application
     urls:
@@ -111,7 +111,7 @@ entries:
     appVersion: 1.8.2
     created: "2026-04-13T21:46:59.205057-04:00"
     description: A chart for deploying Red Hat Developer Hub.
-    digest: 9546c5728755a4b7deeee92b65bc249b7493a33ae87c8b45931474905be6822a
+    digest: a16b21347dc0a8e4dfa2d7b41af07f732666c9de16737870a55447fbd5e10f08
     name: developerhub
     type: application
     urls:
@@ -425,7 +425,7 @@ entries:
     appVersion: 4.20.0
     created: "2026-04-23T19:43:29.820614107Z"
     description: A Helm chart that installs Node Feature Discovery in OpenShift
-    digest: sha256:c9a2d68152f735fe61658f4d3f7063a90bf68dd8fe01d0e732a72aec69d68908
+    digest: c9a2d68152f735fe61658f4d3f7063a90bf68dd8fe01d0e732a72aec69d68908
     name: nfd
     type: application
     urls:
@@ -446,7 +446,7 @@ entries:
     appVersion: 24.6.0
     created: "2026-04-23T19:43:29.820614107Z"
     description: A Helm chart that installs Nvidia GPU Operator
-    digest: sha256:2c7e562e3a74bed767c0d99662092b72c856edfabeffe5f4b5e785fcad0b8889
+    digest: 2c7e562e3a74bed767c0d99662092b72c856edfabeffe5f4b5e785fcad0b8889
     name: nvidia-gpu-operator
     type: application
     urls:
