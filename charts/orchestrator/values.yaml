@@ -104,7 +104,7 @@ serverless:
   enabled: false
 
 servicemesh:
-  chartVersion: 1.0.2
+  chartVersion: 1.0.3
   enabled: false
 
 tracing:
