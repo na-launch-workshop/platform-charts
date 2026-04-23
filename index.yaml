@@ -36,6 +36,16 @@ entries:
   authorino:
   - apiVersion: v2
     appVersion: 1.2.4
+    created: "2026-04-23T19:43:29.820614107Z"
+    description: A Helm chart for Kubernetes
+    digest: sha256:f81eade4982f99bd7934712c959d04b616cdd9040ba4acd185d689ff98a3e3d2
+    name: authorino
+    type: application
+    urls:
+    - https://github.com/na-launch-workshop/platform-charts/releases/download/authorino-1.0.2/authorino-1.0.2.tgz
+    version: 1.0.2
+  - apiVersion: v2
+    appVersion: 1.2.4
     created: "2026-04-14T19:14:58.317545941Z"
     description: A Helm chart for Kubernetes
     digest: 2bd212d68b7c5ba36b71c6c3601cb2fffd0e5bcc6f02ee517964374471cd4950
@@ -413,6 +423,16 @@ entries:
   nfd:
   - apiVersion: v2
     appVersion: 4.20.0
+    created: "2026-04-23T19:43:29.820614107Z"
+    description: A Helm chart that installs Node Feature Discovery in OpenShift
+    digest: sha256:c9a2d68152f735fe61658f4d3f7063a90bf68dd8fe01d0e732a72aec69d68908
+    name: nfd
+    type: application
+    urls:
+    - https://github.com/na-launch-workshop/platform-charts/releases/download/nfd-1.0.2/nfd-1.0.2.tgz
+    version: 1.0.0
+  - apiVersion: v2
+    appVersion: 4.20.0
     created: "2026-04-14T19:15:01.416921387Z"
     description: A Helm chart that installs Node Feature Discovery in OpenShift
     digest: f52fac5c472fee9732da6228ac1bfcc1eca5dc7456628a984815e083fe92732c
@@ -422,6 +442,16 @@ entries:
     - https://github.com/na-launch-workshop/platform-charts/releases/download/nfd-1.0.0/nfd-1.0.0.tgz
     version: 1.0.0
   nvidia-gpu-operator:
+  - apiVersion: v2
+    appVersion: 24.6.0
+    created: "2026-04-23T19:43:29.820614107Z"
+    description: A Helm chart that installs Nvidia GPU Operator
+    digest: sha256:2c7e562e3a74bed767c0d99662092b72c856edfabeffe5f4b5e785fcad0b8889
+    name: nvidia-gpu-operator
+    type: application
+    urls:
+    - https://github.com/na-launch-workshop/platform-charts/releases/download/nvidia-gpu-operator-1.0.2/nvidia-gpu-operator-1.0.2.tgz
+    version: 1.0.0
   - apiVersion: v2
     appVersion: 24.6.0
     created: "2026-04-14T19:15:01.638726368Z"
