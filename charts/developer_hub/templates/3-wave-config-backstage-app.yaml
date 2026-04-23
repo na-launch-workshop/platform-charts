@@ -217,6 +217,7 @@ data:
           - permission
           - kubernetes
           - argocd
+          - notifications
         policies-csv-file: /opt/app-root/src/extra-files/rbac-policies.csv
         conditionalPoliciesFile: /opt/app-root/src/extra-files/policies.yaml
         policyFileReload: true
