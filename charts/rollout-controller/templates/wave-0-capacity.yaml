@@ -4,7 +4,6 @@
   (and .Values.tekton.enabled .Values.tekton.enableCapacity)
   (and .Values.devspaces.enabled .Values.devspaces.enableCapacity)
   (and .Values.quay.enabled .Values.quay.enableCapacity)
-  (and .Values.rhoai.enabled .Values.rhoai.enableCapacity)
   (and .Values.amq.enabled .Values.amq.enableCapacity)
 }}
 {{- $prefix := "" }}
@@ -95,34 +94,6 @@ spec:
                 additionalVars:
                   machineset: 
                     name: quay-capacity
-                    {{- if (eq .Values.cluster.type "aro") }}
-                    type: Standard_D8s_v3
-                    {{- end }}
-                    {{- if or (eq .Values.cluster.type "rosa") (eq .Values.cluster.type "hcp") }}
-                    type: Standard_D8s_v3
-                    {{- end }}
-                    count: 1
-        {{- end }}
-        {{- if (and .Values.rhoai.enabled .Values.rhoai.enableCapacity) }}
-          - application: "{{ $prefix }}rhoai-capacity"
-            namespace: rhoai-capacity
-            chart: 
-              name: machinesets
-              url: https://na-launch-workshop.github.io/platform-charts
-              version: "{{ .Values.machinesets.chartVersion }}"
-            syncPolicy:
-              automated:
-                prune: true
-                selfHeal: true
-            values: |
-              ansible-runner:
-                runner:
-                  name: rhoai-general-capacity
-                  namespace: rhoai-capacity
-                  envFrom: []
-                additionalVars:
-                  machineset: 
-                    name: rhoai-capacity
                     {{- if (eq .Values.cluster.type "aro") }}
                     type: Standard_D8s_v3
                     {{- end }}

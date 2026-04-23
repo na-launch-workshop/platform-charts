@@ -29,7 +29,7 @@ spec:
         {{- end }}
         {{- if (and .Values.servicemesh.enabled (not .Values.rhoai.enabled)) }}
           - application: "{{ $prefix }}servicemesh-service"
-            namespace: openshift-servicemesh
+            namespace: istio-system
             chart: 
               name: servicemesh
               url: https://na-launch-workshop.github.io/platform-charts
