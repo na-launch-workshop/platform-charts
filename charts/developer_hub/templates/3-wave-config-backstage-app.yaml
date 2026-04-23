@@ -208,9 +208,9 @@ data:
     permission:
       enabled: true
       rbac:
-        # admin:
-        #   users:
-        #     - name: user:default/admin
+        admin:
+          users:
+            - name: user:default/admin
         pluginsWithPermission:
           - catalog
           - scaffolder
