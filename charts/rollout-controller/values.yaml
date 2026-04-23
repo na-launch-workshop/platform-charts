@@ -18,11 +18,11 @@ ansiblerunner:
   chartVersion: 1.0.1
 
 nfd:
-  chartVersion: 1.0.0
+  chartVersion: 1.0.1
   enabled: false 
 
 nvidiagpu:
-  chartVersion: 1.0.0
+  chartVersion: 1.0.1
   enabled: false 
 
 # GitOps
@@ -133,7 +133,7 @@ amq:
 
 # AI Requirements
 authorino:
-  chartVersion: 1.0.0
+  chartVersion: 1.0.1
   enabled: false
 
 kiali:
@@ -141,7 +141,7 @@ kiali:
   enabled: false
 
 rhoai:
-  chartVersion: 1.0.0
+  chartVersion: 1.0.1
   enabled: false
   enableCapacity: true
 
@@ -150,7 +150,7 @@ serverless:
   enabled: false
 
 servicemesh:
-  chartVersion: 1.0.0
+  chartVersion: 1.0.1
   enabled: false
 
 tracing:

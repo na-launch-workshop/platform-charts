@@ -13,7 +13,7 @@ kind: ApplicationSet
 metadata:
   name: artifacts-config
   annotations:
-    argocd.argoproj.io/sync-wave: "-3"
+    argocd.argoproj.io/sync-wave: "7"
 spec:
   goTemplate: true
   goTemplateOptions:

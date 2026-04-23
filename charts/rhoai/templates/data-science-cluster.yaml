@@ -14,26 +14,141 @@ spec:
   components:
     codeflare:
       managementState: Managed
-    dashboard:
-      managementState: Managed
-    datasciencepipelines:
-      managementState: Managed
     kserve:
       managementState: Managed
+      nim:
+        managementState: Managed
+      rawDeploymentServiceConfig: Headless
       serving:
         ingressGateway:
           certificate:
-            secretName: knative-serving-cert
             type: OpenshiftDefaultIngress
         managementState: Managed
         name: knative-serving
-    kueue:
+    modelregistry:
       managementState: Managed
-    modelmeshserving:
+      registriesNamespace: rhoai-model-registries
+    feastoperator:
+      managementState: Removed
+    trustyai:
+      eval:
+        lmeval:
+          permitCodeExecution: deny
+          permitOnline: deny
       managementState: Managed
     ray:
       managementState: Managed
-    trainingoperator:
-      managementState: Removed
+    kueue:
+      defaultClusterQueueName: default
+      defaultLocalQueueName: default
+      managementState: Managed
     workbenches:
       managementState: Managed
+      workbenchNamespace: rhods-notebooks
+    dashboard:
+      managementState: Managed
+    modelmeshserving:
+      managementState: Managed
+    llamastackoperator:
+      managementState: Removed
+    datasciencepipelines:
+      managementState: Managed
+    trainingoperator:
+      managementState: Managed
+status:
+  components:
+    codeflare:
+      managementState: Managed
+      releases:
+        - name: CodeFlare operator
+          repoUrl: 'https://github.com/project-codeflare/codeflare-operator'
+          version: 1.15.0
+    kserve:
+      defaultDeploymentMode: Serverless
+      managementState: Managed
+      releases:
+        - name: KServe
+          repoUrl: 'https://github.com/kserve/kserve/'
+          version: v0.14.0
+      serverlessMode: Managed
+    modelregistry:
+      managementState: Managed
+      registriesNamespace: rhoai-model-registries
+      releases:
+        - name: Google ML Metadata
+          repoUrl: 'https://github.com/google/ml-metadata'
+          version: v1.14.0
+        - name: Kubeflow Model Registry
+          repoUrl: 'https://github.com/kubeflow/model-registry'
+          version: latest
+        - name: Open Data Hub Model Registry Operator
+          repoUrl: 'https://github.com/opendatahub-io/model-registry-operator'
+          version: latest
+    feastoperator:
+      managementState: Removed
+    trustyai:
+      managementState: Managed
+      releases:
+        - name: TrustyAI operator
+          repoUrl: 'https://github.com/trustyai-explainability/trustyai-service-operator'
+          version: v1.37.0
+        - name: TrustyAI service
+          repoUrl: 'https://github.com/trustyai-explainability/trustyai-explainability'
+          version: v0.28.0
+        - name: TrustyAI LMEval driver
+          repoUrl: 'https://github.com/trustyai-explainability/trustyai-service-operator'
+          version: v1.37.0
+        - name: TrustyAI LMEval job
+          repoUrl: 'https://github.com/EleutherAI/lm-evaluation-harness'
+          version: v0.4.8
+        - name: TrustyAI Guardrails orchestrator
+          repoUrl: 'https://github.com/foundation-model-stack/fms-guardrails-orchestrator'
+          version: 0.9.4
+        - name: TrustyAI builtin detectors
+          repoUrl: 'https://github.com/trustyai-explainability/guardrails-regex-detector'
+          version: v0.2.0
+        - name: TrustyAI sidecar gateway
+          repoUrl: 'https://github.com/trustyai-explainability/vllm-orchestrator-gateway'
+          version: v0.2.1
+    ray:
+      managementState: Managed
+      releases:
+        - name: KubeRay
+          repoUrl: 'https://github.com/ray-project/kuberay'
+          version: 1.4.0
+    kueue:
+      managementState: Managed
+      releases:
+        - name: kueue
+          repoUrl: 'https://github.com/kubernetes-sigs/kueue'
+          version: 0.11.6
+    workbenches:
+      managementState: Managed
+      releases:
+        - name: Kubeflow Notebook Controller
+          repoUrl: 'https://github.com/kubeflow/kubeflow'
+          version: 1.10.0
+      workbenchNamespace: rhods-notebooks
+    dashboard:
+      managementState: Managed
+      url: rhods-dashboard-redhat-ods-applications.apps.rosa.rosa-l25h8.mkwm.p3.openshiftapps.com
+    modelmeshserving:
+      managementState: Managed
+      releases:
+        - name: ModelMesh Serving
+          repoUrl: 'https://github.com/kserve/modelmesh-serving'
+          version: v0.12.0
+    llamastackoperator:
+      managementState: Removed
+    datasciencepipelines:
+      managementState: Managed
+      releases:
+        - name: Kubeflow Pipelines
+          repoUrl: 'https://github.com/kubeflow/pipelines'
+          version: 2.5.0
+    trainingoperator:
+      managementState: Managed
+      releases:
+        - name: Kubeflow Training Operator
+          repoUrl: 'https://github.com/kubeflow/trainer'
+          version: 1.9.0

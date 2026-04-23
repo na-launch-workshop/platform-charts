@@ -11,7 +11,7 @@ kind: ApplicationSet
 metadata:
   name: "{{ $prefix }}observability"
   annotations:
-    argocd.argoproj.io/sync-wave: "-2"
+    argocd.argoproj.io/sync-wave: "8"
 spec:
   goTemplate: true
   goTemplateOptions:

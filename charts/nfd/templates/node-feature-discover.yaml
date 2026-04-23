@@ -5,10 +5,13 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
 spec:
+  enableTaints: false
+  instance: ''
   operand:
-    image: 'registry.redhat.io/openshift4/ose-node-feature-discovery-rhel9@sha256:be6d1ac8af4b7b2211450b65f5923d92b2a4d9a34530da8d81627e7823f89507'
     imagePullPolicy: IfNotPresent
     servicePort: 12000
+  prunerOnDelete: false
+  topologyUpdater: false
   workerConfig:
     configData: |
       core:

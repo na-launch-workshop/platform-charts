@@ -1,17 +1,13 @@
-{{- if or .Values.serverless.enabled 
-          (and .Values.servicemesh.enabled (not .Values.rhoai.enabled )) 
-          .Values.amq.enabled 
+{{- if and .Values.rhoai.enabled 
+        eq .Values.controller.name "workshop"
 }}
-{{- $prefix := "" }}
-{{- if eq .Values.controller.name "workshop" }}
-  {{- $prefix = "workshop-" }}
-{{- end }}
+{{- $prefix = "workshop-" }}
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: "{{ $prefix }}networking"
+  name: "{{ $prefix }}rhoai-services"
   annotations:
-    argocd.argoproj.io/sync-wave: "3"
+    argocd.argoproj.io/sync-wave: "10"
 spec:
   goTemplate: true
   goTemplateOptions:
@@ -19,30 +15,41 @@ spec:
   generators:
     - list:
         elements:
-        {{- if .Values.serverless.enabled }}
-          - application: "{{ $prefix }}serverless-service"
-            namespace: openshift-serverless
+          - application: "{{ $prefix }}node-feature-discovery-service"
+            namespace: openshift-nfd
+            wave: "1"
             chart: 
-              name: serverless
+              name: nfd
               url: https://na-launch-workshop.github.io/platform-charts
-              version: "{{ .Values.serverless.chartVersion }}"
-        {{- end }}
-        {{- if (and .Values.servicemesh.enabled (not .Values.rhoai.enabled)) }}
+              version: "{{ .Values.nfd.chartVersion }}"
+          - application: "{{ $prefix }}nvidia-gpu-service"
+            namespace: nvidia-gpu-operator
+            wave: "2"
+            chart: 
+              name: nvidia-gpu-operator
+              url: https://na-launch-workshop.github.io/platform-charts
+              version: "{{ .Values.nvidiagpu.chartVersion }}"
+          - application: "{{ $prefix }}authorino-service"
+            namespace: authorino
+            wave: "3"
+            chart: 
+              name: authorino
+              url: https://na-launch-workshop.github.io/platform-charts
+              version: "{{ .Values.authorino.chartVersion }}"
           - application: "{{ $prefix }}servicemesh-service"
             namespace: openshift-servicemesh
+            wave: "3"
             chart: 
               name: servicemesh
               url: https://na-launch-workshop.github.io/platform-charts
               version: "{{ .Values.servicemesh.chartVersion }}"
-        {{- end }}
-        {{- if .Values.amq.enabled }}
-          - application: "{{ $prefix }}amq-streams-service"
-            namespace: kafka-streams
+          - application: "{{ $prefix }}rhoai-service"
+            namespace: redhat-ods-operator
+            wave: "4"
             chart: 
-              name: amq
+              name: rhoai
               url: https://na-launch-workshop.github.io/platform-charts
-              version: "{{ .Values.amq.chartVersion }}"
-        {{- end }}
+              version: "{{ .Values.rhoai.chartVersion }}"
   template:
     metadata:
       name: "{{ `{{ .application }}` }}"

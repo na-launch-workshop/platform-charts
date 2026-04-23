@@ -1,7 +1,6 @@
 {{- if or .Values.sonarqube.enabled 
           (and .Values.devhub.enabled (not .Values.shared.enabled))
           .Values.devspaces.enabled 
-          .Values.rhoai.enabled 
 }}
 {{- $prefix := "" }}
 {{- if eq .Values.controller.name "workshop" }}
@@ -12,7 +11,7 @@ kind: ApplicationSet
 metadata:
   name: "{{ $prefix }}developer-services"
   annotations:
-    argocd.argoproj.io/sync-wave: "-1"
+    argocd.argoproj.io/sync-wave: "9"
 spec:
   goTemplate: true
   goTemplateOptions:
@@ -81,14 +80,6 @@ spec:
               capacity:
                 enabled: true
               {{- end }}
-        {{- end }}
-        {{- if .Values.rhoai.enabled }}
-          - application: "{{ $prefix }}rhoai-service"
-            namespace: redhat-ods-operator
-            chart: 
-              name: rhoai
-              url: https://na-launch-workshop.github.io/platform-charts
-              version: "{{ .Values.rhoai.chartVersion }}"
         {{- end }}
   template:
     metadata:

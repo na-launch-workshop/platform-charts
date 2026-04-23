@@ -1,6 +1,6 @@
 {{- if or .Values.gatekeeper.enabled 
           .Values.acs.enabled 
-          .Values.authorino.enabled
+          (and .Values.authorino.enabled (not .Values.rhoai.enabled))
           .Values.rhtas.enabled
           .Values.keycloak.enabled 
 }}
@@ -13,7 +13,7 @@ kind: ApplicationSet
 metadata:
   name: "{{ $prefix }}security"
   annotations:
-    argocd.argoproj.io/sync-wave: "-6"
+    argocd.argoproj.io/sync-wave: "4"
 spec:
   goTemplate: true
   goTemplateOptions:
@@ -47,7 +47,7 @@ spec:
               url: https://na-launch-workshop.github.io/platform-charts
               version: "{{ .Values.acs.chartVersion }}"
         {{- end }}
-        {{- if .Values.authorino.enabled }}
+        {{- if (and .Values.authorino.enabled (not .Values.rhoai.enabled)) }}
           - application: "{{ $prefix }}authorino-service"
             namespace: authorino
             chart: 

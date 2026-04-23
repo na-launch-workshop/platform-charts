@@ -6,3 +6,5 @@ metadata:
     argocd.argoproj.io/sync-wave: "-2"
 spec:
   upgradeStrategy: Default
+  targetNamespaces:
+    - redhat-ods-operator

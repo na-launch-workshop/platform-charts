@@ -1,13 +1,13 @@
 apiVersion: operators.coreos.com/v1alpha1
 kind: Subscription
 metadata:
-  name: servicemeshoperator
+  name: servicemeshoperator3
   namespace: istio-system
   annotations:
     argocd.argoproj.io/sync-wave: "-1"
 spec:
   channel: stable
   installPlanApproval: Automatic
-  name: servicemeshoperator
+  name: servicemeshoperator3
   source: redhat-operators
   sourceNamespace: openshift-marketplace

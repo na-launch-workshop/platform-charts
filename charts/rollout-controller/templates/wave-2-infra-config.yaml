@@ -1,6 +1,6 @@
 {{- if and (or (not (hasKey .Values "controller")) (ne .Values.controller.name "workshop"))
-      (or .Values.nfd.enabled 
-          .Values.nvidiagpu.enabled 
+      (or (and .Values.nfd.enabled (not .Values.rhoai.enabled)) 
+          (and .Values.nvidiagpu.enabled (not .Values.rhoai.enabled)) 
           (and .Values.gitea.enabled (not .Values.shared.enabled))
           (and .Values.gitlab.enabled (not .Values.shared.enabled))
           .Values.gitops.updater.enabled 
@@ -16,7 +16,7 @@ kind: ApplicationSet
 metadata:
   name: "{{ $prefix }}infrastructure-config"
   annotations:
-    argocd.argoproj.io/sync-wave: "-8"
+    argocd.argoproj.io/sync-wave: "2"
 spec:
   goTemplate: true
   goTemplateOptions:
@@ -24,7 +24,7 @@ spec:
   generators:
     - list:
         elements:
-        {{- if .Values.nfd.enabled }}
+        {{- if (and .Values.nfd.enabled (not .Values.rhoai.enabled)) }}
         - application: "{{ $prefix }}node-feature-discovery-service"
           namespace: openshift-nfd
           wave: "-2"
@@ -33,7 +33,7 @@ spec:
             url: https://na-launch-workshop.github.io/platform-charts
             version: "{{ .Values.nfd.chartVersion }}"
         {{- end }}
-        {{- if .Values.nvidiagpu.enabled }}
+        {{- if (and .Values.nvidiagpu.enabled (not .Values.rhoai.enabled)) }}
         - application: "{{ $prefix }}nvidia-gpu-service"
           namespace: nvidia-gpu-operator
           wave: "-2"
