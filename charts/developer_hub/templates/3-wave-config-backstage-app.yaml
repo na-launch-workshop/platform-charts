@@ -124,13 +124,6 @@ data:
             signIn:
               resolvers:
                 - resolver: preferredUsernameMatchingUserEntityName
-      externalAccess:
-        - type: static
-          options:
-            token: ${CLIENT_SECRET}              # Store the actual token in an environment variable
-            subject: admin                       # Tied to Backstage RBAC user
-          accessRestrictions:
-            - plugin: notifications              # Restrict this token only to the notifications plugin
     signInPage: oidc
 
     backend:
@@ -140,6 +133,13 @@ data:
       auth:
         keys:
           - secret: ${DEVHUB_BACKEND_SECRET}
+        externalAccess:
+          - type: static
+            options:
+              token: ${CLIENT_SECRET}              # Store the actual token in an environment variable
+              subject: backstage-notifications     # Tied to Backstage RBAC user
+            accessRestrictions:
+              - plugin: notifications              # Restrict this token only to the notifications plugin
       baseUrl: "https://backstage-developer-hub-backstage.{{ .Values.host }}"
       listen:
         port: 7007
@@ -208,16 +208,9 @@ data:
     permission:
       enabled: true
       rbac:
-        admin:
-          users:
-            - name: user:default/admin
-        pluginsWithPermission:
-          - catalog
-          - scaffolder
-          - permission
-          - kubernetes
-          - argocd
-          - notifications
+      # admin:
+      #   users:
+      #     - name: user:default/admin
         policies-csv-file: /opt/app-root/src/extra-files/rbac-policies.csv
         conditionalPoliciesFile: /opt/app-root/src/extra-files/policies.yaml
         policyFileReload: true
