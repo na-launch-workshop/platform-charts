@@ -1,7 +1,4 @@
-{{- if and .Values.rhoai.enabled 
-        eq .Values.controller.name "workshop"
-}}
-{{- $prefix = "workshop-" }}
+{{- if and .Values.rhoai.enabled (eq .Values.controller.name "workshop") }}
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
