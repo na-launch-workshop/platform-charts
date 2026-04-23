@@ -124,6 +124,13 @@ data:
             signIn:
               resolvers:
                 - resolver: preferredUsernameMatchingUserEntityName
+      externalAccess:
+        - type: static
+          options:
+            token: ${CLIENT_SECRET}              # Store the actual token in an environment variable
+            subject: backstage-notifications     # Used for identification in audit logs
+          accessRestrictions:
+            - plugin: notifications              # Restrict this token only to the notifications plugin
     signInPage: oidc
 
     backend:
