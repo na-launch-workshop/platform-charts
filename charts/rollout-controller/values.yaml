@@ -18,11 +18,11 @@ ansiblerunner:
   chartVersion: 1.0.1
 
 nfd:
-  chartVersion: 1.0.1
+  chartVersion: 1.0.2
   enabled: false 
 
 nvidiagpu:
-  chartVersion: 1.0.1
+  chartVersion: 1.0.2
   enabled: false 
 
 # GitOps
@@ -141,7 +141,7 @@ kiali:
   enabled: false
 
 rhoai:
-  chartVersion: 1.0.1
+  chartVersion: 1.0.2
   enabled: false
   enableCapacity: true
 

@@ -3,7 +3,7 @@ domain: openshift.api
 ## Current Default Rollout-Controller
 controller:
   name: infrastructure
-  chartVersion: 1.0.15
+  chartVersion: 1.0.16
 
 system_roles:
   chartVersion: 1.0.0
@@ -88,7 +88,7 @@ amq:
 
 # AI Requirements
 authorino:
-  chartVersion: 1.0.1
+  chartVersion: 1.0.2
   enabled: false
 
 kiali:
