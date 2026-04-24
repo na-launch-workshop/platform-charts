@@ -476,6 +476,16 @@ entries:
   orchestrator:
   - apiVersion: v2
     appVersion: 1.0.0
+    created: "2026-04-24T15:41:09.189468877Z"
+    description: A Helm chart for Kubernetes
+    digest: 89afd1c844bd3a25ca1ceeb9579927866f9dd7cb02e9f6050808d6ef3f24cb4a
+    name: orchestrator
+    type: application
+    urls:
+    - https://github.com/na-launch-workshop/platform-charts/releases/download/orchestrator-1.0.18/orchestrator-1.0.18.tgz
+    version: 1.0.18
+  - apiVersion: v2
+    appVersion: 1.0.0
     created: "2026-04-23T20:03:47.284284696Z"
     description: A Helm chart for Kubernetes
     digest: 1d0622864ed20dbd20d5f54b8f0a42d534ce6df7ea42436eff1a1f45d921e4cc
@@ -625,6 +635,16 @@ entries:
     version: 1.0.0
   rhoai:
   - apiVersion: v2
+    appVersion: 2.25.5
+    created: "2026-04-24T15:41:09.378668242Z"
+    description: A Helm chart for Kubernetes
+    digest: 9bfcd0617863c91636e9865104550d3b14aaf99eaaf86c9cb8ccfe66a45037d0
+    name: rhoai
+    type: application
+    urls:
+    - https://github.com/na-launch-workshop/platform-charts/releases/download/rhoai-1.0.3/rhoai-1.0.3.tgz
+    version: 1.0.3
+  - apiVersion: v2
     appVersion: 2.25.1
     created: "2026-04-14T19:15:02.894039498Z"
     description: A Helm chart for Kubernetes
@@ -646,6 +666,16 @@ entries:
     - https://github.com/na-launch-workshop/platform-charts/releases/download/rhtas-1.0.0/rhtas-1.0.0.tgz
     version: 1.0.0
   rollout-controller:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2026-04-24T15:41:09.58028053Z"
+    description: A Helm chart for Kubernetes
+    digest: cece9e6b0c1791ed14a8e307b3f86a437fc196c61a53e89975de2bdc3f339f7c
+    name: rollout-controller
+    type: application
+    urls:
+    - https://github.com/na-launch-workshop/platform-charts/releases/download/rollout-controller-1.0.18/rollout-controller-1.0.18.tgz
+    version: 1.0.18
   - apiVersion: v2
     appVersion: 1.0.0
     created: "2026-04-23T20:03:47.511010892Z"
@@ -710,6 +740,16 @@ entries:
   servicemesh:
   - apiVersion: v2
     appVersion: 3.3.2
+    created: "2026-04-24T15:41:09.778004948Z"
+    description: A Helm chart for Kubernetes
+    digest: cf49c52cdcb9582763183d25ad33e58089ccfc010f7d9efe8d89f1b6933147e2
+    name: servicemesh
+    type: application
+    urls:
+    - https://github.com/na-launch-workshop/platform-charts/releases/download/servicemesh-1.0.4/servicemesh-1.0.4.tgz
+    version: 1.0.4
+  - apiVersion: v2
+    appVersion: 3.3.2
     created: "2026-04-23T19:43:29.820614107Z"
     description: A Helm chart for Kubernetes
     digest: d8ea1795508318b20bced10006525f08765c6de8e62bd4627d42ccb17a407009
@@ -771,4 +811,4 @@ entries:
     urls:
     - https://github.com/na-launch-workshop/platform-charts/releases/download/user-sync-1.0.0/user-sync-1.0.0.tgz
     version: 1.0.0
-generated: "2026-04-23T20:27:04.695480345Z"
+generated: "2026-04-24T15:41:09.778131385Z"
