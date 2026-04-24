@@ -6,5 +6,3 @@ metadata:
     argocd.argoproj.io/sync-wave: "-2"
 spec:
   upgradeStrategy: Default
-  targetNamespaces:
-    - istio-system
