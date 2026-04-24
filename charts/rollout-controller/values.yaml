@@ -150,7 +150,7 @@ serverless:
   enabled: false
 
 servicemesh:
-  chartVersion: 1.0.5
+  chartVersion: 1.0.6
   enabled: false
 
 tracing:
