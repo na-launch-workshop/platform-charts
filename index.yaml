@@ -476,6 +476,16 @@ entries:
   orchestrator:
   - apiVersion: v2
     appVersion: 1.0.0
+    created: "2026-04-24T16:19:21.147556765Z"
+    description: A Helm chart for Kubernetes
+    digest: 19193a61fbc5974889bac242c1326d7201add5a76492322d11b1c17115da4e48
+    name: orchestrator
+    type: application
+    urls:
+    - https://github.com/na-launch-workshop/platform-charts/releases/download/orchestrator-1.0.19/orchestrator-1.0.19.tgz
+    version: 1.0.19
+  - apiVersion: v2
+    appVersion: 1.0.0
     created: "2026-04-24T15:41:09.189468877Z"
     description: A Helm chart for Kubernetes
     digest: 89afd1c844bd3a25ca1ceeb9579927866f9dd7cb02e9f6050808d6ef3f24cb4a
@@ -668,6 +678,16 @@ entries:
   rollout-controller:
   - apiVersion: v2
     appVersion: 1.0.0
+    created: "2026-04-24T16:19:21.360051211Z"
+    description: A Helm chart for Kubernetes
+    digest: 2c59f04a97cd6ef3254cbbc2747fd4b344a721c4da493e0f1a88180ab74a1fbf
+    name: rollout-controller
+    type: application
+    urls:
+    - https://github.com/na-launch-workshop/platform-charts/releases/download/rollout-controller-1.0.19/rollout-controller-1.0.19.tgz
+    version: 1.0.19
+  - apiVersion: v2
+    appVersion: 1.0.0
     created: "2026-04-24T15:41:09.58028053Z"
     description: A Helm chart for Kubernetes
     digest: cece9e6b0c1791ed14a8e307b3f86a437fc196c61a53e89975de2bdc3f339f7c
@@ -811,4 +831,4 @@ entries:
     urls:
     - https://github.com/na-launch-workshop/platform-charts/releases/download/user-sync-1.0.0/user-sync-1.0.0.tgz
     version: 1.0.0
-generated: "2026-04-24T15:41:09.778131385Z"
+generated: "2026-04-24T16:19:21.36018935Z"
