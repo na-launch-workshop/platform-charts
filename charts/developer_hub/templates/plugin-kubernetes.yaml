@@ -14,7 +14,7 @@ data:
               name: {{ .name }}
               skipTLSVerify: true
               oidcTokenProvider: oidc
-              url: https://api.{{ .domain }}:{{ .api_port }}
+              url: https://api.{{ if eq .cluster.type "hcp" }}{{ range $i, $e := (splitList "." .domain) }}{{ if $i }}.{{ $e }}{{ end }}{{ end }}{{ else }}{{ .domain }}{{ end }}:{{ .api_port }}
             {{- end }}
             {{- else }}
             []
