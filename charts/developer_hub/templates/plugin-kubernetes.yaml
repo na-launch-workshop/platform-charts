@@ -23,6 +23,12 @@ data:
         - apiVersion: v1
           group: route.openshift.io
           plural: routes
+        - apiVersion: 'v1'
+          group: 'tekton.dev'
+          plural: 'pipelineruns'
+        - apiVersion: 'v1'
+          group: 'tekton.dev'
+          plural: 'taskruns'
       serviceLocatorMethod:
         type: multiTenant
 
