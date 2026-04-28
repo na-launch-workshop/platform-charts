@@ -14,7 +14,7 @@ data:
               name: {{ .name }}
               skipTLSVerify: true
               oidcTokenProvider: oidc
-              url: https://api.{{ if eq .cluster.type "hcp" }}{{ range $i, $e := (splitList "." .domain) }}{{ if $i }}.{{ $e }}{{ end }}{{ end }}{{ else }}{{ .domain }}{{ end }}:{{ .api_port }}
+              url: {{ (cluster.type == 'hcp' and (cluster['domain'] | default('', true) | length > 0)) | ternary('rosa.', '') }}{{ cluster['domain'] | default(terraform_outputs[cluster.name + '_domain']['value'], true) }}
             {{- end }}
             {{- else }}
             []
