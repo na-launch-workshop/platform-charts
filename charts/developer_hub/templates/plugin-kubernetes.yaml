@@ -10,25 +10,35 @@ data:
           clusters:
             {{- if .Values.clusters }}
             {{- range .Values.clusters  }}
-            - authProvider: oidc
+            # Keycloak is not a supported OIDC provider for Kubernetes plugin
+            # https://github.com/backstage/backstage/issues/19836
+            # - authProvider: oidc
+            #   name: {{ .name }}
+            #   skipTLSVerify: true
+            #   oidcTokenProvider: oidc
+            #   url: https://api.{{ (eq .type "hcp") | ternary (.domain | replace "rosa." "" ) .domain }}:{{ .api_port }}
+            - authProvider: serviceAccount
+              customResources:
+              - apiVersion: v1alpha1
+                group: argoproj.io
+                plural: rollouts
+              - apiVersion: v1
+                group: route.openshift.io
+                plural: routes
+              - apiVersion: v1
+                group: tekton.dev
+                plural: pipelineruns
+              - apiVersion: v1
+                group: tekton.dev
+                plural: taskruns
               name: {{ .name }}
+              serviceAccountToken: ${token}
               skipTLSVerify: true
-              oidcTokenProvider: oidc
               url: https://api.{{ (eq .type "hcp") | ternary (.domain | replace "rosa." "" ) .domain }}:{{ .api_port }}
             {{- end }}
             {{- else }}
             []
             {{- end }}
-      customResources:
-        - apiVersion: v1
-          group: route.openshift.io
-          plural: routes
-        - apiVersion: 'v1'
-          group: 'tekton.dev'
-          plural: 'pipelineruns'
-        - apiVersion: 'v1'
-          group: 'tekton.dev'
-          plural: 'taskruns'
       serviceLocatorMethod:
         type: multiTenant
 
