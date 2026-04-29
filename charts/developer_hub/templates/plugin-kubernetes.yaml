@@ -14,7 +14,7 @@ data:
               name: {{ .name }}
               skipTLSVerify: true
               oidcTokenProvider: oidc
-              url: https://api.{{ (cluster.type == 'hcp') | ternary(.domain | replace('rosa.', '', 1), .domain) }}:{{ .api_port }}
+              url: https://api.{{ (eq .type "hcp") | ternary (.domain | replace "rosa." "" ) .domain }}:{{ .api_port }}
             {{- end }}
             {{- else }}
             []
