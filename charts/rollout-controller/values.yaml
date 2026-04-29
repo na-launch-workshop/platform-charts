@@ -80,7 +80,7 @@ github:
   enabled: false
 
 gitlab:
-  chartVersion: 1.0.1
+  chartVersion: 1.0.2
   enabled: true
   namespace: gitlab-system
   discoveryEnabled: true
@@ -167,7 +167,7 @@ developers:
   users: []
 
 devhub:
-  chartVersion: 1.0.26
+  chartVersion: 1.0.27
   enabled: false
 
 devspaces:
