@@ -18,14 +18,12 @@ ansible-runner:
           - name: install-plans
       - name: kubernetes.core
         source: "https://galaxy.ansible.com"
-      - name: community.kubernetes
-        source: "https://galaxy.ansible.com"
       - name: community.okd
         source: "https://galaxy.ansible.com"
 
   additionalVars:
     namespace: "gitlab-system"
-    csv_name: "gitlab-operator-kubernetes.v2.4.1"
+    csv_name: "gitlab-operator-kubernetes.v2.8.1"
 
   scope: Role
   rules:

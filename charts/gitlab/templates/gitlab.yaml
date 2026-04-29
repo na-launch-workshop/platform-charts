@@ -18,6 +18,9 @@ spec:
         hosts:
           domain: "{{ .Values.domain }}"
         appConfig:
+          # https://docs.gitlab.com/topics/autodevops/
+          autoDevOps:
+            enabled: false
           # https://docs.gitlab.com/integration/omniauth/#configure-common-settings
           omniauth:
             enabled: true

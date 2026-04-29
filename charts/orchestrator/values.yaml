@@ -3,7 +3,7 @@ domain: openshift.api
 ## Current Default Rollout-Controller
 controller:
   name: infrastructure
-  chartVersion: 1.0.23
+  chartVersion: 1.0.24
 
 system_roles:
   chartVersion: 1.0.0
@@ -52,7 +52,7 @@ github:
   enabled: false
 
 gitlab:
-  chartVersion: 1.0.0
+  chartVersion: 1.0.1
   enabled: true
   namespace: gitlab-system
   discoveryEnabled: true

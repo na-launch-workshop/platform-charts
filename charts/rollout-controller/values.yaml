@@ -80,7 +80,7 @@ github:
   enabled: false
 
 gitlab:
-  chartVersion: 1.0.0
+  chartVersion: 1.0.1
   enabled: true
   namespace: gitlab-system
   discoveryEnabled: true
