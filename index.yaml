@@ -70,7 +70,7 @@ entries:
     appVersion: 3.25.0
     created: "2026-04-21T19:14:58.676048138Z"
     description: A chart for deploying dev spaces
-    digest: 5779f3d4f88c610daf8ba13350f80a3ebdf261fa174cb339d76465560dec5396
+    digest: 5d15a416d3cceed1e94ab7a4dc1d0840d7123452a6cc0b375de608f603d39e73
     name: dev-spaces
     type: application
     urls:
