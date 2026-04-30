@@ -55,7 +55,7 @@ spec:
       clusterRoles:
         - "developers"
     startTimeoutSeconds: 300
-    maxNumberOfRunningWorkspacesPerUser: 2
+    maxNumberOfRunningWorkspacesPerUser: 3
     maxNumberOfWorkspacesPerUser: 5
     secondsOfInactivityBeforeIdling: 1800
     storage:
