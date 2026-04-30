@@ -65,7 +65,17 @@ entries:
     urls:
     - https://github.com/na-launch-workshop/platform-charts/releases/download/cert-manager-1.0.0/cert-manager-1.0.0.tgz
     version: 1.0.0
-  dev-spaces:
+  dev-spaces:  
+  - apiVersion: v2
+    appVersion: 3.25.0
+    created: "2026-04-21T19:14:58.676048138Z"
+    description: A chart for deploying dev spaces
+    digest: 5779f3d4f88c610daf8ba13350f80a3ebdf261fa174cb339d76465560dec5396
+    name: dev-spaces
+    type: application
+    urls:
+    - https://github.com/na-launch-workshop/platform-charts/releases/download/dev-spaces-1.0.2/dev-spaces-1.0.2.tgz
+    version: 1.0.2
   - apiVersion: v2
     appVersion: 3.25.0
     created: "2026-04-14T19:14:58.676048138Z"
