@@ -57,6 +57,16 @@ entries:
   cert-manager:
   - apiVersion: v2
     appVersion: 1.18.0
+    created: "2026-05-13T17:40:14.392781546Z"
+    description: A Helm chart for Kubernetes
+    digest: 0567a5e2999106e86888d730eccc56b2edfa56ed68e4a0f4aac0b656dcf2ce22
+    name: cert-manager
+    type: application
+    urls:
+    - https://github.com/na-launch-workshop/platform-charts/releases/download/cert-manager-1.0.1/cert-manager-1.0.1.tgz
+    version: 1.0.1
+  - apiVersion: v2
+    appVersion: 1.18.0
     created: "2026-04-14T19:14:58.475877003Z"
     description: A Helm chart for Kubernetes
     digest: 0d86fcac2c0273aa8e374e047fc9882aaf216e14b2b9ff00af80afea20268316
@@ -65,7 +75,7 @@ entries:
     urls:
     - https://github.com/na-launch-workshop/platform-charts/releases/download/cert-manager-1.0.0/cert-manager-1.0.0.tgz
     version: 1.0.0
-  dev-spaces:  
+  dev-spaces:
   - apiVersion: v2
     appVersion: 3.25.0
     created: "2026-04-21T19:14:58.676048138Z"
@@ -941,4 +951,4 @@ entries:
     urls:
     - https://github.com/na-launch-workshop/platform-charts/releases/download/user-sync-1.0.0/user-sync-1.0.0.tgz
     version: 1.0.0
-generated: "2026-04-30T00:39:19.639985214Z"
+generated: "2026-05-13T17:40:14.39288577Z"
