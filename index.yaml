@@ -358,6 +358,20 @@ entries:
   gitlab:
   - apiVersion: v2
     appVersion: 2.8.0
+    created: "2026-06-15T15:13:03.215929739Z"
+    dependencies:
+    - name: ansible-runner
+      repository: https://na-launch-workshop.github.io/platform-supporting-charts
+      version: ^1.0.2
+    description: A Helm chart for Kubernetes
+    digest: 1c37d3fc8387871502778d0f40fcf9cddbbc88821701e533a2bb9b5ac455598b
+    name: gitlab
+    type: application
+    urls:
+    - https://github.com/na-launch-workshop/platform-charts/releases/download/gitlab-1.0.2/gitlab-1.0.2.tgz
+    version: 1.0.2
+  - apiVersion: v2
+    appVersion: 2.8.0
     created: "2026-04-14T19:15:00.026250944Z"
     dependencies:
     - name: ansible-runner
@@ -951,4 +965,4 @@ entries:
     urls:
     - https://github.com/na-launch-workshop/platform-charts/releases/download/user-sync-1.0.0/user-sync-1.0.0.tgz
     version: 1.0.0
-generated: "2026-05-13T17:40:14.39288577Z"
+generated: "2026-06-15T15:13:03.216057404Z"
