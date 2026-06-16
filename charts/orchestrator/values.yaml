@@ -3,7 +3,7 @@ domain: openshift.api
 ## Current Default Rollout-Controller
 controller:
   name: infrastructure
-  chartVersion: 1.0.30
+  chartVersion: 1.0.31
 
 system_roles:
   chartVersion: 1.0.0
@@ -38,7 +38,7 @@ vault:
 
 # Identity Management
 keycloak:
-  chartVersion: 2.0.5
+  chartVersion: 2.0.6
   enabled: false
 
 # Artifacts
@@ -116,7 +116,7 @@ developers:
   users: []
 
 devhub:
-  chartVersion: 1.0.28
+  chartVersion: 1.0.29
   enabled: false
 
 devspaces:
