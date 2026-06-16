@@ -63,7 +63,7 @@ vault:
 
 # Identity Management
 keycloak:
-  chartVersion: 2.0.7
+  chartVersion: 2.0.8
   enabled: false
 
 usersync:
