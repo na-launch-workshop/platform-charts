@@ -9,3 +9,6 @@ db:
   password: keycloak
   database: keycloak
   storage: 1Gi
+openshift_client:
+  id: openshift
+  secret: keycloak

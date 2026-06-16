@@ -20,6 +20,7 @@ spec:
       - clientId: openshift
         name: openshift
         description: Client for OpenShift authentication
+        secret: {{ .Values.openshift_client.secret }}
         enabled: true
         protocol: openid-connect
         clientAuthenticatorType: client-secret
