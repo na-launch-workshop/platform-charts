@@ -35,7 +35,7 @@ spec:
                   - secretRef:
                       name: keycloak-client-secret-openshift
                   - secretRef:
-                      name: credential-keycloak
+                      name: keycloak-client-secret-openshift
               requirements:
                 collections:
                   - name: bootstrap.post_operator_configuration

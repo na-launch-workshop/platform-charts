@@ -31,7 +31,7 @@ spec:
             --key "openshift" \
             --secret "$OIDC_CLIENT_SECRET" \
             --skip-local-2fa \
-            --auto-discover-url "https://keycloak-keycloak.{{ .Values.domain }}/auth/realms/openshift/.well-known/openid-configuration" \
+            --auto-discover-url "https://keycloak.{{ .Values.domain }}/realms/openshift/.well-known/openid-configuration" \
             --group-claim-name "groups" \
             --admin-group "workshop-admins" \
             --restricted-group "developers" \

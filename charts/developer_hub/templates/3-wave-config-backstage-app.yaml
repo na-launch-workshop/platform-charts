@@ -119,7 +119,7 @@ data:
           production:
             clientId: ${CLIENT_ID}
             clientSecret: ${CLIENT_SECRET}
-            metadataUrl: https://keycloak-keycloak.{{ .Values.host }}/auth/realms/openshift/.well-known/openid-configuration
+            metadataUrl: https://keycloak.{{ .Values.host }}/realms/openshift/.well-known/openid-configuration
             prompt: auto
             signIn:
               resolvers:

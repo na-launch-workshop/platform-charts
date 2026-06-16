@@ -23,7 +23,7 @@ spec:
               redirect_uri: "https://gitlab.{{ .Values.domain }}/users/auth/openid_connect/callback"
             scope: ["openid", "profile", "email"]
             response_type: "code"
-            issuer: "https://keycloak-keycloak.{{ .Values.domain }}/auth/realms/openshift"
+            issuer: "https://keycloak.{{ .Values.domain }}/realms/openshift"
             discovery: true
             uid_field: "uid"
   data:
