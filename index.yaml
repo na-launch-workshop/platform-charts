@@ -99,6 +99,16 @@ entries:
   developerhub:
   - apiVersion: v2
     appVersion: 1.8.6
+    created: "2026-06-16T19:33:26.943716653Z"
+    description: A chart for deploying Red Hat Developer Hub.
+    digest: c1c55bbb1cb0f7efcbc0d783d1dbd1e4eebd4d92e0cad04cc673363cfa6ece57
+    name: developerhub
+    type: application
+    urls:
+    - https://github.com/na-launch-workshop/platform-charts/releases/download/developerhub-1.0.29/developerhub-1.0.29.tgz
+    version: 1.0.29
+  - apiVersion: v2
+    appVersion: 1.8.6
     created: "2026-04-30T00:35:46.242910822Z"
     description: A chart for deploying Red Hat Developer Hub.
     digest: 2a3e115dc0ba037feefa0d1fe8f7b701fe6bb59c0763ee337177883beaba4e98
@@ -426,6 +436,16 @@ entries:
   keycloak:
   - apiVersion: v2
     appVersion: "26.6"
+    created: "2026-06-16T19:33:27.261256098Z"
+    description: A Helm chart for Kubernetes
+    digest: ec4c31f7e3459ff83bf2a3142ef24b98e1c5a3cae50ebab3cdb73b166321a5d6
+    name: keycloak
+    type: application
+    urls:
+    - https://github.com/na-launch-workshop/platform-charts/releases/download/keycloak-2.0.6/keycloak-2.0.6.tgz
+    version: 2.0.6
+  - apiVersion: v2
+    appVersion: "26.6"
     created: "2026-06-16T18:56:48.256434611Z"
     description: A Helm chart for Kubernetes
     digest: 3f72d17d66316c2014ecf689f7df63ddec057eeb2b36afd372303cbd0b14eed4
@@ -606,6 +626,16 @@ entries:
     - https://github.com/na-launch-workshop/platform-charts/releases/download/opentelemetry-1.0.0/opentelemetry-1.0.0.tgz
     version: 1.0.0
   orchestrator:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2026-06-16T19:33:27.537125038Z"
+    description: A Helm chart for Kubernetes
+    digest: cc2b87213e0be9e8e2573377f576537923266f71c6c85027afba40bae1d6c978
+    name: orchestrator
+    type: application
+    urls:
+    - https://github.com/na-launch-workshop/platform-charts/releases/download/orchestrator-1.0.31/orchestrator-1.0.31.tgz
+    version: 1.0.31
   - apiVersion: v2
     appVersion: 1.0.0
     created: "2026-06-16T19:28:48.666432791Z"
@@ -900,6 +930,16 @@ entries:
   rollout-controller:
   - apiVersion: v2
     appVersion: 1.0.0
+    created: "2026-06-16T19:33:27.824412563Z"
+    description: A Helm chart for Kubernetes
+    digest: 57db32773cc72af0c40da5ac625fe1abd69304d6b3d8605a9325c2725c78bacb
+    name: rollout-controller
+    type: application
+    urls:
+    - https://github.com/na-launch-workshop/platform-charts/releases/download/rollout-controller-1.0.31/rollout-controller-1.0.31.tgz
+    version: 1.0.31
+  - apiVersion: v2
+    appVersion: 1.0.0
     created: "2026-06-16T19:28:48.852319239Z"
     description: A Helm chart for Kubernetes
     digest: 0668a93ac6d3b842a5978cf487608bdd2d24be16a0d7429daa39a426b42c587b
@@ -1155,6 +1195,16 @@ entries:
   user-sync:
   - apiVersion: v2
     appVersion: 1.0.0
+    created: "2026-06-16T19:33:28.090319353Z"
+    description: A Helm chart that installs Node Feature Discovery in OpenShift
+    digest: 8140f9ffb49344219cd1f1e6133b7d80b81875114981ab20da6c185c42068417
+    name: user-sync
+    type: application
+    urls:
+    - https://github.com/na-launch-workshop/platform-charts/releases/download/user-sync-1.0.2/user-sync-1.0.2.tgz
+    version: 1.0.2
+  - apiVersion: v2
+    appVersion: 1.0.0
     created: "2026-04-14T19:15:04.364117707Z"
     description: A Helm chart that installs Node Feature Discovery in OpenShift
     digest: 776f4991ee8f25f2267c99aa116383f92b7cdcbc7584ffc475cfc596cdd065bf
@@ -1163,4 +1213,4 @@ entries:
     urls:
     - https://github.com/na-launch-workshop/platform-charts/releases/download/user-sync-1.0.0/user-sync-1.0.0.tgz
     version: 1.0.0
-generated: "2026-06-16T19:28:48.852642594Z"
+generated: "2026-06-16T19:33:28.090764347Z"
