@@ -398,6 +398,16 @@ entries:
   keycloak:
   - apiVersion: v2
     appVersion: "26.6"
+    created: "2026-06-16T18:26:42.719924276Z"
+    description: A Helm chart for Kubernetes
+    digest: b27002b90d070e9307dd64255cf0632036e61720f70bc98cc84edc772a792ac5
+    name: keycloak
+    type: application
+    urls:
+    - https://github.com/na-launch-workshop/platform-charts/releases/download/keycloak-2.0.1/keycloak-2.0.1.tgz
+    version: 2.0.1
+  - apiVersion: v2
+    appVersion: "26.6"
     created: "2026-06-16T18:04:19.23569402Z"
     description: A Helm chart for Kubernetes
     digest: 937650d15682174825fb6d2dc44c41a395d95671cb9455a7cf6e266cfee252e4
@@ -538,6 +548,16 @@ entries:
     - https://github.com/na-launch-workshop/platform-charts/releases/download/opentelemetry-1.0.0/opentelemetry-1.0.0.tgz
     version: 1.0.0
   orchestrator:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2026-06-16T18:26:42.944104456Z"
+    description: A Helm chart for Kubernetes
+    digest: 5b8150f9eb037fc088645219960ad14c7ee871b149e01bbe15feb812df419753
+    name: orchestrator
+    type: application
+    urls:
+    - https://github.com/na-launch-workshop/platform-charts/releases/download/orchestrator-1.0.26/orchestrator-1.0.26.tgz
+    version: 1.0.26
   - apiVersion: v2
     appVersion: 1.0.0
     created: "2026-06-16T18:04:19.482765773Z"
@@ -782,6 +802,16 @@ entries:
   rollout-controller:
   - apiVersion: v2
     appVersion: 1.0.0
+    created: "2026-06-16T18:26:43.137612887Z"
+    description: A Helm chart for Kubernetes
+    digest: f49833c72ea36972cc45eccad74384e6bf0f8b9ba425dd125e2210dae65b4fd4
+    name: rollout-controller
+    type: application
+    urls:
+    - https://github.com/na-launch-workshop/platform-charts/releases/download/rollout-controller-1.0.26/rollout-controller-1.0.26.tgz
+    version: 1.0.26
+  - apiVersion: v2
+    appVersion: 1.0.0
     created: "2026-06-16T18:04:19.744717236Z"
     description: A Helm chart for Kubernetes
     digest: f019ccc676f67684249bea4c4d8b21258259a4daf9caf74aa21c0520e9904b56
@@ -995,4 +1025,4 @@ entries:
     urls:
     - https://github.com/na-launch-workshop/platform-charts/releases/download/user-sync-1.0.0/user-sync-1.0.0.tgz
     version: 1.0.0
-generated: "2026-06-16T18:04:19.74489455Z"
+generated: "2026-06-16T18:26:43.138152902Z"
