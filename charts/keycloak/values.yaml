@@ -4,3 +4,8 @@ cluster:
   region: us-east-2
 settings:
   registrationAllowed: false
+db:
+  host: postgres-keycloak
+  port: 5432
+  database: keycloak
+  secretName: keycloak-db-secret

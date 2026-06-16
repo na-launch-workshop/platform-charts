@@ -10,6 +10,17 @@ metadata:
   name: keycloak
 spec:
   instances: 1
+  db:
+    vendor: postgres
+    host: {{ .Values.db.host }}
+    port: {{ .Values.db.port | default 5432 }}
+    database: {{ .Values.db.database | default "keycloak" }}
+    usernameSecret:
+      name: {{ .Values.db.secretName | default "keycloak-db-secret" }}
+      key: username
+    passwordSecret:
+      name: {{ .Values.db.secretName | default "keycloak-db-secret" }}
+      key: password
   hostname:
     hostname: keycloak.{{ .Values.domain }}
   ingress:
@@ -22,4 +33,25 @@ spec:
     httpEnabled: true
   proxy:
     headers: xforwarded
+  unsupported:
+    podTemplate:
+      spec:
+        containers:
+        - volumeMounts:
+          - mountPath: /opt/keycloak/providers
+            name: providers
+        initContainers:
+        - args:
+          - curl -fsSLo /providers/keycloak-events-0.51.jar https://repo1.maven.org/maven2/io/phasetwo/keycloak/keycloak-events/0.51/keycloak-events-0.51.jar
+          command:
+          - sh
+          - -c
+          image: registry.access.redhat.com/ubi9/ubi-minimal:latest
+          name: fetch-events-spi
+          volumeMounts:
+          - mountPath: /providers
+            name: providers
+        volumes:
+        - emptyDir: {}
+          name: providers
 {{- end }}
