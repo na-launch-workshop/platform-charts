@@ -67,7 +67,7 @@ keycloak:
   enabled: false
 
 usersync:
-  chartVersion: 1.0.2
+  chartVersion: 1.0.3
 
 # Artifacts
 gitea:
