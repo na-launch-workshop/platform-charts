@@ -9,6 +9,10 @@ metadata:
     app: sso
   name: keycloak
 spec:
+  bootstrapAdmin:
+    user:
+      secret:
+        name: keycloak-initial-admin
   instances: 1
   db:
     vendor: postgres
