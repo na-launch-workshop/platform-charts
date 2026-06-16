@@ -343,6 +343,20 @@ entries:
   gitea:
   - apiVersion: v2
     appVersion: 1.25.4
+    created: "2026-06-16T19:28:48.091036289Z"
+    dependencies:
+    - name: gitea
+      repository: https://dl.gitea.io/charts/
+      version: 12.5.0
+    description: A Helm chart for Kubernetes
+    digest: 2b5a82e64e2c20db459f13a4805d89d8fd684f5909a7fa38674fbf120c286d07
+    name: gitea
+    type: application
+    urls:
+    - https://github.com/na-launch-workshop/platform-charts/releases/download/gitea-1.0.1/gitea-1.0.1.tgz
+    version: 1.0.1
+  - apiVersion: v2
+    appVersion: 1.25.4
     created: "2026-04-14T19:14:59.836782006Z"
     dependencies:
     - name: gitea
@@ -356,6 +370,20 @@ entries:
     - https://github.com/na-launch-workshop/platform-charts/releases/download/gitea-1.0.0/gitea-1.0.0.tgz
     version: 1.0.0
   gitlab:
+  - apiVersion: v2
+    appVersion: 2.8.0
+    created: "2026-06-16T19:28:48.461382977Z"
+    dependencies:
+    - name: ansible-runner
+      repository: https://na-launch-workshop.github.io/platform-supporting-charts
+      version: ^1.0.2
+    description: A Helm chart for Kubernetes
+    digest: c15fa8132236ebee5c286226ed8891bdf04cab347bdf28b0cd69781867a8b4e7
+    name: gitlab
+    type: application
+    urls:
+    - https://github.com/na-launch-workshop/platform-charts/releases/download/gitlab-1.0.3/gitlab-1.0.3.tgz
+    version: 1.0.3
   - apiVersion: v2
     appVersion: 2.8.0
     created: "2026-06-15T15:13:03.215929739Z"
@@ -578,6 +606,16 @@ entries:
     - https://github.com/na-launch-workshop/platform-charts/releases/download/opentelemetry-1.0.0/opentelemetry-1.0.0.tgz
     version: 1.0.0
   orchestrator:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2026-06-16T19:28:48.666432791Z"
+    description: A Helm chart for Kubernetes
+    digest: 19241385b719c35f67eaf917e23fcc9dc1d84f254ffdcc43e08ef80576f02994
+    name: orchestrator
+    type: application
+    urls:
+    - https://github.com/na-launch-workshop/platform-charts/releases/download/orchestrator-1.0.30/orchestrator-1.0.30.tgz
+    version: 1.0.30
   - apiVersion: v2
     appVersion: 1.0.0
     created: "2026-06-16T18:56:48.554802086Z"
@@ -862,6 +900,16 @@ entries:
   rollout-controller:
   - apiVersion: v2
     appVersion: 1.0.0
+    created: "2026-06-16T19:28:48.852319239Z"
+    description: A Helm chart for Kubernetes
+    digest: 0668a93ac6d3b842a5978cf487608bdd2d24be16a0d7429daa39a426b42c587b
+    name: rollout-controller
+    type: application
+    urls:
+    - https://github.com/na-launch-workshop/platform-charts/releases/download/rollout-controller-1.0.30/rollout-controller-1.0.30.tgz
+    version: 1.0.30
+  - apiVersion: v2
+    appVersion: 1.0.0
     created: "2026-06-16T18:56:48.868280634Z"
     description: A Helm chart for Kubernetes
     digest: 2e82fb2adcac51721352702bcb51b8d4c08f54f2d5c342f5ec0f5d260393825e
@@ -1115,4 +1163,4 @@ entries:
     urls:
     - https://github.com/na-launch-workshop/platform-charts/releases/download/user-sync-1.0.0/user-sync-1.0.0.tgz
     version: 1.0.0
-generated: "2026-06-16T18:56:48.868510556Z"
+generated: "2026-06-16T19:28:48.852642594Z"
