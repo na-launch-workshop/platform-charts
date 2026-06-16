@@ -5,7 +5,7 @@ cluster:
 settings:
   registrationAllowed: false
 db:
-  host: postgres-keycloak
-  port: 5432
+  username: keycloak
+  password: keycloak
   database: keycloak
-  secretName: keycloak-db-secret
+  storage: 1Gi

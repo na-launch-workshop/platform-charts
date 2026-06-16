@@ -12,14 +12,14 @@ spec:
   instances: 1
   db:
     vendor: postgres
-    host: {{ .Values.db.host }}
-    port: {{ .Values.db.port | default 5432 }}
+    host: postgresql
+    port: 5432
     database: {{ .Values.db.database | default "keycloak" }}
     usernameSecret:
-      name: {{ .Values.db.secretName | default "keycloak-db-secret" }}
+      name: keycloak-db-secret
       key: username
     passwordSecret:
-      name: {{ .Values.db.secretName | default "keycloak-db-secret" }}
+      name: keycloak-db-secret
       key: password
   hostname:
     hostname: keycloak.{{ .Values.domain }}

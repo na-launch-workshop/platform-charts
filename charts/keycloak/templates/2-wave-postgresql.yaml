@@ -1,0 +1,98 @@
+{{- if not .Values.shared.enabled }}
+apiVersion: v1
+kind: Secret
+metadata:
+  name: keycloak-db-secret
+  annotations:
+    argocd.argoproj.io/sync-wave: "-2"
+type: Opaque
+stringData:
+  username: {{ .Values.db.username | default "keycloak" }}
+  password: {{ .Values.db.password | default "keycloak" }}
+  database: {{ .Values.db.database | default "keycloak" }}
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: postgresql
+  annotations:
+    argocd.argoproj.io/sync-wave: "-2"
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: {{ .Values.db.storage | default "1Gi" }}
+  volumeMode: Filesystem
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgresql
+  annotations:
+    argocd.argoproj.io/sync-wave: "-2"
+    template.openshift.io/expose-uri: postgres://{.spec.clusterIP}:{.spec.ports[?(.name=="postgresql")].port}
+  labels:
+    template: postgresql-persistent-template
+spec:
+  ports:
+  - name: postgresql
+    port: 5432
+    protocol: TCP
+    targetPort: 5432
+  selector:
+    app: postgres
+  type: ClusterIP
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postgres
+  annotations:
+    argocd.argoproj.io/sync-wave: "-2"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: postgres
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+  template:
+    metadata:
+      labels:
+        app: postgres
+    spec:
+      containers:
+      - name: postgres
+        image: registry.redhat.io/rhel9/postgresql-15:latest
+        imagePullPolicy: Always
+        env:
+        - name: POSTGRESQL_USER
+          valueFrom:
+            secretKeyRef:
+              name: keycloak-db-secret
+              key: username
+        - name: POSTGRESQL_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: keycloak-db-secret
+              key: password
+        - name: POSTGRESQL_DATABASE
+          valueFrom:
+            secretKeyRef:
+              name: keycloak-db-secret
+              key: database
+        ports:
+        - containerPort: 5432
+          protocol: TCP
+        volumeMounts:
+        - mountPath: /var/lib/pgsql/data
+          name: postgresql-data
+      volumes:
+      - name: postgresql-data
+        persistentVolumeClaim:
+          claimName: postgresql
+{{- end }}
