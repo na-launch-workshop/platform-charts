@@ -1,5 +1,5 @@
 {{- if not .Values.shared.enabled }}
-apiVersion: keycloak.org/v1alpha1
+apiVersion: k8s.keycloak.org/v2alpha1
 kind: Keycloak
 metadata:
   annotations:
@@ -9,16 +9,17 @@ metadata:
     app: sso
   name: keycloak
 spec:
-  external:
-    enabled: false
-  externalAccess:
-    enabled: true
-  keycloakDeploymentSpec:
-    experimental:
-      env:
-        - name: JAVA_OPTS
-          value: '-Dkeycloak.profile=preview -Dkeycloak.profile.feature.token_exchange=enabled'
-  profile: preview
   instances: 1
-  DisableDefaultServiceMonitor: true
+  hostname:
+    hostname: keycloak.{{ .Values.domain }}
+  ingress:
+    enabled: true
+  features:
+    enabled:
+      - token-exchange
+      - admin-fine-grained-authz
+  http:
+    httpEnabled: true
+  proxy:
+    headers: xforwarded
 {{- end }}

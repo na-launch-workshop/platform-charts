@@ -1,6 +1,6 @@
 {{- if not .Values.shared.enabled }}
-apiVersion: keycloak.org/v1alpha1
-kind: KeycloakRealm
+apiVersion: k8s.keycloak.org/v2alpha1
+kind: KeycloakRealmImport
 metadata:
   name: openshift
   labels:
@@ -8,13 +8,52 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
 spec:
-  instanceSelector:
-    matchLabels:
-      app: sso
+  keycloakCRName: keycloak
   realm:
+    realm: openshift
+    id: openshift
     displayName: Openshift Authentication Realm
     enabled: true
-    id: openshift
-    realm: openshift
     registrationAllowed: {{ .Values.settings.registrationAllowed }}
+    clients:
+      - clientId: openshift
+        name: openshift
+        description: Client for OpenShift authentication
+        enabled: true
+        protocol: openid-connect
+        clientAuthenticatorType: client-secret
+        standardFlowEnabled: true
+        directAccessGrantsEnabled: true
+        serviceAccountsEnabled: true
+        authorizationServicesEnabled: true
+        fullScopeAllowed: true
+        frontchannelLogout: false
+        redirectUris:
+          - "https://oauth-openshift.{{ .Values.domain }}/oauth2callback/*"
+          - "https://backstage-developer-hub-backstage.{{ .Values.domain }}/*"
+          - "http://backstage-developer-hub-backstage.{{ .Values.domain }}/*"
+          - "https://gitea.{{ .Values.domain }}/user/oauth2/keycloak/callback"
+          - "*"
+        defaultClientScopes:
+          - web-origins
+          - acr
+          - profile
+          - roles
+          - email
+        optionalClientScopes:
+          - address
+          - phone
+          - offline_access
+          - microprofile-jwt
+        protocolMappers:
+          - name: groups
+            protocol: openid-connect
+            protocolMapper: oidc-group-membership-mapper
+            consentRequired: false
+            config:
+              full.path: "false"
+              id.token.claim: "true"
+              access.token.claim: "true"
+              claim.name: "groups"
+              userinfo.token.claim: "true"
 {{- end }}
