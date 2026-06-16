@@ -43,7 +43,7 @@ keycloak:
 
 # Artifacts
 gitea:
-  chartVersion: 1.0.0
+  chartVersion: 1.0.1
   enabled: true
   namespace: gitea
   size: 20Gi
@@ -52,7 +52,7 @@ github:
   enabled: false
 
 gitlab:
-  chartVersion: 1.0.2
+  chartVersion: 1.0.3
   enabled: true
   namespace: gitlab-system
   discoveryEnabled: true
