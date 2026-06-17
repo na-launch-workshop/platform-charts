@@ -71,7 +71,7 @@ usersync:
 
 # Artifacts
 gitea:
-  chartVersion: 1.0.1
+  chartVersion: 1.0.1 
   enabled: true
   namespace: gitea
   size: 20Gi
@@ -167,7 +167,7 @@ developers:
   users: []
 
 devhub:
-  chartVersion: 1.0.30
+  chartVersion: 1.0.31
   enabled: false
 
 devspaces:
