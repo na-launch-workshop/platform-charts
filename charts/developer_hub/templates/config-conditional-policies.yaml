@@ -114,6 +114,16 @@ data:
           params:
             key: type
             value: easteregg
+        - rule: HAS_SPEC
+          resourceType: catalog-entity
+          params:
+            key: type
+            value: collection-project
+        - rule: HAS_SPEC
+          resourceType: catalog-entity
+          params:
+            key: type
+            value: playbook-project
         - rule: IS_ENTITY_KIND
           resourceType: catalog-entity
           params:
