@@ -109,6 +109,11 @@ data:
           params:
             key: type
             value: workshop-lab
+        - rule: HAS_SPEC
+          resourceType: catalog-entity
+          params:
+            key: type
+            value: easteregg
         - rule: IS_ENTITY_KIND
           resourceType: catalog-entity
           params:
