@@ -74,7 +74,7 @@ data:
             default.catalog:
               title: Catalog
               icon: category
-              to: catalog?filters%5Buser%5D=owned
+              to: catalog
               priority: 80
               enabled: true
             default.apis:
