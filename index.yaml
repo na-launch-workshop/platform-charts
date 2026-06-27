@@ -99,6 +99,16 @@ entries:
   developerhub:
   - apiVersion: v2
     appVersion: 1.8.6
+    created: "2026-06-27T19:56:06.296745811Z"
+    description: A chart for deploying Red Hat Developer Hub.
+    digest: c2a2162084cd34f0460a6d3a776d88b6c557e439b2cd55f089902b2802c209c2
+    name: developerhub
+    type: application
+    urls:
+    - https://github.com/na-launch-workshop/platform-charts/releases/download/developerhub-1.0.36/developerhub-1.0.36.tgz
+    version: 1.0.36
+  - apiVersion: v2
+    appVersion: 1.8.6
     created: "2026-06-27T19:47:59.32061Z"
     description: A chart for deploying Red Hat Developer Hub.
     digest: de19d7d2c8b588273309163239eb118a6fbb4d0311a8e14949aa4f7df684ef4d
@@ -708,6 +718,16 @@ entries:
   orchestrator:
   - apiVersion: v2
     appVersion: 1.0.0
+    created: "2026-06-27T19:56:06.552623933Z"
+    description: A Helm chart for Kubernetes
+    digest: e48382f830e6054dfd9fab00937636882aa53b6516dbcced726ea3e22f58a7ab
+    name: orchestrator
+    type: application
+    urls:
+    - https://github.com/na-launch-workshop/platform-charts/releases/download/orchestrator-1.0.43/orchestrator-1.0.43.tgz
+    version: 1.0.43
+  - apiVersion: v2
+    appVersion: 1.0.0
     created: "2026-06-27T19:47:59.534376614Z"
     description: A Helm chart for Kubernetes
     digest: 1ea9d3c09bff2c36478694287d266436d405c9f8bcb59d20e6e32fc88b616a00
@@ -1118,6 +1138,16 @@ entries:
     - https://github.com/na-launch-workshop/platform-charts/releases/download/rhtas-1.0.0/rhtas-1.0.0.tgz
     version: 1.0.0
   rollout-controller:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2026-06-27T19:56:06.792968449Z"
+    description: A Helm chart for Kubernetes
+    digest: 1be405f46cc100a6489bd2c25ae0b2066b031ba272543986eb5179c815da44b3
+    name: rollout-controller
+    type: application
+    urls:
+    - https://github.com/na-launch-workshop/platform-charts/releases/download/rollout-controller-1.0.43/rollout-controller-1.0.43.tgz
+    version: 1.0.43
   - apiVersion: v2
     appVersion: 1.0.0
     created: "2026-06-27T19:47:59.774796382Z"
@@ -1533,4 +1563,4 @@ entries:
     urls:
     - https://github.com/na-launch-workshop/platform-charts/releases/download/user-sync-1.0.0/user-sync-1.0.0.tgz
     version: 1.0.0
-generated: "2026-06-27T19:47:59.775174051Z"
+generated: "2026-06-27T19:56:06.793663283Z"
