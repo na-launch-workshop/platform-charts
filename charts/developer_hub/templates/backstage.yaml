@@ -25,10 +25,6 @@ spec:
                 name: dynamic-plugins-root
                 persistentVolumeClaim:
                   claimName: dynamic-plugins-root
-    envFrom:
-      - configMapRef:
-          name: devhub-logo-config
-          optional: true
   application:
     dynamicPluginsConfigMapName: dynamic-plugins
     appConfig:
@@ -48,6 +44,8 @@ spec:
         - name: catalog-config
         - name: dynamic-homepage-plugin
         - name: ansible-plugin
+        - name: devhub-logo-config
+          optional: true
     extraEnvs:
       envs:
         - name: NODE_TLS_REJECT_UNAUTHORIZED
