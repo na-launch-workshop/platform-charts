@@ -11,7 +11,7 @@ spec:
         template:
           spec:
             containers:
-            - name: backstage
+            - name: backstage-backend
               envFrom:
                 - configMapRef:
                     name: devhub-logo-config
