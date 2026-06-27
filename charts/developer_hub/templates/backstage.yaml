@@ -25,6 +25,10 @@ spec:
                 name: dynamic-plugins-root
                 persistentVolumeClaim:
                   claimName: dynamic-plugins-root
+    envFrom:
+      - configMapRef:
+          name: devhub-logo-config
+          optional: true
   application:
     dynamicPluginsConfigMapName: dynamic-plugins
     appConfig:

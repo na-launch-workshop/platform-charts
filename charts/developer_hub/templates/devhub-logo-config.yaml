@@ -1,0 +1,15 @@
+# ------------------------------------------------------------------------------
+# devhub-logo-config.yaml
+# To apply a custom branded logo:
+# - Uncomment the below configmap
+# - Update the base64 encoded image with `cat image.png | base64 -w 0`
+# - Manually apply configmap to cluster
+# ------------------------------------------------------------------------------
+# apiVersion: v1
+# kind: ConfigMap
+# metadata:
+#   name: devhub-logo-config
+#   namespace: backstage
+# data:
+#   DEVHUB_FULL_LOGO: "data:image/png;base64,your_custom_base64_encoded_logo_here"
+#   DEVHUB_ICON_LOGO: "data:image/png;base64,your_custom_base64_encoded_logo_here"
