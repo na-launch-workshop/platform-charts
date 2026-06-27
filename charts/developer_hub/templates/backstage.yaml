@@ -52,18 +52,14 @@ spec:
           value: "true"
         - name: LOG_LEVEL
           value: info
-        - name: DEVHUB_FULL_LOGO
-          valueFrom:
-            configMapKeyRef:
-              name: devhub-logo-config
-              key: devhub_full_logo
-              optional: true
-        - name: DEVHUB_ICON_LOGO
-          valueFrom:
-            configMapKeyRef:
-              name: devhub-logo-config
-              key: devhub_icon_logo
-              optional: true
+      configMaps:
+        - name: devhub-logo-config
+          keys:
+            - key: devhub_full_logo
+              name: DEVHUB_FULL_LOGO
+            - key: devhub_icon_logo
+              name: DEVHUB_ICON_LOGO
+          optional: true
       secrets:
       {{- if .Values.gitea.enabled }}
         - name: gitea-token
