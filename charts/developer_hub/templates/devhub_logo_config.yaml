@@ -17,3 +17,5 @@
 # data:
 #   DEVHUB_FULL_LOGO: "data:image/png;base64,your_custom_base64_encoded_logo_here"
 #   DEVHUB_ICON_LOGO: "data:image/png;base64,your_custom_base64_encoded_logo_here"
+#   PRIMARY_LIGHT_COLOR: "#ee0000"
+#   PRIMARY_DARK_COLOR: "#5f0000"
