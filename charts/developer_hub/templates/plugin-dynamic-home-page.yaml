@@ -17,7 +17,7 @@ data:
               config:
                 props:
                   title: '${HOMEPAGE_TITLE:-Red Hat Launch Workshop}'
-                  subtitle: '${HOMEPAGE_SUBTITLE:-Welcome to Developer Hub {{ `{{displayName}}` }}!}'
+                  subtitle: '\${HOMEPAGE_SUBTITLE:-Welcome to Developer Hub {{ `{{displayName}}` }}!}'
                   localClock:
                     format: full
           mountPoints:
