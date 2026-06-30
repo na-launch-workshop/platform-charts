@@ -16,7 +16,7 @@ data:
               importName: DynamicHomePage
               config:
                 props:
-                  title: Red Hat Launch Workshop
+                  title: '${HOMEPAGE_TITLE:-Red Hat Launch Workshop}'
                   subtitle: 'Welcome to Developer Hub {{ `{{displayName}}` }}!'
                   localClock:
                     format: full

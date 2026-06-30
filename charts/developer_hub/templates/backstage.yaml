@@ -14,7 +14,7 @@ spec:
             - name: backstage-backend
               envFrom:
                 - configMapRef:
-                    name: devhub-logo-config
+                    name: devhub-custom-branding
                     optional: true
             - command:
                 - adt

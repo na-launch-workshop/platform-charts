@@ -12,10 +12,11 @@
 # apiVersion: v1
 # kind: ConfigMap
 # metadata:
-#   name: devhub-logo-config
+#   name: devhub-custom-branding
 #   namespace: backstage
 # data:
-#   DEVHUB_FULL_LOGO: "data:image/png;base64,your_custom_base64_encoded_logo_here"
-#   DEVHUB_ICON_LOGO: "data:image/png;base64,your_custom_base64_encoded_logo_here"
+#   HOMEPAGE_TITLE: "Red Hat Launch Workshop"
 #   PRIMARY_LIGHT_COLOR: "#ee0000"
 #   PRIMARY_DARK_COLOR: "#5f0000"
+#   DEVHUB_FULL_LOGO: "data:image/png;base64,your_custom_base64_encoded_logo_here"
+#   DEVHUB_ICON_LOGO: "data:image/png;base64,your_custom_base64_encoded_logo_here"
