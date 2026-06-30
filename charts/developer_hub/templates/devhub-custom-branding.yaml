@@ -16,6 +16,7 @@
 #   namespace: backstage
 # data:
 #   HOMEPAGE_TITLE: "Red Hat Launch Workshop"
+#   HOMEPAGE_SUBTITLE: "Welcome to Developer Hub {{ `{{displayName}}` }}!"
 #   PRIMARY_LIGHT_COLOR: "#ee0000"
 #   PRIMARY_DARK_COLOR: "#5f0000"
 #   DEVHUB_FULL_LOGO: "data:image/png;base64,your_custom_base64_encoded_logo_here"
