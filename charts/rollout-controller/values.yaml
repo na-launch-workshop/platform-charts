@@ -108,7 +108,7 @@ npm:
   enabled: true
 
 opentelemetry:
-  chartVersion: 1.0.0
+  chartVersion: 1.0.1
   enabled: false
 
 quay:
