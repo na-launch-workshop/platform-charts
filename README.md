@@ -18,5 +18,5 @@ To update Helm charts in this repository, follow these instructions:
 2. Update the content in the relevant chart(s), and **bump the chart version**.
 3. Update the `orchestrator` and `rollout-controller` charts which call the dependent charts, and **bump the chart version** as well.
 4. Push to main branch (or open a pull request, and the maintainers will accept and merge) which will kick off a [chart build job](https://github.com/na-launch-workshop/platform-charts/blob/main/.github/workflows/stable-release-charts.yaml).  Verify the chart [builds successfully](https://github.com/na-launch-workshop/platform-charts/actions).
-5. In your deployed ArgoCD, go to the `infrastructure-orchestrator` application and press Refresh + Sync, and then to `infrastructure-rollout-controller` application and press Refresh + Sync.
+5. In your deployed ArgoCD, go to the `infrastructure-orchestrator` application and press Refresh + Sync, and then click on the `infrastructure-rollout-controller` application and press Refresh + Sync.
 
