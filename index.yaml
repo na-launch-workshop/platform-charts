@@ -848,6 +848,16 @@ entries:
   orchestrator:
   - apiVersion: v2
     appVersion: 1.0.0
+    created: "2026-07-13T19:58:37.248241874Z"
+    description: A Helm chart for Kubernetes
+    digest: 83cd71c2136c23ebdcea5e4faef25c248a0700b19e1ee350d234f7127c124aa1
+    name: orchestrator
+    type: application
+    urls:
+    - https://github.com/na-launch-workshop/platform-charts/releases/download/orchestrator-1.0.58/orchestrator-1.0.58.tgz
+    version: 1.0.58
+  - apiVersion: v2
+    appVersion: 1.0.0
     created: "2026-07-02T15:39:37.901238437Z"
     description: A Helm chart for Kubernetes
     digest: 542f40a5bc12fa8251cf71a42cb974ee7dda5edf13e119f58a10b133e1a99d90
@@ -1410,6 +1420,16 @@ entries:
   rollout-controller:
   - apiVersion: v2
     appVersion: 1.0.0
+    created: "2026-07-13T19:58:37.489637857Z"
+    description: A Helm chart for Kubernetes
+    digest: 8c10dc42704b692f5ff255a57264cc8ec5f6cff785becc80d12318afb9d87e5d
+    name: rollout-controller
+    type: application
+    urls:
+    - https://github.com/na-launch-workshop/platform-charts/releases/download/rollout-controller-1.0.58/rollout-controller-1.0.58.tgz
+    version: 1.0.58
+  - apiVersion: v2
+    appVersion: 1.0.0
     created: "2026-07-02T15:39:38.069812702Z"
     description: A Helm chart for Kubernetes
     digest: e8233389bc63b53accf201e84e7afcb954095f9ee4719e36f3f7b49a036ccdc5
@@ -1913,6 +1933,16 @@ entries:
   system_roles:
   - apiVersion: v2
     appVersion: 1.0.0
+    created: "2026-07-13T19:58:37.718931408Z"
+    description: A Helm chart for Kubernetes
+    digest: 502e5b8e264fd765e340daf7995429c8c5535757ac3758c0876e8f2592de8b3f
+    name: system_roles
+    type: application
+    urls:
+    - https://github.com/na-launch-workshop/platform-charts/releases/download/system_roles-1.0.1/system_roles-1.0.1.tgz
+    version: 1.0.1
+  - apiVersion: v2
+    appVersion: 1.0.0
     created: "2026-04-14T19:15:03.966684232Z"
     description: A Helm chart for Kubernetes
     digest: 7e2e358e53d06bc8e9348e47475530de85b9202a8fd7098933651024dceb0144
@@ -1973,4 +2003,4 @@ entries:
     urls:
     - https://github.com/na-launch-workshop/platform-charts/releases/download/user-sync-1.0.0/user-sync-1.0.0.tgz
     version: 1.0.0
-generated: "2026-07-02T15:39:38.070456234Z"
+generated: "2026-07-13T19:58:37.719816943Z"
