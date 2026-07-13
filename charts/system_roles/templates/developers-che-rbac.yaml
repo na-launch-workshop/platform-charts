@@ -48,8 +48,10 @@ rules:
   resources:
     - buildconfigs
     - builds
+    - buildconfigs/instantiate
     - buildconfigs/instantiatebinary
     - builds/log
+    - builds/clone
   verbs:
     - create
     - get
@@ -159,14 +161,7 @@ rules:
     - patch
   resources:
     - knativekafkas
-- verbs:
-    - create
-    - get
-    - list
-    - update
-    - delete
-    - patch
-  apiGroups:
+- apiGroups:
     - kafka.strimzi.io
   resources:
     - kafkanodepools
@@ -178,6 +173,13 @@ rules:
     - kafkamirrormaker2s
     - kafkarebalances
     - kafkas
+  verbs:
+    - create
+    - get
+    - list
+    - update
+    - delete
+    - patch
 - apiGroups:
     - monitoring.coreos.com
   verbs:
@@ -189,3 +191,63 @@ rules:
     - patch
   resources:
     - servicemonitors
+- apiGroups:
+    - ''
+  resources:
+    - secrets
+  verbs:
+    - get
+    - list
+    - watch
+    - create
+    - update
+    - patch
+    - delete
+- apiGroups:
+    - rbac.authorization.k8s.io
+  resources:
+    - rolebindings
+    - roles
+  verbs:
+    - get
+    - list
+    - watch
+    - create
+    - update
+    - patch
+    - delete
+- apiGroups:
+    - triggers.tekton.dev
+  resources:
+    - eventlisteners
+    - triggerbinding
+    - triggerbinding/status
+    - triggers
+    - triggerbindings
+    - clustertriggerbindings
+    - triggertemplates
+  verbs:
+    - get
+    - list
+    - watch
+    - create
+    - update
+    - patch
+    - delete
+- apiGroups:
+    - tekton.dev
+  resources:
+    - pipelines
+    - pipelineruns
+    - tasks
+    - taskruns
+    - pipelineloops
+  verbs:
+    - get
+    - list
+    - watch
+    - create
+    - update
+    - patch
+    - delete
+
