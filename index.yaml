@@ -847,6 +847,16 @@ entries:
     version: 1.0.2
   - apiVersion: v2
     appVersion: 0.140.0-1
+    created: "2026-07-02T15:39:37.726141283Z"
+    description: A Helm chart for Kubernetes
+    digest: ae026b69dbd7cc210868ec9e0d05c7a96d62dac705c93671d271db29860b9bed
+    name: opentelemetry
+    type: application
+    urls:
+    - https://github.com/na-launch-workshop/platform-charts/releases/download/opentelemetry-1.0.1/opentelemetry-1.0.1.tgz
+    version: 1.0.1
+  - apiVersion: v2
+    appVersion: 0.140.0-1
     created: "2026-04-14T19:15:01.894853694Z"
     description: A Helm chart for Kubernetes
     digest: 19841008a525fb921258f0b25560c0b0d23a552e92b58991c6c520370cc5f3fd
