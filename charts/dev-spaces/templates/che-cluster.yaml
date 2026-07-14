@@ -23,10 +23,17 @@ metadata:
 spec:
   components:
     cheServer:
-      debug: true
-      logLevel: INFO
       clusterRoles:
         - "developers"
+      debug: true
+      deployment:
+        containers:
+          - name: devspaces
+            resources:
+              limits:
+                cpu: '4'
+                memory: 12Gi
+      logLevel: INFO
     dashboard:
       logLevel: ERROR
     devWorkspace:
@@ -56,7 +63,7 @@ spec:
         - "developers"
     startTimeoutSeconds: 300
     maxNumberOfRunningWorkspacesPerUser: 3
-    maxNumberOfWorkspacesPerUser: 5
+    maxNumberOfWorkspacesPerUser: 6
     secondsOfInactivityBeforeIdling: 1800
     storage:
       pvcStrategy: per-workspace
