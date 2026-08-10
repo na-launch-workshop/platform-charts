@@ -46,8 +46,8 @@ data:
               navigation:
                 indicator: '${NAVIGATION_LIGHT_COLOR:-transparent}'
                 background: '${BACKGROUND_LIGHT_COLOR:-#FFFFFF}'
-                color: '#333333' # override colors for submenu since background color isn't configurable
-                selectedColor: '#333333' # override colors for submenu since background color isn't configurable
+                color: '#FFFFFF' # override colors for submenu since background color isn't configurable
+                selectedColor: '#FFFFFF' # override colors for submenu since background color isn't configurable
             pageTheme:
               home:
                 backgroundColor: '${BACKGROUND_LIGHT_COLOR:-#FFFFFF}'
