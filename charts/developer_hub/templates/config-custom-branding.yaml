@@ -12,7 +12,7 @@
 # apiVersion: v1
 # kind: ConfigMap
 # metadata:
-#   name: devhub-custom-branding
+#   name: custom-branding
 #   namespace: backstage
 # data:
 #   HOMEPAGE_TITLE: "Red Hat Launch Workshop"

@@ -45,9 +45,6 @@ data:
             palette:
               navigation:
                 indicator: '${NAVIGATION_LIGHT_COLOR:-transparent}'
-                background: '${BACKGROUND_LIGHT_COLOR:-#FFFFFF}'
-                color: '#FFFFFF' # override colors for submenu since background color isn't configurable
-                selectedColor: '#FFFFFF' # override colors for submenu since background color isn't configurable
             pageTheme:
               home:
                 backgroundColor: '${BACKGROUND_LIGHT_COLOR:-#FFFFFF}'
@@ -56,9 +53,6 @@ data:
             palette:
               navigation:
                 indicator: '${NAVIGATION_DARK_COLOR:-transparent}'
-                background: '${BACKGROUND_DARK_COLOR:-#0F1214}'
-                color: '#FFFFFF' # override colors for submenu since background color isn't configurable
-                selectedColor: '#FFFFFF' # override colors for submenu since background color isn't configurable
             pageTheme:
               home:
                 backgroundColor: '${BACKGROUND_DARK_COLOR:-#0F1214}'
